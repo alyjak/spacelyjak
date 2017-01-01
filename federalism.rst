@@ -1,97 +1,60 @@
+############################################################################
+Federal Executive Government Arbitrates and Facilitates our Common Interests
+############################################################################
+
+The intent of federal executive responsibility should be to arbitrate and
+facilitate the interests common to all united states local governments. Federal
+policy should be limited to :doc:`ensuring the security of our shared
+future<future_focused_government>`, which means that federal executive authority
+is all future-facing, and not concerned with the day-to-day responsibilities of
+governance and support of the citizens.
+
+A future-facing federal government provides an easy to understand separation of
+concerns, where states are responsible for the well-being of their citizens, and
+the federal government defines the fundamental rights of our citizenry, safety,
+and economy. This limits the power of executive authority in a robust
+manner. Basically, it ensures that our federal government stays constitutionally
+oriented, and ensures that the United States stays a federation -- and does not
+devolve the power of states as the principle bodies of government.
+
+There are a few types of executive authority that emphasize this responsibility,
+namely responsibilities that fall into three general categories, enforcement of
+common standards, then management of common insurance and investment
+resources. These are all concerns that are most powerful when the buy-in costs
+and allocation is widely distributed amongst the beneficiaries, as is true
+across all states.
+
+Too often we expect the federal government to solve our problems, rather than
+what our local governments can solve. Unfortunately this focus on the country as
+the problem solvers starts to become a self-fullfilling prophecy. Sure, by
+focusing our political and capital investments on the federal scale we can
+potentially solve problems with much greater impact, but federal investments and
+approaches are also much harder to craft at such a grand scale compared to state
+or local government policies. Too often, politics is treated as a belief system
+rather than a system of political and economic experimentation. Federal policy
+should only be implemented once there is solid evidence that a policy
+works. This means that there are solid examples of the policy working in
+multiple communities that properly represent the diversity of our nation.
 
 
-
-#############################
-Federal Government Objectives
-#############################
-
-Federal governments ability to tax should be limited to these areas. These areas
-should be seen as supplimental to local government authority and only intended
-as boundary conditions to ensure the collective federation does not tear itself
-apart.
-
-The majority of government spending should therefore come from local levels of
-government. This encourages diversification of political approaches and ensures
-constituents can make more rational economic decisions through emmigration.
-
-*************************************************
-Assure the security of matters of the common good
-*************************************************
-
-The federal governments responsibilities should be limited to thes
-
-* Defense of our sovereignity
-
-* Defense of our future
-
-  * Military defense
-  * Borders and immigration policies
-  * Environmental security
-  * Educational standards
-  * Cultural (incl sci and tech) investment via grants
-  * Monopolies -- public and private (federal and state overreach, as well as
-    business) -- Nuclear and biological Weapons regulation -- infectious disease
-    first response
-  * Failed gov't support? (we should allow local gov'ts to fail, but need a
-    means to pick up the pieces)
-  * Economic regulation (only when it affects the plurality of states)
-
-* Assure our moral freedoms
-
-  * Ammendments
-  * Emmigration
-  * Constitutional Judicial arbitration
-  * Economic freedom
-
-    * inter-state commerce
-    * federal reserve
-
-*************
-Federal Roles
-*************
-
-federal government rolse should be limited to those of these categories
-
-Federal government's ability to regulate and prosecute should be limited to these areas.
-
-The engines of innovation and creativity should not be operated by the
-government, but influenced via regulation and grants. Federal employees should
-be solely focused on either operational, administrative (data gathering), or
-strategic (resource allocation and polical agenda) work.
-
-* Operational types of work
-
-  * Judicial
-  * Government asset operations
-
-* Administrative
-
-Federal governance should be as free from special interests as is possible. It
-should be dry and boring. Special interests should have much more sway at local
-areas of government, but should of course still be regulated by the general
-rules of governance. Local governments should have the flavor of teams -- the
-locality should attach pride and identity to their location. Look at
-universities, or university towns for examples of this sort of civic/sports
-pride.
-
-* Thought: maybe this is the basis of the local unit? Universities? -- natural
-  feeder system starting at local schools, going to state colleges?
-
-***************************
-Local and State Governments
-***************************
-
-Health, economy, tax rates.
-
-Should have better incentives to attract qualified personnel -- success bonuses?
-Metrics based on per-capita wealth + govt economic outlook?
-
-**********************************
-Cross Boundary Governmental Bodies
-**********************************
+************************************************************************
+Federal Executive Responsibility -- Enforcement of Cross-State Standards
+************************************************************************
 
 Collective plans that can be bought into by multiple states
 
 Trade specific standards (become representatives to specific regulatory arenas)
 
 Infrastructure planning and maintenance banks
+
+***********************************************************************
+Federal Executive Responsibility -- Management of Cross-State Insurance
+***********************************************************************
+
+Executive command of the military
+
+
+************************************************************************
+Federal Executive Responsibility -- Management of Cross-State Investment
+************************************************************************
+
