@@ -4,8 +4,6 @@ Grandma
 
 :emphasis:`Honoring our Grandma, Freda Smith`
 
-My Brother Adrian and I have prepared these words to share with you.
-
 One of the strongest people we've met is our Grandma, Freda Smith. Hers is not
 the strength of a summer storm. Rather, her strength
 is that of a rolling river: certain of its direction, deliberate in its speed,
@@ -42,7 +40,7 @@ needed to thrive. So with that, we offer the following remembrances:
   appearing as if it were left there simply for our biweekly visits
 
 * We remember the kitchen, in which she cooked delicious multi course meals
-  every-time we visited. It was a small meal that only had three dishes.
+  every-time we visited.
 
 * We remember the after-dinner Scrabble games. She didn't play easy on us because
   we were children. Boy do I remember the joy she got
@@ -56,17 +54,32 @@ needed to thrive. So with that, we offer the following remembrances:
   sounds of minimal ambient music on "The Hearts of Space" would lull us right
   to sleep.
 
-For most of my life, I never really knew Grandma was the oldest of all her
-siblings, but once I learned that it all clicked together. Especially given her
-experience living through the Great Depression and World War Two. Grandma was
-always competitive, but she always played fair and above the belt. Even in the
-face of adversity -- losing her husband twenty years ago and losing her son Jim
-too early -- she persevered. I will miss quiet strength that always was there
-for us -- whether I realized it or not.
+For most of my life, I never really knew Grandma was the oldest of all her siblings, but once I learned that it all clicked together. Especially given her experience living through the Great Depression and World War Two. Grandma was always competitive, but she always played fair and above the belt. Even in the face of adversity -- losing her husband twenty years ago and losing her son Jim too early -- she persevered. I will miss her quiet strength that always was there for us -- whether I realized it or not.
 
-Grandma, I will keep your memory alive by remembering your caring strength, and when
-times are not so hot or we need to pull together, we will be there with a quiet
-direction and deliberate pace to nurture and those around me.
+Grandma, I will keep your memory alive by remembering your caring strength, and when times are not so hot or we need to pull together, we will be there with a quiet direction and deliberate pace to nurture and care for those around me.
+
+Farewell Grandma,
+We love you
+
+
+
+
+NOTES
+
+My grandma was a very deliberate person. In this she died exactly how she lived: on her own terms. She was fiercely independent, living on her own even at the age of 92. And when finally she was unable to care for herself, she said her final goodbyes and that was that. Like I said, my grandma was very deliberate.
+
+
+When my brother and I sat down to write this memorial we realized that for us, our memories of her are not so much formed around specific stories or events, but rather are about the rituals and moments of clarity she shaped around us.
+
+We remember her gardens, each unique flower garden stretching around the property and the big vegetable garden that was the centerpiece of the back yard with its great bean poles and deer fence.
+
+We remember her raspberry patch: Those amazing desserts she provided us and all the berries we pilfered while supposedly helping her with the harvest.
+
+ We remember the kitchen, in which she cooked delicious multi course meals every-time we visited; the after-dinner Scrabble games. Grandma was always competitive, she didn't go easy on us and got tremendous joy from trouncing us game after game, but she  played fair.
+
+
+
+Grandma, I will keep your memory alive by remembering your caring strength, and when times are not so hot or we need to pull together, we will be there with a quiet direction and deliberate pace to nurture and care for those around me.
 
 Farewell Grandma,
 We love you
