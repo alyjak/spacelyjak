@@ -33,6 +33,14 @@ on a good life.
    majority_vs_minority
    future_focused_government
 
+.. toctree::
+   :caption: Personal
+   :maxdepth: 2
+   :titlesonly:
+
+   grandma_freda
+
+
 Twitter at spacelyjak_
 
 .. _spacelyjak: https://twitter.com/spacelyjak
