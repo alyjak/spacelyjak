@@ -28,7 +28,7 @@ on a good life.
    federalism
    local_governance
    county_games
-   beauracracy
+   bureaucracy
    the_second_amendment
    majority_vs_minority
    future_focused_government

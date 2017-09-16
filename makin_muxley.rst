@@ -35,6 +35,11 @@ Each of these goals runs the risk of taking multiple weekends to complete
 This stuff will degrade/change over time so it needs to be maintained
 
 
+Architecture Doodle
+===================
+
+.. figure:: /figures/muxley_arch.svg
+
 
 ************************************
 Project 0: VPN into the home network
@@ -148,3 +153,22 @@ Server
 Looking at a server, these links seem interesting:
 
 * https://www.oreilly.com/learning/build-a-super-fast-deep-learning-machine-for-under-1000
+
+Rasperry Pi
+===========
+
+rasperry pi's have a big community and i/o support out of the box, I've found
+projects for security cams, wifi commandable rovers, and gardenbot all with
+rasperry pi code!
+
+Rover
+   https://www.piborg.org/diddyborg
+
+Camera
+   https://www.sparkfun.com/products/14329
+
+Gardenbot
+   https://github.com/FarmBot/farmbot_os
+
+Barkback
+   https://learn.sparkfun.com/tutorials/bark-back-interactive-pet-monitor
