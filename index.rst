@@ -3,9 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-################################################
-Andrew Lyjak's Essays on Politics and Philosophy
-################################################
+###################################################################
+Andrew Lyjak's Projects, Politics, Philosophy, and General Thoughts
+###################################################################
 
 I've written these essays in order to define and refine my personal philosophy
 on a good life.
@@ -32,6 +32,8 @@ on a good life.
    the_second_amendment
    majority_vs_minority
    future_focused_government
+   makin_muxley
+   understand
 
 Twitter at spacelyjak_
 

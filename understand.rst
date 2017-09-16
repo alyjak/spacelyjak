@@ -16,7 +16,6 @@ provides a few interesting lessons.
   which I think is important as it make modeling of consciousness have parallels
   to computations of game theory and multi agent theories.
 
-
 Given that integration of complex agents is liable to exponentially more complex
 in terms of understanding motive forces and interactions. Because of this,
 configuration management of all the pieces -- the test environment as well as
