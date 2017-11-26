@@ -2,9 +2,14 @@
 Setup a New Linux Development Environment
 #########################################
 
+.. highlight:: bash
+
 **************
 Basic packages
 **************
+
+Apt-get installs
+================
 
 tree lets you look at a directory structure on cmd line::
 
@@ -31,6 +36,33 @@ meld for viewing differences between files and folders::
 
   sudo apt-get install meld
 
+GNU scientific library::
+
+  sudo apt-get install libgsl-dev
+
+OpenSSL libraries, a base package for like anything that uses cryptography::
+
+  sudo apt-get install libssl-dev libcurl4-openssl-dev
+
+htop is the best terminal based processor monitor I'm aware of::
+
+  sudo apt-get install htop
+
+``bashrc``
+==========
+
+This has a bunch of sources/exports  based on the following packages
+
+:download:`bash_conf`
+
+LaTeX
+=====
+
+LaTeX comes up pretty frequently (like with Sphinx, etc). Best way to
+install is from the Tex working group:
+http://www.tug.org/texlive/quickinstall.html
+  
+
 CUDA
 ====
 
@@ -39,24 +71,42 @@ http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
 Note that you have to restart before the /dev/nvidia* devices will be
 available.
 
+Magma
+=====
 
-******
-Extras
-******
+Magma is a linear algebra library that utilizes CUDA. I've installed
+it in order to convert R2GUESS (genetics) from using CULA (not
+available, closed source library for the same purpose).
 
-Spotify
-=======
+http://icl.cs.utk.edu/magma/software/view.html?id=255
 
-You need music to develop!
+Installing magma requires putting together a make.inc file to specify
+your machine-specific libraries. Notably they require a
+multiprocessing library choice, a linear algebra lib choice, and a
+compiler choice. Their install documentation gives an overview of the
+decisions you have to make to properly install the lib:
 
-https://www.spotify.com/us/download/linux/
+http://icl.cs.utk.edu/projectsfiles/magma/doxygen/installing.html
 
+I'm trying the following route: Using the GCC compiler with MKL (Intel
+Math Kernel Library), and GCC OpenMP libs. I initially was thinking of
+going all intel, but it looks like you have to buy the Intel Compiler
+Colllection. It would be interesting to try and use the intel openmp
+libs, but the risks are not worth it to start out. See this `Stack
+Overflow post
+<https://stackoverflow.com/questions/25986091/telling-gcc-to-not-link-libgomp-so-it-links-libiomp5-instead>`__
+for some of the potential pitfalls of using iomp5. BUT -- that might
+be out of date, for example, the MKL link advisor seems to be able to
+provide recommended links for working with libgomp:
+https://software.intel.com/en-us/articles/intel-mkl-link-line-advisor
 
-Monoid Fonts
-============
+My final make.inc looks like this: :download:`magma_make.inc`
 
-http://larsenwork.com/monoid/
+**NOTE** To get magma to compile, I had to change ``isnan`` and
+``isinf`` calls within the ``testing/`` directory to ``std::isnan``
+and ``std::isinf`` respectively.
 
+**NOTE** running the tests takes over half an hour.
 
 Emacs
 =====
@@ -65,47 +115,8 @@ sudo add-apt-repository -y ppa:ubuntu-elisp
 sudo apt-get update
 sudo apt-get install emacs-snapshot
 
-Basic emacs config settings::
+Basic emacs config settings available here: :download:`emacs_conf`
 
-   (custom-set-variables
-    ;; custom-set-variables was added by Custom.
-    ;; If you edit it by hand, you could mess it up, so be careful.
-    ;; Your init file should contain only one such instance.
-    ;; If there is more than one, they won't work right.
-    '(ansi-color-faces-vector
-      [default default default italic underline success warning error])
-    '(custom-enabled-themes (quote (wombat)))
-    '(initial-buffer-choice "~/")
-    '(rst-preferred-adornments
-      (quote
-       ((35 over-and-under 0)
-        (42 over-and-under 0)
-        (61 simple 0)
-        (95 simple 0)
-        (94 simple 0)
-        (34 simple 0)
-        (126 simple 0)
-        (96 simple 0))))
-    '(rst-toc-indent 3)
-    '(tool-bar-mode nil))
-   (custom-set-faces
-    ;; custom-set-faces was added by Custom.
-    ;; If you edit it by hand, you could mess it up, so be careful.
-    ;; Your init file should contain only one such instance.
-    ;; If there is more than one, they won't work right.
-    '(default ((t (:family "Monoid" :foundry "PfEd" :slant normal :weight normal :height 83 :width semi-condensed)))))
-   
-   ; Map txt files to rst mode
-   (setq auto-mode-alist
-     (append
-      ;; File name (within directory) starts with a dot.
-      '(("\\.txt\\'" . rst-mode)
-        ("\\.rst\\'" . rst-mode)
-        ("\\.rest\\'" . rst-mode)) auto-mode-alist))
-
-*****************************
-Neuro Development Environment
-*****************************
 
 R Stuff
 =======
@@ -131,6 +142,29 @@ R Stuff
   then::
 
     dpkg -i <rstudio_deb>
+
+******
+Extras
+******
+
+Spotify
+=======
+
+You need music to develop!
+
+https://www.spotify.com/us/download/linux/
+
+
+Monoid Fonts
+============
+
+http://larsenwork.com/monoid/
+
+
+
+*****************************
+Neuro Development Environment
+*****************************
 
 
 MRTrix

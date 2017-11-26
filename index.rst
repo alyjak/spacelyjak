@@ -18,7 +18,7 @@ on a good life.
    act_local
    misanthropy
    graph_games
-   get_machine_configured
+   muxleyconf/get_machine_configured
 
 .. toctree::
    :caption: Essay Ideas

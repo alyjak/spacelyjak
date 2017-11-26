@@ -1,0 +1,58 @@
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(column-number-mode t)
+ '(inhibit-startup-buffer-menu t)
+ '(inhibit-startup-echo-area-message "alyjak")
+ '(inhibit-startup-screen t)
+ '(package-selected-packages (quote (markdown-mode material-theme ##)))
+ '(rst-preferred-adornments
+   (quote
+    ((35 over-and-under 0)
+     (42 over-and-under 0)
+     (61 simple 0)
+     (95 simple 0)
+     (94 simple 0)
+     (34 simple 0)
+     (126 simple 0)
+     (96 simple 0))))
+ '(rst-toc-indent 3)
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Monoid" :foundry "PfEd" :slant normal :weight normal :height 83 :width semi-condensed)))))
+
+; Map txt files to rst mode
+(setq auto-mode-alist
+  (append
+   ;; File name (within directory) starts with a dot.
+   '(("\\.txt\\'" . rst-mode)
+     ("\\.rst\\'" . rst-mode)
+     ("\\.rest\\'" . rst-mode)) auto-mode-alist))
+
+;; from http://melpa.org/#/getting-started
+(require 'package) ;; You might already have this line
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (url (concat (if no-ssl "http" "https") "://melpa.org/packages/")))
+  (add-to-list 'package-archives (cons "melpa" url) t))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ;; You might already have this line
+
+(load-theme 'material t)
