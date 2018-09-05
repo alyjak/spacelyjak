@@ -1,0 +1,189 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%   PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.4 in,top=0.3 in,right=0.4 in,bottom=0.3in]{geometry} % Document margins
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+\name{Andrew Lyjak} % Your name
+\address{6205 N Oakland Ave, Indianapolis IN, 46220} % Your address
+\address{+1 734 604 6163 \\ alyjak@gmail.com} % Your phone number and email
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%   EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+{\bf Bachelor of Engineering in Aerospace Engineering} \hfill {2005 - 2009} \\
+Minor in German \smallskip \\
+\\
+University of Michigan, GPA: 3.456/4.000
+
+{\bf Masters of Space Systems Engineering} \hfill {2009 - 2010}
+\\
+University of Michigan, GPA: 7.538/8.000
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%   TECHNICAL STRENGTHS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Interests}
+
+  Design and Development Processes, Distributed Systems, Resilient Systems, Autonomy, Automation,\\
+  Software Certification, Verification of Complex Systems, Model Driven Development, Continuous Integration,\\
+  Agile Development
+
+\end{rSection}
+
+\begin{rSection}{Skills and Tools}
+Software Development Processes, Software Process Audits, System Certification,
+Verification Planning, Fault Tolerance Analysis, Python, Javascript, HTML, CSS,
+Bash, Linux, R, C, C++, SQL, \LaTeX, ReStructuredText, Graph Analysis, Graph
+Databases, git, Trac, Subversion, JIRA, Confluence
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+\end{tabular}
+
+\end{rSection}
+
+%-------------------------------------------------------------------------------
+%   PROJECTS
+
+\begin{rSection}{SpaceX Software Reliability Engineering}
+
+\begin{rSubsection}{Software Certification for NASA Safety and Quality Requirements} {2010 - Present}{}{}
+
+Certification activities applicable to Cargo Dragon for the NASA COTS,
+and CRS contracts
+
+\item Wrote the Flight Software Development Plan. This document defines SpaceX's
+  custom agile development process for designing, developing, and verifying
+  SpaceX flight software. (2011)
+\item Designed and and wrote the Cargo Dragon Flight Software ``Computer Based
+  Control System'' certification documentation. This material was used to
+  demonstrate SpaceX compliance with NASA software safety requirements and also
+  defined many of the software safety test and analysis activities executed for
+  verification of software safety. (2011)
+\item Performed Flight Software Process Audits to verify software quality, and
+  compliance with NASA requirements. (2012)
+\item Maintained the above certifications and documents through all changes to
+  system design and software (2012 through present).
+
+\end{rSubsection}
+
+\begin{rSubsection}{Independent Verification and Validation (IVV) Contract Management (2010 - Present)}{}{}
+
+\item Serve as the technical point of contact for SpaceX's IVV Contracts for
+  safety critical software. In this role, ensure that the contractor is provided
+  sufficient data to effectively evaluate the safety of the flight software with
+  respect to its design, source code, and verification results, and ensure that
+  their feedback is addressed and incorporated to create a better product. The
+  contracts include IVV coverage of Crew Dragon, Cargo Dragon, and SpaceX's
+  Autonomous Flight Termination System (AFTS).
+
+\end{rSubsection}
+
+%------------------------------------------------
+
+\begin{rSubsection}{Software Process Tool Development}{2013 - 2014}{}{}
+
+\item branchdiff - an application to view the differences between to Subversion
+  branches to facilitate merge decisions between them. Displays differences as
+  commits or as the set tickets referenced within those commit messages.
+\item Developed an application for viewing change over time for various Trac
+  ticket queries.
+\item Performed trade studies on various software development ticketing systems
+  -- Trac, JIRA, Phabricator, Redmine.
+
+\end{rSubsection}
+
+
+%-------------------------------------------------
+
+
+\begin{rSubsection}{Design and Development of the SpaceX Software Standard}{2013-2015}{}{}
+
+\item Developed an internal software engineering standard. The standard provides
+  a set of requirements that can be used for different classifications of
+  software development, classifications include A, for safety and mission
+  critical software, to D, used for desktop, R\&D, or other non-critical
+  applications. The standard requirement are divided into categories for
+  different aspects of software design and development, ranging from change
+  management, risk management, verification processes, and technical and
+  analytical requirements for safety critical software. The standard is
+  currently on version 1.3 and is used for all softare related to the NASA
+  Commercial Crew contract.
+
+\end{rSubsection}
+
+%--------------------------------------------------
+
+\begin{rSubsection}{Design, Development, and Execution of the SpaceX Fault\\
+    Tolerance Analysis Process}{2016-present}{}
+
+\item In tandem with another engineer at SpaceX, developed the Fault Tolerance
+  Analyis Process. This process is used to evaluate autonomous and piloted
+  electromechanical control systems to systematically evaluate their fault
+  tolerance and develop adequate fault detection, isolation, and recovery
+  algorithms and procedures such that each systems' health and redundant
+  capabilities are successfully managed.
+\item Developed test and analysis plans for testing fault tolerance as defined
+  through the Fault Tolerance Analysis products.
+\item With a team of 6 other SpaceX Engineers, executed the Fault Tolerance
+  Analysis Process against 25 separate autonomous control systems present
+  within the Crew Dragon Architecture over the course of a year.
+
+\end{rSubsection}
+
+%--------------------------------------------------
+
+\begin{rSubsection}{Incorporating Software Development Processes within Systems Design Processes}{2015-present}{}{}
+
+\item Installed, Modified, and Adminstered an internal fork of ReadTheDocs for
+  use within the SpaceX Intranet (2015-Present). Now used for design
+  documentation by over 160 internal projects
+\item Tracegraph - Design and Development a protocol for defining systems
+  relationships. Protocol includes data format, markup, execution algorithm,
+  visualization layer. The protocol was developed to simplify requirements and
+  verification traceability, and system dependency management. The protocol can
+  be used for impact analysis for existing designs or prototyping and simulation
+  of initial complex system designs.
+\end{rSubsection}
+
+\end{rSection}
+
+
+%---------------------------------------------------------------------------------
+%  DECLARATION
+%--------------------------------------------------------------------------------
+
+\begin{rSection}{ Declaration  } \itemsep -3pt
+
+\item I hereby declare that all the details furnished above are true to the best of my knowledge and belief.
+
+\end{rSection}
+\end{document}
