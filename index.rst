@@ -11,31 +11,35 @@ I've written these essays in order to define and refine my personal philosophy
 on a good life.
 
 .. toctree::
-   :caption: Completed Essays
+   :caption: Assorted Essays (many are not complete)
    :maxdepth: 2
    :titlesonly:
 
    act_local
-   misanthropy
    graph_games
-   muxleyconf/get_machine_configured
+   federalism
+   local_governance
+   bureaucracy
+   future_focused_government
+   understand
+   wedding_vows
+   grandma_freda
 
 .. toctree::
-   :caption: Essay Ideas
+   :caption: HowTos and notes
    :maxdepth: 2
    :titlesonly:
 
-   federalism
-   local_governance
-   county_games
-   bureaucracy
-   the_second_amendment
-   majority_vs_minority
-   future_focused_government
    makin_muxley
-   understand
+   muxleyconf/get_machine_configured
+
+
+.. rubric:: About Me
 
 Twitter at spacelyjak_
+
+Resume: :download:`resume/resume_cv.pdf`
+
 
 .. _spacelyjak: https://twitter.com/spacelyjak
 

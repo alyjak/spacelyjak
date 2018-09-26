@@ -45,4 +45,5 @@ lets us do a few things
    advertisers on within your digital environment
 1. Sharing these data packages creates hooks into that fabric that you
    are interacting with. This becomes an organic rss feed, where
-   updates 
+   updates are naturally shared only with the communities that you
+   yourself maintain through your clearinghouse.

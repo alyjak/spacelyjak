@@ -37,24 +37,17 @@ works. This means that there are solid examples of the policy working in
 multiple communities that properly represent the diversity of our nation.
 
 
-************************************************************************
-Federal Executive Responsibility -- Enforcement of Cross-State Standards
-************************************************************************
-
-Collective plans that can be bought into by multiple states
-
-Trade specific standards (become representatives to specific regulatory arenas)
-
-Infrastructure planning and maintenance banks
-
-***********************************************************************
-Federal Executive Responsibility -- Management of Cross-State Insurance
-***********************************************************************
-
-Executive command of the military
+The main categories of federal power come down to:
 
 
-************************************************************************
-Federal Executive Responsibility -- Management of Cross-State Investment
-************************************************************************
+#. Enforcement of Cross-State Standards
 
+   Bill of rights, social security, EPA, DOT, etc.
+
+#. Management of Cross-State Insurance
+
+   Executive command of the military. Disaster relief
+
+#. Management of Cross-State Investment
+
+   Federal R&D: NIH, NASA, DARPA, etc.
