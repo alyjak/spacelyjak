@@ -109,24 +109,31 @@ information about the land that's being developed.
 
 :doc:`abstract`
 
+.. _sim-engine:
 
 *************************
 Step 0: Simulation Engine
 *************************
 
-I really don't know if its a good idea or not, but I'm very inclined
-to use what I learned from tracegraph at SpaceX to create an
-underlying engine. I think I'll call it Mycelium
+A simulation engine is necessary in order to guide and work with users in order
+to inform their decisions by providing them 1) with data on their current
+micro-environment, 2) providing them with possibilities on what the
+micro-envronment could become, and 3) guidance on what immediate steps need to
+be taken to achieve a desired micro-environment. The simulation engine becomes
+the universal Permaculture guru who's accessible to everyone, and becomes
+smarter and better because of everyone it interacts with.
 
 .. glossary::
 
    Mycelium
-      Mycelium provide a useful analogy to what the purpose of the
-      data base is for: It breaks down complicated systems and
-      provides a linkage in order to connect them. This break down and
-      linkage is then used to increase their 'nutrition' by providing
-      knowledge on how they could work better. It is intended to work
-      out of sight, but be a keystone species for the success of the
+      The name of the ecoHood micro-environment simulator. Mycelium provide a
+      useful analogy to what the purpose of simulator is for: It breaks down
+      complicated systems and provides a linkage in order to connect them. It
+      funnels resources (in this case information) to those in need. It
+      decomposes the complicated environment into digestible pieces. This break
+      down and linkage is then used to increase owner and operator's 'nutrition'
+      by providing knowledge on how they could work better. It is intended to
+      work out of sight, but be a keystone species for the success of the
       ecosystem, in this case the :term:`EcoHood` app.
 
       The following are some excerpts from the `mycelium wikipedia page`_:
@@ -152,20 +159,6 @@ underlying engine. I think I'll call it Mycelium
 
 
 .. _mycelium wikipedia page: https://en.wikipedia.org/wiki/Mycelium
-
-This is because the lessons I learned through that effort are well
-suited here due to:
-
-* polymorphic types match closely to plant families
-* Node and graph based computation triggers
-* Log and attribute recording over simulations
-
-In order to do this, I need to recreate the code using just my mental
-understanding of what I accomplished. Create tests along the way, and
-move it into an architecture that makes it friendly to parallel
-computation.
-
-The source attribution concept may be useful, I'm not sure though.
 
 :doc:`mycelium`
 
