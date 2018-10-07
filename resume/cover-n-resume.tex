@@ -85,13 +85,11 @@ Indianapolis, IN 46278, USA} % The company being applied to
 
 %\lettertitle{Job Application for R Programmer} % The title of the letter
 
-%\letteropening{Dear Onebridge recruitment team,} % How the letter is opened
+\letteropening{Dear Onebridge recruitment team,} % How the letter is opened
 
 \letterclosing{Sincerely,} % How the letter is closed
 
 %\letterenclosure[Attached]{}
-
-\makecvfooter{\today}{Andrew W. Lyjak~~~·~~~Cover Letter}{} % Specify the letter footer with 3 arguments: (<left>, <center>, <right>), leave any of these blank if they are not needed
 
 %----------------------------------------------------------------------------------------
 
@@ -108,5 +106,18 @@ Indianapolis, IN 46278, USA} % The company being applied to
 \input{cover-content.tex}
 
 \makeletterclosing % Print the signature and enclosures
+
+%\makecvheader % Print the header
+
+%----------------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%----------------------------------------------------------------------------------------
+
+\makecvheader % Print the header
+
+\input{cv-sections/education.tex}
+\input{cv-sections/skills.tex}
+\input{cv-sections/experience.tex}
 
 \end{document}
