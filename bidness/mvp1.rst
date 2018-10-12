@@ -162,60 +162,89 @@ smarter and better because of everyone it interacts with.
 
 :doc:`mycelium`
 
-*********************
-Step 1: Render a yard
-*********************
+****************************
+Step 1: Capturing local data
+****************************
 
-Need to input coordinates and types of initial plantings. Also need to
-input physical objects, and the topology of the space.
+Having an engine for performing simulations is only useful when such simulations
+affect the user. The interaction must feel tangible and personal. Also, the
+higher the fidelity of local data inputs, the greater the chance of producing
+useful outputs for the user -- even in the face of limited, incomplete modeling
+capabilities.
 
-:doc:`frontend`
+First and foremost, the necessary data is an accurate layout of the location
+(latitude, longitude), plus micro map of the space (walls, slopes, existing
+plants, etc.). Ideally entering such data is a 5 minute or less exercise for the
+user, and also can be validated somehow.
 
-******************************
-Step 2: Create a climate model
-******************************
+In addition to structural mapping, the other data entry is feedback on how the
+plants are doing. Getting snapshots over time of a planned and executed garden
+allows interventions, and also allows better training of the models.
 
-Continuous change, Sun angle, rain, temperature, ???. Hook into
-wunderground/farmer's almanac type data if possible?
+As what I'm asking for is a map with categorized elements, a naive approach here
+would not be tractable. I can't assume every person can create a good map of
+their location. Here are some possibile solutions:
 
-:doc:`climate`
+* Use a market where people can be hired to 'survey' the space
 
-*********************************
-Step 3: Add minimal object models
-*********************************
+  Pros:
+     data quality should be good
 
-Shade, water, nutrient, growth, and decay models to
-rendered objects. Birds, Insects, operators.
+  Cons:
+     Drastically increases cost of entry into the ecohood. Recurring cost to
+     keep up to date. Also dependent on training/accessing this type of
+     expert. Still doesn't remove the need to create a data entry protocol and
+     validation pipeline.
 
-Soil moisture model should be pretty important. The soil should be
-treated as an organism most likely, not as something inanimate.
+* Parse google maps and other satellite data
 
-:doc:`ecographs`
+  Pros:
+     Immediately available, quick and easy for the user
 
-***********************************
-Step 4: Hook into species databases
-***********************************
+  Cons:
+     Requires image segmentation, variable quality, low resolution, beholden to
+     external APIs. Height and small plant data aggregation is especially
+     limited.
 
-Identify the growth characteristics of each plant by getting data a.la.
-plantstuff
+* Machine learning to parse a user's video into a 3D representation
 
-:doc:`plantstuff`
+  Pros:
+     Quick and easy for the user, data can be re-acquired anytime the user has a
+     moment to walk around their yard. Any gaps can be iteratively corrected by
+     interacting with the user. Works as a stand alone product that has other
+     capitalizations (house design, house inventory, iot sensor mapping,
+     augmented reality)
 
-***************************
-Step 5: Propagate the model
-***************************
+  Cons:
+     Not mature technology, no existing product here. At state of the art for
+     computer vision technology.
 
-Timestep should be a day. Run for a year and output growth over time.
 
-Need compelling data visualization here:
+I am going to try machine learning to start, because that is the most promising.
 
-Main should be a yard map, with growth over time. Probably made into a gif.
+I'll call the application :term:`surveyor` for now.
 
-:doc:`simulation`
+.. glossary::
 
-******************************
-Step 6: Anchor the propagation
-******************************
+   Surveyor
+      The application for transforming video into a segmented model of a user's
+      property.
+
+:doc:`surveyor`
+
+
+*******************************************
+Marketing, network growth, and monetization
+*******************************************
+
+As Tim Ferriss says, need 1000 die hard fans.
+
+
+
+
+*******************************************
+Step 6: Learning, Anchoring, and Validation
+*******************************************
 
 Each model should have a test dataset and expected result integrated
 with it.
@@ -242,20 +271,8 @@ year.
 
 :doc:`anchoring`
 
-**********************************************************************
-Step 7: Provide an objective function and start genetic algorithm runs
-**********************************************************************
-
-Objective functions optimize for things like:
-
-* Biomass Density
-* Harvest duration, mass, diversity, nutrition
-* Beauty? (flowering, bird and butterfly attracting)
-
-:doc:`learning`
-
 **********************************************
-Stepping Back: Tacktics, Focus, and Motivation
+Stepping Back: Tactics, Focus, and Motivation
 **********************************************
 
 In order to use and evaluate this software as a product, I'm going to

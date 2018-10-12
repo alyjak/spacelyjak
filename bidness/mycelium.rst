@@ -101,46 +101,8 @@ I have spec'd https://github.com/slide-rs/specs as the ECS.
 Higher level tools in https://www.amethyst.rs/ may also be useful.
 
 
-**********************
-Issues and first steps
-**********************
-
-TODO: Expand, just random notes right now.
-
-First off, in order to get started with the engine, I need to have a grasp on
-data input and visualization. Therefore, although I thought the engine would be
-the first thing I work on, it won't be. Instead I'm going to focus on
-visualization and input. This is compelling mainly because I believe it
-should be easier to start working with open source libraries in order to gain
-experience. Also, the visualization side is more demo-friendly and should be
-easier to "show off" in terms of finding employment in the near term. This is
-necessary because I don't think its tractable to use ecoHood/mycelium as
-employment in the near term so I need to get a job that both pays the bills and
-sets me up for long term success.
-
-I'm thinking I should focus on SVG libraries to start off -- I believe they are
-generally under developed in the entire ecosystem and they also let me hit a
-large swath of the stack that needs to work for the success of mycelium. In
-short, svg is a web technology and is rendered by clients, but its also a
-graphics technology so I get to learn about the GPU stack, tessellation and
-meshes, as well as all the associated mathematics.
-
-The followign reddit post has been useful. I'm thinking of trying to work with
-the lyon library. I've already been intrigued by the Servo project. I think it
-could serve as the platform for making a neat svg editor for the purposes of
-mycelium input.
-
-https://www.reddit.com/r/rust/comments/7knfnm/announcing_libresvg_an_svg_rendering_library/
-
-It also sets me up to work on some plotting libraries and integrating with cool
-technologies and ideas like D3 and ggplot.
-
-It also is the way I can get working on graph visualization ideas I've had for
-quite some time.
-
-
 *****************
-Models to develop
+Models to Develop
 *****************
 
 Need to be really careful here about licenses. I think I can make mycelium free
@@ -150,36 +112,72 @@ lawyers and stuff.
 Many of the research hear is from crawling this list: https://soil-modeling.org/resources-links/model-portal
 
 Regional Climate
-   * Just need farmers almanac type stuff I think
-   * Need to also apply global changes: see Asymtotic Environmentally Determined
-     Trajectory https://journals.plos.org/plosbiology/article/file?id=10.1371/journal.pbio.2002634&type=printable
+================
+
+* Just need farmers almanac type stuff I think
+* Need to also apply global changes: see Asymtotic Environmentally Determined
+  Trajectory https://journals.plos.org/plosbiology/article/file?id=10.1371/journal.pbio.2002634&type=printable
 
 Water/Soil/Nutrient Movement
-   * https://epicapex.tamu.edu/apex/
-   * https://github.com/MarcelVanOijen/BASFOR/tree/master/
-   * https://daisy.ku.dk/
-   * https://www.pc-progress.com/en/Default.aspx?H1D-description#k8
-   * https://github.com/zalf-rpm/monica/wiki
-   * datasets: https://soil-modeling.org/resources-links/data-portal
+============================
 
-Decomposition
+
+* https://epicapex.tamu.edu/apex/
+* https://github.com/MarcelVanOijen/BASFOR/tree/master/
+* https://daisy.ku.dk/
+* https://www.pc-progress.com/en/Default.aspx?H1D-description#k8
+* https://github.com/zalf-rpm/monica/wiki
+* datasets: https://soil-modeling.org/resources-links/data-portal
+
+Soil moisture model should be pretty important. The soil should be
+treated as an organism most likely, not as something inanimate.
+
    * https://www.rothamsted.ac.uk/models-and-analytical-tools
 
-
 Microclimate
-   * NicheMapR – an R package for biophysical modelling https://onlinelibrary.wiley.com/doi/abs/10.1111/ecog.02360
-   * https://www.researchgate.net/post/What_is_the_most_practical_micro-climate_model_for_examining_the_relationship_between_urban_design_parameters_and_outdoor_thermal_comfort
+============
+
+Continuous change, Sun angle, rain, temperature, ???. Hook into
+wunderground/farmer's almanac type data if possible?
+
+* NicheMapR – an R package for biophysical modelling https://onlinelibrary.wiley.com/doi/abs/10.1111/ecog.02360
+* https://www.researchgate.net/post/What_is_the_most_practical_micro-climate_model_for_examining_the_relationship_between_urban_design_parameters_and_outdoor_thermal_comfort
+
+Ecological databases
+====================
+
+Identify the growth characteristics of each plant by getting data a.la.
+plantstuff
 
 Plantstuff (plant DB, insect, virulence)
-   * https://github.com/christabor/plantstuff
 
-Yard Model
-   * This is where the svg client comes in
+* https://github.com/christabor/plantstuff
 
-Microbe Competition/Dynamic Stability
-   * http://allison.bio.uci.edu/
+Competition/Dynamic Stability, Dynamical Processes in Networks
+==============================================================
+
+* http://allison.bio.uci.edu/
+
+
+Hypothesis Generation and Pipeline generation
+=============================================
+
+Objective functions optimize for things like:
+
+* Biomass Density
+* Harvest duration, mass, diversity, nutrition
+* Beauty? (flowering, bird and butterfly attracting)
 
 Estimating parameters based on data sampling
    * http://fb09-pasig.umwelt.uni-giessen.de/spotpy/
 
+Timestep should be a day. Run for a year and output growth over time.
+
+Need compelling data visualization here:
+
+Main should be a yard map, with growth over time. Probably made into a gif.
+
 Markets (economic)
+==================
+
+eek
