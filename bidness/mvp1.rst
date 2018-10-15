@@ -12,15 +12,9 @@ permacultural farm app.
 
    abstract
    mycelium
-   frontend
-   climate
-   ecographs
-   plantstuff
-   simulation
-   anchoring
-   learning
+   surveyor
    journal
-
+   routine
 
 *******
 Aside 1
@@ -269,8 +263,6 @@ year.
 
    I have until the spring to get this set up. eek!
 
-:doc:`anchoring`
-
 **********************************************
 Stepping Back: Tactics, Focus, and Motivation
 **********************************************
@@ -281,3 +273,8 @@ strategic decisions. I'll keep a journal of this process.
 
 
 :doc:`journal`
+
+I also should be mindful of my daily routine so that I ensure I stay motivated
+and effective.
+
+:doc:`routine`

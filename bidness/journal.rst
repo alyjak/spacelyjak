@@ -161,3 +161,47 @@ technologies and ideas like D3 and ggplot.
 
 It also is the way I can get working on graph visualization ideas I've had for
 quite some time.
+
+**********************
+Deeplearning and Stuff
+**********************
+
+2018-10-14
+
+Yesterday I started the deeplearning.ai coursera course, by Andrew Ng. I managed
+to get through all of week 2's material, but it took about twice as long as I
+was hoping for. All in all though, it was very rewarding. It re-introduced me to
+calculus which was fun, plus it was approachable. The homework so far is easy,
+they spoon feed you the answers pretty much. We shall see if that stays true,
+and if so how negatively it impacts actual learning.
+
+Another cool observation is that I was able to digest the videos quite well
+at 1.5x to 1.75x real time speed. This is a pretty big win, as it cuts the
+videos down to 66% to 57% of their real time duration.
+
+The objective for today is to get the LSM (learned stereo model) demonstration
+code running locally. Unfortunately I found that it's python2 code, so I'll have
+to convert it first.
+
+As a consolation prize, I finished reading the LSM paper (and understood it!) as
+well as finished week 3 of the deeplearning.ai course. One more week then I'll
+have finished the first of the 5 courses in the specialization. Unfortunately,
+the juicy stuff is course 4 (RNN) and course 5 (CNN). But its all good. I think
+each 'week' of courses takes me about 3-4 hours each. Each course is anywhere
+from 2-5 'weeks' of material.
+
+I'm excited about the LSM. The approach sounds perfect, but I'll have to do
+original work to get it right. For one thing, these pipelines don't seem to pull
+from file. I would like to be able to integrate existing mapped areas while a
+map is being generated. This seems like it would keep items constrained and help
+reduce drift.
+
+Another thing that is going to be interesting is that it can only detect
+objects, it doesn't know about 'scenes'. I think room-mapping is a subset of
+what they mean by scenes, but nevertheless, I'll have to do original work here.
+
+Some other things on my mind:
+
+* I want to start up a hello world android app, and get rust running on it,
+  as well as access the camera and mems imu thingy. Also I want to be able to
+  save files

@@ -2,6 +2,8 @@
 market
 ######
 
+A vision to transform suburbia into an agricultural paradise.
+
 [r] Stats on american lawns, in terms of size [cite], total money
 spent [cite], total time spent [cite]. probably should try an break it
 out into different sectors (US only) maybe a grid of time zone, and a
