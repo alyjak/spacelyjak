@@ -205,3 +205,42 @@ Some other things on my mind:
 * I want to start up a hello world android app, and get rust running on it,
   as well as access the camera and mems imu thingy. Also I want to be able to
   save files
+
+****
+DSSS
+****
+
+2018-10-16
+
+
+I woke up today stressed. I'm doing too much but everything is fun, so I don't
+know what to cut.
+
+I'm thinking about Tim Ferriss' DSSS strategy for learning. I need to learn how
+to apply it to this project in order to make enough room for household stuff,
+Brandy stuff (soon to be family stuff?!!), SpaceX stuff, and job hunting
+stuff. I need to cut back on the quantity here.
+
+DSSS stands for:
+
+Deconstruct
+
+- Figure out the different pieces of your problem/endeavor
+
+Selection
+
+- Choose a subset of the endeavor to focus on
+
+
+Sequence
+
+- Consciously choose a routine, also consciously mix it up to train your brain
+  better
+- A key principle is to be data driven here. Treat each sequence permutation as
+  a new test.
+
+Stakes
+
+- If there's no skin in the game, there's no reason for keeping with the
+  program.
+

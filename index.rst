@@ -32,7 +32,7 @@ on a good life.
 
    makin_muxley
    muxleyconf/get_machine_configured
-
+   rust_survey
 
 .. rubric:: About Me
 

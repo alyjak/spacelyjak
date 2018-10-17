@@ -1,8 +1,8 @@
-########
-Surveyor
-########
+###############################
+Survey of programming resources
+###############################
 
-First product
+A collection of notes and links on resources to develop with Rust
 
 Getting a Good Client Together
 ==============================
@@ -19,10 +19,11 @@ Learning 3D Graphics Programming and about the GPU:
 * https://vulkan-tutorial.com/Introduction
 * https://developer.mozilla.org/en-US/docs/Games/Techniques/3D_on_the_web/Basic_theory
 
-Webassembly may be the way to go with clients and rust
+Webassembly may be the way to go with clients and Rust
 
 * https://webassembly.org/
 * https://github.com/rustwasm
+* https://egghead.io/courses/using-webassembly-with-rust
 
 Building android and iOS apps in rust
 
@@ -31,8 +32,21 @@ Building android and iOS apps in rust
 * https://mozilla.github.io/firefox-browser-architecture/experiments/2017-09-21-rust-on-android.html
 
 
+Rust and 2D
+===========
+
+* https://nical.github.io/posts/rust-2d-graphics-01.html
+* https://www.reddit.com/r/rust/comments/9o71i0/following_up_on_the_2d_graphics_in_rust_discussion/
+* https://github.com/maps4print/azul
+* https://github.com/servo/webrender
+* https://github.com/servo/servo
+
 Machine Learning Approaches
 ===========================
+
+Coursera:
+
+* 
 
 Getting Started:
 
