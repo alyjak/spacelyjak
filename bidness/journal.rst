@@ -244,3 +244,24 @@ Stakes
 - If there's no skin in the game, there's no reason for keeping with the
   program.
 
+
+#############################################
+Journal and references for learning POA infra
+#############################################
+
+
+Background on the threshold encryption used:
+https://z.cash/blog/new-snark-curve
+
+
+Background on why fully distributed consensus isn't possible:
+https://www.the-paper-trail.org/post/2008-08-13-a-brief-tour-of-flp-impossibility/
+
+Some slides/lessons on threshold encryption
+http://www.tcs.hut.fi/Studies/T-79.159/2004/slides/L9.pdf
+
+Binary Agreement paper
+https://hal.inria.fr/hal-00944019v2/document
+
+Submitted a pull request against #284 on 2018-10-30
+

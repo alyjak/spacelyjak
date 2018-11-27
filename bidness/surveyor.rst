@@ -86,4 +86,11 @@ Main focus right now: Learning Stereo Machines:
 
 * https://people.eecs.berkeley.edu/%7Eakar/lsm/lsm_nips17.pdf
 * https://github.com/akar43/lsm
-* 
+
+I may need to gather more training data. If using the LSM approach, that entails
+getting stereo images for the training. Based on my initial search, the
+following product looks affordable and effective.
+
+https://www.stereolabs.com/zed/
+
+
