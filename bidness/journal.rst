@@ -244,7 +244,6 @@ Stakes
 - If there's no skin in the game, there's no reason for keeping with the
   program.
 
-
 #############################################
 Journal and references for learning POA infra
 #############################################
@@ -265,3 +264,117 @@ https://hal.inria.fr/hal-00944019v2/document
 
 Submitted a pull request against #284 on 2018-10-30
 
+**********************
+Rust Meetup 2018-11-07
+**********************
+
+A good idea would be a tutorial for using debugging in rust, including
+recommendations for improvements and a survey of ongoing developments.
+
+A talk on the pinning api would be interesting according to Zach (purdue physics
+guy). A thing that allows generator expressions to work (like list comprehension
+in rust).
+
+
+clap? parsing error
+
+std has the error trait -- not jsut the std::io. Didn't see it
+
+check out errorchain crate. Gives you the flexibility to print or wrap
+
+
+*********************
+IOT Meetup 2018-11-15
+*********************
+
+Pretty good turnout, initial convo with Sean from ?? (clearobject
+competitor). Talked about
+
+
+matterport -- $5k camera for doing mapping
+
+omni automation -- what are they? There are some folks here from them "A smart
+home automation platform" (Presented by Brandon Fischer).
+
+
+Fullstack - Daniel - They offer turnkey HR solutions for startup
+companies. Everything from compliance to payroll to hiring. Started at the
+beginning of 2018.
+
+Talked with Brandon from Omni, made plans to get coffee/lunch sometime to talk about the startup.
+
+
+****************
+Entry 2018-11-27
+****************
+
+I finished the Poa Network hiring assignment yesterday (Monday the 26th). I started the prior
+saturday (on the 18th). It was supposed to take a day or two but took me most of the week to do. I
+had to learn a lot about the tokio library to make it work. But, I ended up with a multi threaded
+peer to peer chat service that can send binary messages and also has a built in ACK
+protocol. Overall I'm disappointed with how this ended up, I probably won't get further interviews
+-- but I do feel like it improved my abilities, which I appreciate. Its up to me in the next few
+weeks to figure out how to make the best of this. Where do I go from here?
+
+
+Much of my difficulty in moving forward has been defining where I want to end up. Space is not so
+interesting anymore, and my interests now don't fit nicely into one word. The next few paragraphs
+are to explore "my interests", hopefully that will help focus my next steps forward in searching for
+work.
+
+**Key words**: :emphasis:`Agency, cost, safety, heterogeneity, evolution, resilience,
+interconnectedness, local dependencies`.
+
+**Agency**: I don't like being told what to do. I like working on a team, but one where I feel like a
+peer, not a servant. One of my interests is to make more of the world work on a peer-to-peer level.
+
+**Cost**: My continuing interest in space has to deal with understanding the structures that makes
+forward progress so cost-prohibitive. The monetary cost is a symptom of the underlying cost -- which
+is due to 1) reaching consensus on the risk posed by the operation (launch or new development), 2)
+understanding whats going on sufficiently to decide what to do next. Consensus is a function of each
+decision makers certainty of knowledge of how the system *should* work as well as their
+understanding of how it *will* work. Certainty of knowledge is exponentially more difficult to
+achieve the more complex the system is, and the smaller the priors are which help to inform both the
+*should* and *will*, the higher the cost and the higher the system's risk. Note that I use space as
+an example just because of familiarity, but the same goes for new product development efforts in
+most fields.
+
+**Safety**: This is a derivative of my rant on cost above
+
+**Heterogeneity**: This is an offshoot of the rant on cost, plus agency. Because most interesting
+things are more and more complex (spaceships, biology, computer hardware), the number of unique
+developments and R&D in these fields is low. This is because team sizes go up, which raises costs,
+which raises risk of failure. I want to be an artist/artisan. An artist because an artist has to
+constantly innovate and change, and an artisan because heterogeneous peer-to-peer interactions are
+encouraged for artisan buisinesses, rather than discouraged. But I want to be a technology
+artist/artisan, which means something about the equation must change. I believe the best case-study
+in how such a life can work is with small software development. Software development is working on
+top of the tallest stack of man-made complexity ever imagined. What makes it work? How can other
+industries be changed to more resemble individual software development?
+
+**Evolution**: This is a derivative of heterogeneity. With more artisans in technology, that means more
+players, which means more innovation due to competition and cooperation.
+
+**Resilience**: Another derivative of heterogeneity. With more players, there are less single points of
+failure due to a diversity of techniques and a diversity of resource dependencies.
+
+**Interconnectedness:** A symptom of disease in our modern culture is our lack of natural community.
+Community has become like gardening -- its something people do as a hobby rather than a necessary
+piece of existence. Healthy people need tribes. Our economy has no need for tribes, so we all
+suffer. I think more artisan careers would encourage local dependencies out of necessity which would
+help communities stay connected with one another. The internet should supplement person-to-person
+interconnections, but face-to-face needs to stay primary to minimize suffering.
+
+**Local Dependencies**: A derivative of interconnectedness, emphasizing physical interaction rather
+than just digital.
+
+To me, that sums up my interests. It also seems like a coherent definition that lacks a term. I want
+to change how economies work in order to incentivize economic evolution through increasing
+*subjective* [#]_ agency, *subjective* heterogeneity, and *subjective* interdependence. The largest factor
+discouraging that change is operational risk caused by uncertainty of outcomes.
+
+.. [#] I use *subjective* rather than *human*, because I believe a potential solution lies along
+       supplementing human capabilities with machines. This is where my primary interest in AI and
+       internet of things lies. These tools are double edged swords though, because they are
+       dependencies, and therefore can become a way to control or restrict agency by controlling or
+       restricting access to them.
