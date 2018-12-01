@@ -388,3 +388,25 @@ analogous to where we're heading where I believe we are getting closer to a post
        dependencies, and therefore can become a way to control or restrict agency by controlling or
        restricting access to them.
 
+****************
+Entry 2018-11-28
+****************
+
+I got official word yesterday that Poa wasn't going to hire me. I need to find an option for near
+term employment that allows me to still concentrate on the end game. The end game is still something
+that looks like ecoHood/mycelium, as I believe that is closest to my core beliefs as described
+above.
+
+So .. what to do? I have two paychecks remaining from SpaceX. Things brandy and I talked about this
+morning:
+
+#. making space related toys, or other non-space related baby items.
+#. woodworking: live edge furniture thats small enough to sell online -- I'm thinking stools might
+   be a good little niche.
+#. Look at jobs at Raytheon -- there's actually a few opportunities there
+#. writing -- we both think that this is more a consequence of having unique experiences though, so
+   its probably not the right time.
+#. Part time teaching position
+
+The idea is to find part time work and use the other time for application development such that I
+can become a better software developer and still make money in the meantime.
