@@ -373,8 +373,18 @@ to change how economies work in order to incentivize economic evolution through 
 *subjective* [#]_ agency, *subjective* heterogeneity, and *subjective* interdependence. The largest factor
 discouraging that change is operational risk caused by uncertainty of outcomes.
 
+Metaphorically, I see our society/economy/culture as functioning similar to a savanna now -- it's
+characterized by large herds of homogeneous species (individuals within corporations and nation
+states). I would prefer to live in a rainforest society/economy/culture -- characterized by a broad
+array of interdependent and unique species thriving individually or in small tribes. In terms of
+economic productivity and stability, I believe such a society/economy/culture would be more
+productive and resilient -- just as a rainforest has more diversity and biomass than a savanna. Note
+that over time a savanna becomes a rainforest provided sufficient raw materials. This is still
+analogous to where we're heading where I believe we are getting closer to a post scarcity economy.
+
 .. [#] I use *subjective* rather than *human*, because I believe a potential solution lies along
        supplementing human capabilities with machines. This is where my primary interest in AI and
        internet of things lies. These tools are double edged swords though, because they are
        dependencies, and therefore can become a way to control or restrict agency by controlling or
        restricting access to them.
+
