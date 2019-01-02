@@ -23,8 +23,13 @@ Aside 1
 I need some names, just so this writing isn't as awkward. Here's my
 initial take.
 
-Permanent, Farmly, Permanent Web, anthrorhiza (human root) a play on
-mycorrhiza (fungus root). Maybe just human root? I'm going with
+Wald, Forest, Farm, NatUrb, Urban, Soil, Culture, Root, Rooted, Eden, Ecology, Umwelt, Permanent,
+Neighborhood, WeltGuild, Farmly, anthrorhizome, life of plenty, Naturehood, ecohood, anbauen (to
+grow sth.), habitat, herbaceous, abundance, {under,over}growth, permagrowth, reroot/reroute,
+balance, lets grow, backyard biome, homeground, terrain,
+
+
+Maybe just human root? I'm going with
 anthrorhiza for now, it may be too academic though. Maybe just Rhiza?
 That's got a ring to it (a rap vibe too -- b/c of the wutang
 clan). Naturehood -- mom suggested this today (9/9). Urban
@@ -50,6 +55,7 @@ double meaning of electronic in there.
 
    Property
       The owners property being modeled through EcoHood
+
 
 
 ***************

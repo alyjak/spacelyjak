@@ -410,3 +410,258 @@ morning:
 
 The idea is to find part time work and use the other time for application development such that I
 can become a better software developer and still make money in the meantime.
+
+
+************
+Project Idea
+************
+
+2018-12-15
+
+Use NLP to comb through a set of documentation to find redundancies. Suggest restructurings in order
+to remove those redundancies. Use this same structure to help readers navigate the docs in order to
+filter their results based on a self-professed competency with the material. Expand results to more
+complicated results only when the user's competency increases.
+
+************
+Project Idea
+************
+
+2018-12-15
+
+Generate architecture diagrams that document project architecture along their different dependency
+types: identify connections along: project dependencies, network dependencies, file system
+dependencies. Diagrams are fractal in nature, allowing a user to expand collapse similar to google
+maps, always leaving a boarder around the active map that lists the externalities. Maps can of
+course be filtered based off externality type which will often drastically change the complexity of
+the layout.
+
+****************
+Entry 2018-12-15
+****************
+
+I'm currently working on my GitLab application to be an integration/sales engineer. So far exploring
+their documentation is quite interesting. The above project ideas were formed from that experience,
+plus my earlier experience trying to understand HBBFT as well as Tokio.
+
+
+****************
+Entry 2018-12-23
+****************
+
+First focus for mycelium:
+
+- simulate neighborhoods as 'cells'
+- each cell has some internal resource generation (plant-like behavior), then local and global
+  resource consumption behaviours.
+- set up metrics for local scoring. Such as: percentage of resources coming from the group
+- efficiency of the system in terms of gross amount of external resources coming in
+- efficiency in terms of how much effort local personnel put into work vs creative activities
+- have fractal/hierarcical evaluations for such metrics such that they are calculated on a
+  local/city/county/state level
+- emphasize informational products and sufficiency products
+- in short: look at census like metrics, but gamify them such that neighborhoods can be gaining
+  prestige via direct actions
+- Assign brownie points to neighbors, awards for high performers
+
+Focus firmware dev on mesh-type behavior and cell-like behavior -- these are parts of a cell, a
+house is a cell.
+
+Idea: if these units have an idea of your behaviors, you can bring your distributed family together
+if there are speakers involved -- pipe the sounds of your loved ones in your house when they are
+getting up, making dinner, etc.
+
+For mycelium, I wish I could basically make a sequentially generated sim-city that focuses on a
+~.25km^2 area, that has an initial road/house network, then experiments with how it's used. Each
+epoch it tries a different physical permutation or law permutation to the area, then it tries to
+evolve the organic network for a set number of steps.
+
+I want to especially see if I can make any interesting simulations with local wifi mesh networks
+given this simulation environment. Of course I also want to try EcoHood type relationships.
+
+
+****************
+Entry 2018-12-27
+****************
+
+I'm going try and get a rudimentary mycelium set up using specs. Note that the maintainer of specs
+is working on a more generic version that sounds better for my needs, but it's too early to
+tell. Here's the announcement about their new project:
+
+https://users.rust-lang.org/t/announcing-nitric-the-successor-of-specs/23388
+
+I just found this:
+
+https://github.com/evomata/evomata12
+
+and this earlier version:
+
+https://github.com/vadixidav/evomata11
+
+
+****************
+Entry 2018-12-28
+****************
+
+I'm questioning my drive for a cellular automata based simulation engine. Looking into items in a
+similar vein, e.g. the work of this guy Michael Batty, https://jmichaelbatty.wordpress.com/ I'm
+struck by how un-actionable successful simulations seem to be. What I'm really looking for is an
+engine to drive vision and provide motivation and a map on how to get from here to there, where here
+is the current configuration of a yard, city, etc. and there is a dream of what could be achieved
+with a realistic drive and steady effort.
+
+What I'm starting to believe is that the scientific methods, such as the whole tool set of The
+Theory of Complex Systems, don't provide the engine to crank out these dreams and visions like I was
+hoping. At best they are the infrastructure with which to build parts of it with. Instead, what I
+believe I need to concentrate on is more of an operating system, or a subjective engine, or a
+unified presence that can give meaning to the set of technologies that we put in a home.
+
+When talking to Brandy and Mom about this, they quickly pointed out that I can't list many practical
+applications that are satisfied by this analogy, so I should probably shelve it (for now).
+
+They do agree that the cloud should be brought back home, and making a home server as a product may
+have a future.
+
+But for the winter, I'm going to concentrate on making an app to help plan, care for and grow a
+plant guild.
+
+****************
+Entry 2018-12-30
+****************
+
+I had a good set of conversations with Brandy, Mom, Kevin about the ecohood app yesterday. Main
+points below:
+
+* Compose recipes and a drag and drop type interface for yard design. Don't try to do a custom
+  simulation for each user
+* "eco" might have a bad connotation for more conservative users
+* Structure development and the app into chronological modules. Work on each of these in order:
+
+  * Planning -- yard design
+  * Performing -- shopping lists, time estimates, procedures to guide you through execution
+  * Scheduling -- provide you with reminders and a schedule for staying on top of your work
+  * Harvesting -- provide  you with resources for making best use of your harvest
+
+* User benefits:
+
+  * possible tax credits from -- donating food, and carbon offset credits
+
+* Get Terms and Conditions settled prior to putting on any app store. Look at Nextdoor as a template
+  for these.
+
+* In terms of UI, maybe look into farmville to figure out how to arrange things. Probably want a
+  less cartoony look though. Real world apps usually have a cleaner look
+
+Here's the text of the email that Mom sent summarizing what we talked about:
+
+   EcoHood
+
+   An Android app
+
+   outline-Planning stage only
+   deadline reasonable estimate of your time to code and complete
+
+   Take user through the process of designing backyard
+
+   Your climate and terrain- zone/rainfall/seasonal considerations/yard size and shape/soil condition
+
+   Your Purpose -
+   Grow food
+   low maintenance
+   native and wildlife
+   maximum carbon offset
+
+   Your budget - up front and maintenance
+   low
+   med
+   large
+
+   Your time investment - up front and maintenance
+   low
+   med
+   high
+
+   Result -
+   Design-drag and drop
+
+   Purchase list- plants, guilds, structures, soil, etc
+
+   Your estimated carbon offset compared to a grass lawn
+
+   Your estimated harvest (for food only)
+
+I was looking for cross platform app development frameworks -- looks like ionic is a good path
+forward. https://ionicframework.com/ . It seems to have pretty good reviews. So, if I do a pretty
+basic app, form based, html webpage stuff, then this looks like the way to go.
+
+Talking to Brandy, she thinks that if I get a farmville type game UI it will be much more appealing,
+so I'm going to look into what that would take. Looks like I can use javascript, css, and html5
+canvas to make this work! Looks like Phaser is the way to go: http://phaser.io/
+
+https://www.joshmorony.com/create-native-html5-games-with-phaser-and-capacitor/
+
+https://capacitor.ionicframework.com/ <- adaptor to tie to hardware sdks
+
+phaser seems to be the way to go based on lookint at their demos. BUT ... it keeps crashing firefox
+on load ...
+
+Maybe I should try just ionic and use an html5 canvas. Since Phaser is made for arcade games it may
+not really be that useful, as I have no need for animations.
+
+****************
+Entry 2018-12-31
+****************
+
+**Prototype:**
+
+Create a form to specify what pieces are available
+
+Then have a canvas to lay out the yard, as well as specify existing elements. Try and create a topo
+layer. I think I'll work with an svg canvas rather than html5?
+
+https://www.joshmorony.com/using-an-svg-for-animation-in-ionic/
+
+Click and drag items to lay them out
+
+Have a slider to have the shapes change, representing their projected life over seasons
+
+Once layed out, turn items into list(s) for shopping, caring, estimated output.
+
+Based on the caring for list, create reminders
+
+Update outputs based on interaction with data inputs provided from caring
+
+**Pages:**
+
+- splash -> login -> {getting started, load} -> dashboard
+
+- navigation -> {edit settings, edit map, dashboard, calendar, news/almanac?, explore procedures,
+  open tasks, contribute information}
+
+
+**Steps**
+
+Starting milestone:
+
+create an ionic app with: hidden side menu, splash page, starting questionaire, map canvas with some
+draggable shapes.
+
+Second milestone:
+
+Make a wiki-website to develop procedures, add guild information, get guild information and
+protocols based on questionaire data API calls. No login for requests, only for contributions.
+
+Third milestone:
+
+Iterate on the app and website, specializing on information in the midwest. Dogfood the application
+by contributing data and procedures through the front end.
+
+****************
+Entry 2019-01-01
+****************
+
+about: https://moduscreate.com/blog/ionic-vue-modus-labs/
+App using ionic+vue: https://github.com/ModusCreateOrg/beep/
+interactive svg: http://www.petercollingridge.co.uk/tutorials/svg/interactive/dragging/
+
+I've got a hunch that ionic+vue is the way to go.
