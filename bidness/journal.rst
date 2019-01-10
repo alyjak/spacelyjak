@@ -665,3 +665,204 @@ App using ionic+vue: https://github.com/ModusCreateOrg/beep/
 interactive svg: http://www.petercollingridge.co.uk/tutorials/svg/interactive/dragging/
 
 I've got a hunch that ionic+vue is the way to go.
+
+****************
+Entry 2019-01-02
+****************
+
+I fixed the console errors from initial development from yesterday (~13:30).
+
+The split pane now works, but there's no icon provided to expand the side menu?
+
+My next objectives: build for android, then get an interactive svg map started
+
+****************
+Entry 2019-01-03
+****************
+
+``npm run build`` won't complete because of a typescript error::
+
+
+    ERROR  Failed to compile with 3 errors                                                                                                10:52:13 AM
+
+    error  in /muxley/code/bbiome/node_modules/@ionic/vue/node_modules/@ionic/core/dist/types/components.d.ts
+
+    ERROR in /muxley/code/bbiome/node_modules/@ionic/vue/node_modules/@ionic/core/dist/types/components.d.ts
+    5625:13 Interface 'HTMLIonInputElement' cannot simultaneously extend types 'IonInput' and 'HTMLStencilElement'.
+      Named property 'focus' of types 'IonInput' and 'HTMLStencilElement' are not identical.
+        5623 |   };
+        5624 |
+      > 5625 |   interface HTMLIonInputElement extends Components.IonInput, HTMLStencilElement {}
+             |             ^
+        5626 |   var HTMLIonInputElement: {
+        5627 |     prototype: HTMLIonInputElement;
+        5628 |     new (): HTMLIonInputElement;
+
+     error  in /muxley/code/bbiome/node_modules/@ionic/vue/node_modules/@ionic/core/dist/types/components.d.ts
+
+    ERROR in /muxley/code/bbiome/node_modules/@ionic/vue/node_modules/@ionic/core/dist/types/components.d.ts
+    5871:13 Interface 'HTMLIonSearchbarElement' cannot simultaneously extend types 'IonSearchbar' and 'HTMLStencilElement'.
+      Named property 'focus' of types 'IonSearchbar' and 'HTMLStencilElement' are not identical.
+        5869 |   };
+        5870 |
+      > 5871 |   interface HTMLIonSearchbarElement extends Components.IonSearchbar, HTMLStencilElement {}
+             |             ^
+        5872 |   var HTMLIonSearchbarElement: {
+        5873 |     prototype: HTMLIonSearchbarElement;
+        5874 |     new (): HTMLIonSearchbarElement;
+
+     error  in /muxley/code/bbiome/node_modules/@ionic/vue/node_modules/@ionic/core/dist/types/components.d.ts
+
+    ERROR in /muxley/code/bbiome/node_modules/@ionic/vue/node_modules/@ionic/core/dist/types/components.d.ts
+    5967:13 Interface 'HTMLIonTextareaElement' cannot simultaneously extend types 'IonTextarea' and 'HTMLStencilElement'.
+      Named property 'focus' of types 'IonTextarea' and 'HTMLStencilElement' are not identical.
+        5965 |   };
+        5966 |
+      > 5967 |   interface HTMLIonTextareaElement extends Components.IonTextarea, HTMLStencilElement {}
+             |             ^
+        5968 |   var HTMLIonTextareaElement: {
+        5969 |     prototype: HTMLIonTextareaElement;
+        5970 |     new (): HTMLIonTextareaElement;
+
+     ERROR  Build failed with errors.
+
+
+This, in turn means that the ``project/`` directory isn't populated, which in turn means that ``npx
+cap sync`` (or ``npx cap copy``) won't have any web assets to copy over to the android project. This
+means that when running the android project (using ``npx cap open android`` to open up
+``/opt/google/android-studio/bin/studio.sh`` with the project), I just get a blank screen when
+trying to emulate a build.
+
+I don't understand why I'm getting this error, because when I open
+``/muxley/code/bbiome/node_modules/@ionic/vue/node_modules/@ionic/core/dist/types/components.d.ts``
+I don't see any ``focus`` attribute. This attribute was removed in ionic ``v4.0.0-beta.13`` (see
+https://github.com/ionic-team/ionic/issues/15810 ). Why is typescript complaining here???!
+
+HAH! I found out it was because @ionic/vue had *a separate* copy of @ionic/core in its own
+node_modules directory!! WTF!!! this sub-variant of @ionic/core was at ``v4.0.0-beta.12``, which
+didn't have this fix in it!. When I hard-coded the @ionic/vue/package.json to rely on
+``v4.0.0-rc.0`` I got a clean build!!!! I opened https://github.com/ionic-team/ionic/issues/16959 to
+let the good folks at Ionic know about this issue.
+
+
+After this was fixed, I set ``"webDir": "dist",`` in ``capacitor.config.json``, as I incorrectly set
+it to ``"public"`` before. When I reran ``npx cap sync && npx cap open android`` then clicked the
+play button it worked!
+
+.. figure:: bbiome_on_emulator_2019-01-03.png
+
+   My very first android build
+
+-----
+
+Now I will 1) first get the menu show/hide to work, then 2) get an interactive svg canvas started.
+
+-----
+
+When looking at Facebook I saw this post in the Indianapolis permaculture group:
+
+   Kevin Allison
+   Yesterday at 9:14 AM
+
+   Any thoughts on software that would be useful in mapping out guild plantings and on center
+   spacing?
+
+They found this app:
+
+http://smallblueprinter.com/garden/trial/index.html
+
+This is worth looking into. Also -- once I have something working I should definitely post in that
+group and try and get some feedback!
+
+-----
+
+OMG! It took most of the day to figure out how to get a stupid toggle menu button programmed. But! I
+got it! Turns out the controllers are constructed by default within $ionic/vue when you call
+``Vue.use(Ionic)``. Their methods are available in function calls via
+``this.$ionic.<thinger>Controller`` attributes.
+
+-----
+
+canvas time:
+
+First, a sketch of what I want to accomplish
+
+* canvas takes up 100% of available space
+* add another menu to select active effect
+* map shows yard perimeter, plus ~20ft on each side
+* map allows existing structures to be added, including approx heights
+* svg is populated based off saved config tied to user account
+* 'palette' is populated based on user account
+* map encodes topography -- user has a brush to raise/lower land
+* zoom in/out
+
+Ok, so now babysteps! These will probably take me a couple days:
+
+1. get to hard-coded svg canvas on route to map/, have it dynamically resize to fill the window
+2. drag object
+3. save object placement in store
+
+
+This seems very useful as a reference:
+https://medium.com/tyrone-tudehope/composing-d3-visualizations-with-vue-js-c65084ccb686
+
+Some useful D3 libs:
+
+The full list: https://github.com/d3/d3/blob/master/API.md
+
+Zooming, shapes (symbols, paths, stacks, curves, areas), hierarchies, fetch, geographies, contours,
+brushes
+
+**********
+2019-01-04
+**********
+
+* I've got an svg canvas and a grid!
+
+  * Testing on android it looks like the canvas major/minor grids don't align :(
+  * I'll probably implement a different grid once I get pan/zoom working because I need to keep a
+    scale associated with the grid. zooming out far enough should result in a new grid
+    resolution. Also, it would be good to keep a scale around the edges -- or at least have a
+    legend. Also, I want to be able to rotate the canvas, so getting a compass rose would be useful
+    as well.
+
+* There's some funny business with the menu icon. Sometimes its there, sometimes it
+  disappears. There's some similar shenanigans with the svg canvas too. I'm going to keep an eye on
+  this but delay active investigation for now.
+
+* Time to get pan and zoom working
+
+
+**********
+2019-01-05
+**********
+
+I finished up the draft map design document in the bbiome project. This specifies the breakdown
+between the different components of the map, showing how data management, editing, rendering,
+orientation, and selection all operate together.
+
+I will start implementing this by creating basic components that allow me to interactively create a geoJSON
+feature that creates a polygon.
+
+I plan on implementing:
+
+* Create a user account, store locally
+* User form to define and bounding box of property in WGS84 coordinates.
+* Save form
+* Create rectangle for this bounding box
+* Create background grid and scaling functions based on the bounding box
+* Create interaction commands and feedback
+
+  * pan
+  * zoom
+  * rotate
+  * compass rose
+  * legend
+
+* create, edit, remove point to define polygons, points, and lines within the bounding box
+* Edit the bounding box size
+* Local origin is taken as the bounding box's initial vertex?
+
+  * TODO: change this such that given an existing map, bounding box is calculated based on map
+    width/length in the local rotation
+
