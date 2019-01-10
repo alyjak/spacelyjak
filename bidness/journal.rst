@@ -866,3 +866,91 @@ I plan on implementing:
   * TODO: change this such that given an existing map, bounding box is calculated based on map
     width/length in the local rotation
 
+****************
+Entry 2019-01-09
+****************
+
+Last night I decided that it makes a lot of sense to place a submission in
+https://pina.in/permaculture-design-contest/. This way I can 1) develop a visual reportoire for the
+app, 2) recruit early help from family to review and potentially develop a consistent and visually
+appealling UI vector drawing.
+
+Unrelated to business: The other thing I want to get off my chest is related to the book Finite and
+Infinite Games. My ideas aren't sound yet, but I think there's some interesting insights related to
+development of artificial intelligence that can be gleaned from the book. Specifically, the fact
+that in an infinite game, the players play *with* the rules, and that the players are trying to be
+surprised, such that the future remains open are pretty interesting behaviors that maybe can be
+modeled effectively.
+
+Schedule for today:
+
+* Email fam about the pina contest, ask for review help, and design help if I can send some draft
+  material by Saturday. The submission is due January 31st, which gives me another week and a half
+  to complete it and submit it after this weekend.
+
+Morning and Afternoon
+
+* Read the SiLabs c-proggramming doc
+* See if I can finally start applying what I know and write some code
+
+Evening:
+
+* Start yard design
+
+Extra Goal:
+
+* Don't look at news/reddit/email for 3 hour chunks of time.
+
+Don't forget!
+
+* Tutoring at 5
+* Gym at 7
+
+Make fries and burgers for dinner?
+
+**********
+2019-01-10
+**********
+
+Tutoring is now today at 6:30, so no workout.
+
+The 3 hour no reddit rule went ok, I got some good time on omni in during the morning. After lunch
+though I entered a news/reddit hole for over an hour I think.
+
+I didn't get to yard design yesterday. This will have to wait I guess until after I reach a
+milestone with Omni. I don't have much time though, so I'm going to have to reach a triage point soon.
+
+I'm going work on Omni all day today. I need to make progress here. I'm afraid if I don't then I'll
+forget all the stuff I learned the past day. I have no code written, although I have a suite of
+examples that show how this will work -- its just they build on a different chipset than what I
+have, and I don't understand how to port them. Additionally, the myriad platform/SDK options that
+Silicon Labs is causing me quite some confusion.
+
+.. list-table::
+
+   *
+
+     * platform/SDK
+     * license required?
+     * Combines with other platform/sdks?
+
+   *
+     * Flex -- provides the Connect and RAILS libraries for RF development
+     * ?? don't know
+     * ?? don't know
+
+   *
+
+     * Bluetooth-- Is this different from Flex? It has a different version number
+     * ?? don't know
+     * Combines with Micrium, I'm not sure if its redundant or complimentary with Flex
+
+   *
+
+     * Micrium -- An RTOS used for running multiple applications in a threaded manner
+     * Yes, license is required
+     * Yes, its made to integrate code within
+
+I'm not sure how far I can actually get without the logic analyzer. We'll see. Also I need to hook
+up the dimmer to the dev kit, I'll do that after I get some code to compile that can theoretically
+watch the zero crossing circuit.
