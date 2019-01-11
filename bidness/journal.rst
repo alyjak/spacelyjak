@@ -954,3 +954,58 @@ Silicon Labs is causing me quite some confusion.
 I'm not sure how far I can actually get without the logic analyzer. We'll see. Also I need to hook
 up the dimmer to the dev kit, I'll do that after I get some code to compile that can theoretically
 watch the zero crossing circuit.
+
+**********
+2019-01-11
+**********
+
+Still no working code for Omni. FUCK! I was flashing examples onto the chip, but I can't interact
+with it, i.e. the console doesn't seem to work. Therefore I'm not sure its even working. It doesn't
+seem to make sense to me to continue until I understand how the printf statements should be working,
+so I need to continue with this thankless task until I can actually see console printf output.
+
+I'm trying with two example projects:
+
+- the SOC-empty one is what I want to use as the basis because it has less dependencies
+- the wire-replacement one uses the Connect lib, a bunch of ember libs, and maybe even Free RTOS,
+  and has a command line interpreter, so is probably closer to what I want.
+
+I'm at least better off than I was in the beginning of the week because I basically understand the
+purpose of each file, and which ones are intended to be edited or not.
+
+In other news, I started working on the permaculture design contest entry by working on my existing
+yard sketch, making a list of edibles I want, and taking measurements (via google maps) of the the
+yard. I also sent an email yesterday to family to see if they would be interested in critiquing
+what I have, I got replies from A, E, and L. Also Mom made a really cool logo, as seen below:
+
+.. figure:: bihome-2019-01-10.jpg
+
+For my entry I want to first have manual sketches plus my two written documents, then I want to try
+manually using d3 to create an html5/svg canvas that looks like how the app should look.
+
+My tentative goal for today is to make progress on Omni in the morning and start bihome in the
+afternoon. I was really hoping to be done with Omni by today, so this is kinda disappointing and I
+need a triage plan.
+
+Generic Priorities:
+
+- happy family
+- gainful employment
+- follow dreams
+- save the world
+
+How do I weigh a possibility of making $5k that has to go to the yard, that double counts for bihome
+development against the possibility of having a paying job working in home automation?
+
+I will probably put 30 hrs into the Permaculture entry, but almost all of that is useful for the app
+as well.
+
+I'm mostly making progress on learning with SiLabs so far, I don't have much of a product for Omni
+yet. This is kinda a bad sign for me in this realm, but not close to quitting sign.
+
+So, carry on with my plan: Omni in the morning, hard stop on omni after lunch, finish draft of
+design contest entry by end of sunday, back at Omni while I wait for feedback. Keep on with omni
+until the dimmer is working.
+
+
+
