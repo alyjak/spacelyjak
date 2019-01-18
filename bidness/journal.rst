@@ -1008,4 +1008,28 @@ design contest entry by end of sunday, back at Omni while I wait for feedback. K
 until the dimmer is working.
 
 
+**********
+2019-01-12
+**********
+
+Ok, today is pima design contest day. Hopefully I'm mostly ready.
+
+Objectives:
+
+* write the brief
+* finish the pre-update yard in inkscape
+* start diagrams of updates, focusing on contours
+
+**********
+2019-01-17
+**********
+
+Try calling experts about drainage tomorrow. See whether a pond is practical
+
+Cost out an excavator based on response
+
+Excavator can also be used for raised beds
+
+
+
 

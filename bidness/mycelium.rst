@@ -109,7 +109,7 @@ Need to be really careful here about licenses. I think I can make mycelium free
 and open source with just a connection to the ecohood platform, but this needs
 lawyers and stuff.
 
-Many of the research hear is from crawling this list: https://soil-modeling.org/resources-links/model-portal
+Many of the research here is from crawling this list: https://soil-modeling.org/resources-links/model-portal
 
 Regional Climate
 ================

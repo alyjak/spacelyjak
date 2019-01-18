@@ -219,10 +219,10 @@ their location. Here are some possibile solutions:
      Not mature technology, no existing product here. At state of the art for
      computer vision technology.
 
+* Have users manually enter information
 
-I am going to try machine learning to start, because that is the most promising.
-
-I'll call the application :term:`surveyor` for now.
+I am going to rely on manual entry to start, then hopefully get a machine learning video app
+together at some point. I'll call the application :term:`surveyor` for now.
 
 .. glossary::
 
@@ -276,7 +276,6 @@ Stepping Back: Tactics, Focus, and Motivation
 In order to use and evaluate this software as a product, I'm going to
 have to take shortcuts this winter and make a lot of tactical and
 strategic decisions. I'll keep a journal of this process.
-
 
 :doc:`journal`
 
