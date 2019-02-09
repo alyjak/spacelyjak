@@ -1033,3 +1033,103 @@ Excavator can also be used for raised beds
 
 
 
+**********
+2019-01-18
+**********
+
+I'm stuck. The objectives are too constraining. I don't know enough. It's taking too long. I must
+continue.
+
+I've learned more about the yard, and it's impacted my understanding of what can be accomplished on
+this property.
+
+The dirt is clay. The soil is pretty black so I think there's a fair amount of biomass, but the USDA
+classifies the region as mineral soil, meaning there isn't a significant bio-portion in it's make
+up.
+
+Breaking up the clay is going to be important. Gypsum seems to be the de-facto standard for
+accomplishing this. It creates fissures in the clay that allow roots and water to more easily pass
+through.
+
+I'm having severe doubts about any sort of profitability here. This thread was a downer:
+https://permies.com/t/99102/Permie-Profitability
+
+Also, from here I learned that grass is by far the most efficient biomass creator:
+https://permies.com/t/67969/quest-super-soil "In the interest of sustainable, carbon sequestering
+speed the one crop that wins, hands down, is grass.  No other plant grows as fast, provides as much
+soil cover, gathers in as much CO2 nor is capable of providing as much cut mulch."
+
+I need to control my objectives. They are out of sync with my resources, and from what I can read,
+aren't possible. What I mean by this is the energy expenditure in terms of personal time and money
+in order to even reach a homesteading level of self sufficiency is pretty staggering. Its much more
+efficient to get your food from a grocery store. The biggest factor here is economy of scale. It
+wins in agriculture I guess.
+
+Given this, what to do? I'm inclined to go the game route actually. Maybe that will give me the
+freedom to learn enough to execute something that will eventually exceed current capabilities.
+
+But, should I completely give up on the contest entry? That seems like a waste. In order to really
+*learn* I need to execute. Just programming isn't going to cut it.
+
+So, I need to change the focus of the entry. I can't do the silviculture that I wanted (chestnut and
+paulownia) because of the quality of the soil. I don't have time to perform the extensive soil
+remediation I would need to do those. So, chestnuts will be in pots and not be part of the
+entry. Soil remediation will become a focus. Biomass and mulching will be part of this. I think I'll
+keep the aquaculture aspect, as that keeps a protein source and allows research into this as a
+closed loop cycle.
+
+The front yard: nitrogen fixers, growing with fruit guilds. Break up the clay. Use mushrooms.
+
+Success metrics:
+
+Minimize time and cost
+
+Maximize *valuable* edibles. Use time and money efficient processing and preserving techniques
+
+Maximize soil development
+
+I can't get over the soil drainage. What do I do with that area of the yard? Big roots to break it
+up, have to be water hardy plants, do the gypsum thing. but marsh plants? I want something easy.
+
+What have I done today?
+
+- Did soil testing
+- called about yard, was told to contact 811 to find out about septic field
+- Was told to talk to dept of public works about hooking to city drainage. Talk to the Dept of
+  Business and Neighborhood Services about a pond
+- Learned about soil
+- turned compost
+- wtf, where is the time?
+- made dinner starting at 17:30
+
+So, to work I have two principle dimensions: layers of ecosystem starting with soil+water, then
+locations.
+
+I have four locations in my entry: front yard food forest, aquaponics bed, raised beds, and marsh.
+
+Front yard food forest:
+
+Soil is in need of rejuvenation, break up clay, add Nitrogen. Red oak is healthy. Water drains well.
+
+- apply gypsum
+- break in
+- apply lasagna mulch for food forest
+- apply simpler mulch for mushrooms
+- Create hazelnut border along house, and road?
+
+Learned about Eastern Filbert Blight (EFB). European varieties are susceptible and it can kill the
+trees. I emailed this company to see if they are still in business. My email got bounced, looks like
+they are dead :(
+http://www.badgersett.com/plants/orderhazels.html. They also have a hybrid chestnut:
+http://www.badgersett.com/plants/orderchestnuts
+
+
+Looks like maybe I can get some hybrid hazelnuts through this arborday consortium?
+https://www.arborday.org/programs/hazelnuts/join.cfm. I joined for $20, and will receive 3 hybrid
+hazelnut bushes between March and May.
+
+"the hyperactive chestnut produces sugar from sunlight all winter, staying bright green beneath its
+thin bark year-round. Also, the chestnut is a gorgeous tree."
+-- https://www.theatlantic.com/magazine/archive/2003/06/a-new-chestnut/302742/
+
+

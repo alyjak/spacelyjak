@@ -96,6 +96,7 @@ The thing about a "game" vs a "simulation" thing is that a game might be more ap
     * Spring Hill Nursery Plant Finder: https://www.springhillnursery.com/category/plant_finder
     * UConn plant database: http://hort.uconn.edu/
     * wikipedia: https://en.wikipedia.org/wiki/Category:Lists_of_plant_species
+    * Practical Plants: https://practicalplants.org/wiki/Practical_Plants
 
   * Competition/Dynamic Stability, Dynamical Processes in Networks
 
