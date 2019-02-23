@@ -676,6 +676,8 @@ The split pane now works, but there's no icon provided to expand the side menu?
 
 My next objectives: build for android, then get an interactive svg map started
 
+
+
 ****************
 Entry 2019-01-03
 ****************

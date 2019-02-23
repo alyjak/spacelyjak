@@ -169,7 +169,8 @@ Objective functions optimize for things like:
 * Beauty? (flowering, bird and butterfly attracting)
 
 Estimating parameters based on data sampling
-   * http://fb09-pasig.umwelt.uni-giessen.de/spotpy/
+
+* http://fb09-pasig.umwelt.uni-giessen.de/spotpy/
 
 Timestep should be a day. Run for a year and output growth over time.
 
