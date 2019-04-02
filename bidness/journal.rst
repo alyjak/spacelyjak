@@ -1136,6 +1136,64 @@ thin bark year-round. Also, the chestnut is a gorgeous tree."
 
 
 **********
+2019-02-24
+**********
+
+I'm finishing Doughnut Economics by Kate Raworth, and its inspiring me to really think about how
+something like BiHome could work to encourage a transformative economy. Also, I'm listening to "Made
+to Stick - why some ideas last and others don't", and it talks about communicating the core, and
+ensuring the explaination is simple, unexpected, concrete, .. and some other things (makes an
+acronym SUCCESS...). This entry is intended to think about these ideas in context of BiHome.
+
+Doughnut economics:
+
+   *Change the goal: measure other things than GDP*. Reading this made me think that getting a metric
+   like GDP to measure plant-to-plant transactions as well as "imports" and "exports" may be a very
+   effective way of evaluating guild success.
+
+   *Harness the Commons* I really like the idea of using things like iNaturalist, and starting up
+   a wiki-how style site for publishing procedures for common planting/maintaining/processing
+   tasks. There's a lot of knowledge sharing that can occur.
+
+   *Alternative Currency* This is something that needs some thought -- what about rewarding certain
+   behaviors -- helping out neighbors with plantings, contributing to the wiki's, sharing yields
+   -- with rewards? If there was the equipment rental angle the rewards would be related to reducing
+   fees for equipment use, or used to recruit help from the community. Have to be careful here
+   though, as some studies noticed a reduction in volunteer efforts when a price was
+   introduced. Some volunteer activities are more likely to be performed when its done for
+   altruistic reasons rather than for payment.
+
+   *Create to Regenerate* One of the biggest macro factors that I believe something like BiHome
+   could introduce is granting more people an intuitive understanding of regenerative
+   systems. Seeing how garbage is really just another input, and how when well designed, there is no
+   garbage in a system is a powerful lesson.
+
+   *Growth Agnostic* I am very interested in what happens to society if persons have food security
+   without being dependent on economic security. It seems like that would drastically change normal
+   incentives in a positive way. If shelter security could also be de-monitized it seems like that
+   would have a tremendously subversive impact on our neoliberal economy.
+
+
+Another major Idea that I don't want to forget: Cesar Hidalgo, author of things like Why Information
+Grows, and who I found out about through Pitchfork Economics has this concept of the distribution
+speed of various fidelities of understanding. Ordered fastest to slowest:
+
+*Ideas*: Concepts can be passed very quickly, but learning a concept doesn't allow one to execution
+on that without:
+
+*Knowledge*: Knowledge is the necessary context to understand how to function with an idea, but
+lacks the day to day details that prevent getting stuck on execution, and prevent reliable
+time/money/effectiveness estimates to be calculated before execution is complete. To do that
+requires:
+
+*Know how* This is wisdom, and often having know how on execution of an idea resides in much more
+than a single person. So in order to transport know how, you have to transport a network of
+specialized human beings. Therefore, transportation of know how for ideas of a certain complexity is
+very slow, as you basically need to create a company, or a university, or a city composed of
+specialized companies and universitys in order to aggregate that know how.
+
+
+**********
 2019-02-25
 **********
 
