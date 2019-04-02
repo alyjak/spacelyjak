@@ -24,6 +24,7 @@ on a good life.
    understand
    wedding_vows
    grandma_freda
+   equality_from_the_ground_up
 
 .. toctree::
    :caption: HowTos and notes
