@@ -1135,3 +1135,71 @@ thin bark year-round. Also, the chestnut is a gorgeous tree."
 -- https://www.theatlantic.com/magazine/archive/2003/06/a-new-chestnut/302742/
 
 
+**********
+2019-02-25
+**********
+
+What is it that BiHome does? It can only be one thing (for explanation reasons).
+
+It acts as a multi-dimensional window -- allowing a user to *see* and *measure* the different possibilities
+latent in a space then *actualize* on one of those possibilities.
+
+* *See:* Bihome needs to lay out what its thinking, otherwise the user won't be inspired to execute.
+* *Measure:* BiHome needs to estimate cost and time prices. Otherwise the user won't make a decision to execute.
+* *Actualize:* BiHome needs to lay out how to get from here to there such that a user is empowered
+  to change.
+
+This journal entry is to brainstorm on how to create a useful piece of software that performs this
+function.
+
+Here's my base assumptions:
+
+* Plants and structures (*elements*) are physically located in a 3D space, but can be well represented
+  on a 2D manifold with horizontal layers. Each element is a group of one or more *regions* within the
+  manifold layers that represent its physical footprint. Each element also has an internal state and
+  a set of functions that define how its state changes, and how it sources and sinks resources from
+  the other elements with intersecting regions to its own.
+* *Layers* are hard-coded: E.g. subsoil layer, soil layer, ground layer, understory layer, overstory
+  layer. A region may interact with any other regions that intersect it within the same layer.
+* Some Regions are permeable and others impermeable circles (e.g. roots vs trunk).
+* Most elements have one or more permeable regions where they interact with surrounding elements. In
+  the case of a tree this would be the shade zone and the root zone. The trunk would be the only
+  impermeable region. In the case of a mycelium bed it would all be permeable. Intersecting
+  permeable regions can never be filled up, but may inhibit growth due to overcrowding or
+  antagonistic interactions. On the other hand, permeable regions are how mutually beneficial
+  interactions are mediated.
+* Growth occurs through maintaining beneficial conditions over time
+* Death occurs through shock conditions (adverse condition duration >= death time) that exceed an
+  organism's toughness in that dimension.
+* Conditions are probabilistic
+* Element growth is modeled as a state machine. A species enters new states based on triggers of
+  its internal and intersecting zone state. States have different intersecting zone sizes and
+  characteristics. E.g. a seed's state is different than a sprout's state is different than a summer
+  tree's state is different than a winter tree's state is different than a decaying stump's state.
+* Regions are layer specific so are distributed laterally. Regions are stocks. Transactions occur
+  between regions as a function of elements. Element functions are defined per genius, and
+  configured per species and per-element transfers.
+* cross-region transformations occur as element functions.
+
+
+Prototype Data architecture:
+
+* Each element has a principle xy position. Relative to the property origin
+* Each element has a set of one or more paths positioned relative to their xy
+* Each element has an id and type
+* Each element has an internal state dictionary. Dictionary members are based on type
+
+Prototype Type architecture:
+
+I think an entity component architecture still works?
+
+* Per-layer Calculation of what resources are available per-layer and the "drag" to access the
+  resource
+* Tick length of ?? Calculate per day? What about sudden events like storms, cold winds, crippling
+  heat? Pass min, max, mean per quantity?
+* calculate per element state change. In this period the available resources can be drawn from, the
+  internal state changed, and finally output changes are pushed back to the resource pile
+* final global tock cycle to distribute internal calculations back onto the map and calculate macro
+  metrics
+
+
