@@ -29,10 +29,11 @@ on a good life.
 .. toctree::
    :caption: HowTos and notes
    :maxdepth: 2
+   :glob:
    :titlesonly:
 
    makin_muxley
-   muxleyconf/get_machine_configured
+   howto/*
    rust_survey
 
 .. rubric:: About Me

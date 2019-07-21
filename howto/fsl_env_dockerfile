@@ -1,0 +1,26 @@
+FROM ubuntu:14.04
+MAINTAINER Andrew Lyjak <andrew.lyjak@gmail.com>
+
+# A docker container with the Nvidia kernel module and CUDA drivers installed
+
+ENV CUDA_VER=10.1
+ENV CUDA_VER2=10-1
+ENV CUDA_MINOR_VER=168-418.67
+ENV CUDA_FULL_VER=$CUDA_VER.$CUDA_MINOR_VER
+ENV CUDA_PKG=cuda-repo-ubuntu1404-$CUDA_VER2-local-${CUDA_FULL_VER}_1.0-1_amd64.deb
+ENV CUDA_DEB=https://developer.nvidia.com/compute/cuda/$CUDA_VER/Prod/local_installers/$CUDA_PKG
+ENV CUDA_PUB=/var/cuda-repo-$CUDA_VER2-local-$CUDA_FULL_VER/7fa2af80.pub
+
+
+RUN apt-get update && \
+  apt-get install -q -y wget build-essential libxml2-dev
+
+RUN cd /opt && \
+  wget --no-verbose $CUDA_DEB && \
+  dpkg -i $CUDA_PKG \
+
+RUN apt-key add $CUDA_PUB && \
+  apt-get update && \
+  apt-get install -q -y cuda-toolkit-$CUDA_VER2
+
+RUN rm $CUDA_PKG
