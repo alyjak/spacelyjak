@@ -3,47 +3,6 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(column-number-mode t)
- '(inhibit-startup-buffer-menu t)
- '(inhibit-startup-echo-area-message "alyjak")
- '(inhibit-startup-screen t)
- '(package-selected-packages (quote (markdown-mode material-theme ##)))
- '(rst-preferred-adornments
-   (quote
-    ((35 over-and-under 0)
-     (42 over-and-under 0)
-     (61 simple 0)
-     (95 simple 0)
-     (94 simple 0)
-     (34 simple 0)
-     (126 simple 0)
-     (96 simple 0))))
- '(rst-toc-indent 3)
- '(tool-bar-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Monoid" :foundry "PfEd" :slant normal :weight normal :height 83 :width semi-condensed)))))
-
-; Map txt files to rst mode
-(setq auto-mode-alist
-  (append
-   ;; File name (within directory) starts with a dot.
-   '(("\\.txt\\'" . rst-mode)
-     ("\\.rst\\'" . rst-mode)
-     ("\\.rest\\'" . rst-mode)) auto-mode-alist))
-
 ;; from http://melpa.org/#/getting-started
 (require 'package) ;; You might already have this line
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
@@ -55,4 +14,110 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
 
+(use-package lsp)
+(use-package lsp-ui)
+(use-package yasnippet
+  :ensure t
+  )
+
+(setenv "LC_ALL" "en_US.UTF-8")
+(setenv "LC_CTYPE" "en_US.UTF-8")
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(column-number-mode t)
+ '(fill-column 100)
+ '(inhibit-startup-buffer-menu t)
+ '(inhibit-startup-echo-area-message "alyjak")
+ '(inhibit-startup-screen t)
+ '(lsp-rust-server (quote rust-analyzer))
+ '(package-selected-packages
+   (quote
+    (flycheck-pest pest-mode dash fullframe which-key yasnippet exec-path-from-shell lsp-ui lsp-mode use-package flycheck-inline cargo rust-mode flycheck ess markdown-mode material-theme ##)))
+ '(rst-preferred-adornments
+   (quote
+    ((35 over-and-under 0)
+     (42 over-and-under 0)
+     (61 simple 0)
+     (95 simple 0)
+     (94 simple 0)
+     (34 simple 0)
+     (126 simple 0)
+     (96 simple 0))))
+ '(rst-toc-indent 3)
+ '(scroll-bar-mode nil)
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Consolas" :slant normal :weight normal :height 110 :width semi-condensed)))))
+
+; Map txt files to rst mode
+(setq auto-mode-alist
+  (append
+   ;; File name (within directory) starts with a dot.
+   '(("\\.txt\\'" . rst-mode)
+     ("\\.rst\\'" . rst-mode)
+     ("\\.rest\\'" . rst-mode)) auto-mode-alist))
+
+
 (load-theme 'material t)
+
+;; Always highlight parenthesis!
+(show-paren-mode 1)
+
+;; make trailing whitespace display in an annoying manner
+(setq-default show-trailing-whitespace t)
+
+;; Mode for editing Temporal Logic of Actions files
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
+(require 'fullframe)
+(use-package fullframe
+  :ensure t
+  :defer t
+  :init
+  (progn
+    (toggle-debug-on-error)
+    (fullframe magit-status magit-mode-quit-window)
+    (fullframe list-packages quit-window)
+    )
+  )
+
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+
+(setq lsp-keymap-prefix "s-l")
+(use-package lsp-mode
+    :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+            (rust-mode . lsp-deferred)
+            ;; if you want which-key integration
+            (lsp-mode . lsp-enable-which-key-integration))
+    :commands (lsp lsp-deferred))
+;; optionally
+(use-package lsp-ui :commands lsp-ui-mode)
+
+;; optional if you want which-key integration
+(use-package which-key
+    :config
+    (which-key-mode))
+
+
+;; Remove the stupid stupid beeps
+(setq visible-bell 1)
+
+;; https://github.com/purcell/exec-path-from-shell
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
+(provide '.emacs)
+;;; .emacs.el ends here
