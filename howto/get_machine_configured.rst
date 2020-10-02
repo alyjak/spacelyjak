@@ -48,6 +48,10 @@ htop is the best terminal based processor monitor I'm aware of::
 
   sudo apt-get install htop
 
+texinfo is necessary to make the docs for Emacs Speaks Statistics::
+
+   sudo apt-get install texinfo
+
 ``bashrc``
 ==========
 
@@ -106,7 +110,12 @@ My final make.inc looks like this: :download:`magma_make.inc`
 ``isinf`` calls within the ``testing/`` directory to ``std::isnan``
 and ``std::isinf`` respectively.
 
-**NOTE** running the tests takes over half an hour.
+**NOTE** running the tests (``python testing/run_tests.py``) takes a
+couple hours.
+
+**NOTE** This is an enormous, but awesome reference for trying to
+cargo cult some working MAGMA code
+https://developer.nvidia.com/sites/default/files/akamai/cuda/files/Misc/mygpu.pdf
 
 Emacs
 =====
@@ -121,9 +130,7 @@ Basic emacs config settings available here: :download:`emacs_conf`
 R Stuff
 =======
 
-* Emacs Speaks Statistics::
-
-    sudo apt-get install ess 
+* Emacs Speaks Statistics. http://ess.r-project.org/Manual/ess.html#Installation
 
 * RStudio
 
