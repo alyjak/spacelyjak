@@ -120,6 +120,22 @@ https://developer.nvidia.com/sites/default/files/akamai/cuda/files/Misc/mygpu.pd
 Emacs
 =====
 
+go to http://gnu.mirror.constant.com/emacs/ and grab the latest
+
+Install optional libraries. On ubuntu 20.10 I did::
+
+  sudo apt install libsystemd-dev libmagick++-dev libmagickcore-dev libwebkit2gtk-4.0-dev \
+      libcairo2-dev librsvg2-dev libgtk-3-dev libxpm-dev libghc-gnutls-dev
+
+And then I configured my download like so::
+
+  ./configure --with-cairo --with-imagemagick --with-xwidgets
+
+Then make and install::
+
+  make -j24
+  sudo make install
+
 sudo add-apt-repository -y ppa:ubuntu-elisp
 sudo apt-get update
 sudo apt-get install emacs-snapshot
