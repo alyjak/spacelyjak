@@ -1,4 +1,3 @@
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -12,16 +11,8 @@
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 (package-initialize) ;; You might already have this line
-
-(use-package lsp)
-(use-package lsp-ui)
-(use-package yasnippet
-  :ensure t
-  )
-
-(setenv "LC_ALL" "en_US.UTF-8")
-(setenv "LC_CTYPE" "en_US.UTF-8")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -35,20 +26,19 @@
  '(inhibit-startup-buffer-menu t)
  '(inhibit-startup-echo-area-message "alyjak")
  '(inhibit-startup-screen t)
- '(lsp-rust-server (quote rust-analyzer))
+ '(lsp-rust-server 'rust-analyzer)
+ '(org-agenda-files '("/home/alyjak/code/alyjak/journal/2020-09.org"))
  '(package-selected-packages
-   (quote
-    (flycheck-pest pest-mode dash fullframe which-key yasnippet exec-path-from-shell lsp-ui lsp-mode use-package flycheck-inline cargo rust-mode flycheck ess markdown-mode material-theme ##)))
+   '(toml-mode org vue-html-mode vue-mode flycheck-pest pest-mode dash fullframe which-key yasnippet lsp-ui lsp-mode use-package flycheck-inline cargo rust-mode flycheck ess markdown-mode material-theme ##))
  '(rst-preferred-adornments
-   (quote
-    ((35 over-and-under 0)
+   '((35 over-and-under 0)
      (42 over-and-under 0)
      (61 simple 0)
      (95 simple 0)
      (94 simple 0)
      (34 simple 0)
      (126 simple 0)
-     (96 simple 0))))
+     (96 simple 0)))
  '(rst-toc-indent 3)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
@@ -58,7 +48,22 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Consolas" :slant normal :weight normal :height 110 :width semi-condensed)))))
+ '(default ((t (:family "Iosevka Term" :slant normal :weight normal :height 90 :width normal :foundry "BE5N")))))
+
+;; rust notes
+;; https://emacs-lsp.github.io/lsp-mode/page/lsp-rust/
+;; set up rust-analyzer
+;; https://github.com/rust-analyzer/rust-analyzer
+;; rust install:
+;; https://www.rust-lang.org/tools/install
+;; (update path to include ~/.cargo/bin)
+(use-package lsp)
+(use-package yasnippet
+  :ensure t
+  )
+
+(setenv "LC_ALL" "en_US.UTF-8")
+(setenv "LC_CTYPE" "en_US.UTF-8")
 
 ; Map txt files to rst mode
 (setq auto-mode-alist
@@ -111,13 +116,46 @@
     :config
     (which-key-mode))
 
+;; rustfmt on save
+(add-hook 'before-save-hook (lambda () (when (eq 'rust-mode major-mode)
+                                         (lsp-format-buffer))))
 
 ;; Remove the stupid stupid beeps
 (setq visible-bell 1)
 
-;; https://github.com/purcell/exec-path-from-shell
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
+;; Org mode
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+(add-hook 'org-mode-hook #'toggle-word-wrap)
+
+;; fly spell
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+(dolist (hook '(rst-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+(dolist (hook '(org-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+(dolist (hook '(markdown-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode -1))))
+(add-hook 'c++-mode-hook
+        (lambda ()
+          (flyspell-prog-mode)
+        ))
+(add-hook 'rust-mode-hook
+        (lambda ()
+          (flyspell-prog-mode)
+        ))
+(add-hook 'python-mode-hook
+        (lambda ()
+          (flyspell-prog-mode)
+        ))
+
+;; Main reason for this is to get ~/.cargo/bin/rust-analyzer into PATH
+(setenv "PATH" (concat (getenv "PATH") ":/home/alyjak/.cargo/bin"))
+(setq exec-path (append exec-path '("/home/alyjak/.cargo/bin")))
 
 (provide '.emacs)
 ;;; .emacs.el ends here
