@@ -29,7 +29,7 @@
  '(lsp-rust-server 'rust-analyzer)
  '(org-agenda-files '("/home/alyjak/code/alyjak/journal/2020-09.org"))
  '(package-selected-packages
-   '(toml-mode org vue-html-mode vue-mode flycheck-pest pest-mode dash fullframe which-key yasnippet lsp-ui lsp-mode use-package flycheck-inline cargo rust-mode flycheck ess markdown-mode material-theme ##))
+   '(dap-mode company toml-mode org vue-html-mode vue-mode flycheck-pest pest-mode dash fullframe which-key yasnippet lsp-ui lsp-mode use-package flycheck-inline cargo rust-mode flycheck ess markdown-mode material-theme ##))
  '(rst-preferred-adornments
    '((35 over-and-under 0)
      (42 over-and-under 0)
@@ -120,6 +120,12 @@
 (add-hook 'before-save-hook (lambda () (when (eq 'rust-mode major-mode)
                                          (lsp-format-buffer))))
 
+;; Debug adapter protocol
+;; Enabling only some features
+(setq dap-auto-configure-features '(sessions locals controls tooltip))
+(add-hook 'dap-stopped-hook
+          (lambda (arg) (call-interactively #'dap-hydra)))
+
 ;; Remove the stupid stupid beeps
 (setq visible-bell 1)
 
@@ -156,6 +162,10 @@
 ;; Main reason for this is to get ~/.cargo/bin/rust-analyzer into PATH
 (setenv "PATH" (concat (getenv "PATH") ":/home/alyjak/.cargo/bin"))
 (setq exec-path (append exec-path '("/home/alyjak/.cargo/bin")))
+
+;; better window selection than stupid other-window command
+(when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
 
 (provide '.emacs)
 ;;; .emacs.el ends here
