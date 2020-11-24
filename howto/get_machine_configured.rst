@@ -125,7 +125,7 @@ go to http://gnu.mirror.constant.com/emacs/ and grab the latest
 Install optional libraries. On ubuntu 20.10 I did::
 
   sudo apt install libsystemd-dev libmagick++-dev libmagickcore-dev libwebkit2gtk-4.0-dev \
-      libcairo2-dev librsvg2-dev libgtk-3-dev libxpm-dev libghc-gnutls-dev
+      libcairo2-dev librsvg2-dev libgtk-3-dev libxpm-dev libghc-gnutls-dev libgif-dev
 
 And then I configured my download like so::
 
