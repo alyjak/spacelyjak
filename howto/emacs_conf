@@ -23,13 +23,14 @@
    [default bold shadow italic underline bold bold-italic bold])
  '(column-number-mode t)
  '(fill-column 100)
+ '(flycheck-checker-error-threshold 4000)
  '(inhibit-startup-buffer-menu t)
  '(inhibit-startup-echo-area-message "alyjak")
  '(inhibit-startup-screen t)
  '(lsp-rust-server 'rust-analyzer)
  '(org-agenda-files '("/home/alyjak/code/alyjak/journal/2020-09.org"))
  '(package-selected-packages
-   '(dap-mode company toml-mode org vue-html-mode vue-mode flycheck-pest pest-mode dash fullframe which-key yasnippet lsp-ui lsp-mode use-package flycheck-inline cargo rust-mode flycheck ess markdown-mode material-theme ##))
+   '(ansible yaml-mode dockerfile-mode bitbake chronos sass-mode dap-mode company toml-mode org vue-html-mode vue-mode flycheck-pest pest-mode dash fullframe which-key yasnippet lsp-ui lsp-mode use-package flycheck-inline cargo rust-mode flycheck ess markdown-mode material-theme ##))
  '(rst-preferred-adornments
    '((35 over-and-under 0)
      (42 over-and-under 0)
@@ -73,6 +74,13 @@
      ("\\.rst\\'" . rst-mode)
      ("\\.rest\\'" . rst-mode)) auto-mode-alist))
 
+; Map bitbake files to bitbake-mode
+(setq auto-mode-alist
+  (append
+   ;; File name (within directory) starts with a dot.
+   '(("\\.bb\\'" . bitbake-mode)
+     ("\\.bbappend\\'" . bitbake-mode)
+     ("\\.inc\\'" . bitbake-mode)) auto-mode-alist))
 
 (load-theme 'material t)
 
@@ -102,6 +110,7 @@
   :init (global-flycheck-mode))
 
 (setq lsp-keymap-prefix "s-l")
+(setq lsp-enable-file-watchers nil)
 (use-package lsp-mode
     :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
             (rust-mode . lsp-deferred)
@@ -117,8 +126,7 @@
     (which-key-mode))
 
 ;; rustfmt on save
-(add-hook 'before-save-hook (lambda () (when (eq 'rust-mode major-mode)
-                                         (lsp-format-buffer))))
+(setq rust-format-on-save t)
 
 ;; Debug adapter protocol
 ;; Enabling only some features
@@ -166,6 +174,11 @@
 ;; better window selection than stupid other-window command
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
+
+;; don't show trailing whitespace in term mode
+(defun turn-off-trailing-whitespace ()
+  (setq show-trailing-whitespace nil))
+(add-hook 'term-mode-hook 'turn-off-trailing-whitespace)
 
 (provide '.emacs)
 ;;; .emacs.el ends here
