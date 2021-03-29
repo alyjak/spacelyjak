@@ -30,7 +30,7 @@
  '(lsp-rust-server 'rust-analyzer)
  '(org-agenda-files '("/home/alyjak/code/alyjak/journal/2020-09.org"))
  '(package-selected-packages
-   '(ansible yaml-mode dockerfile-mode bitbake chronos sass-mode dap-mode company toml-mode org vue-html-mode vue-mode flycheck-pest pest-mode dash fullframe which-key yasnippet lsp-ui lsp-mode use-package flycheck-inline cargo rust-mode flycheck ess markdown-mode material-theme ##))
+   '(sphinx-doc python-docstring magit ansible yaml-mode dockerfile-mode bitbake chronos sass-mode dap-mode company toml-mode org vue-html-mode vue-mode flycheck-pest pest-mode dash fullframe which-key yasnippet lsp-ui lsp-mode use-package flycheck-inline cargo rust-mode flycheck ess markdown-mode material-theme ##))
  '(rst-preferred-adornments
    '((35 over-and-under 0)
      (42 over-and-under 0)
@@ -41,6 +41,9 @@
      (126 simple 0)
      (96 simple 0)))
  '(rst-toc-indent 3)
+ '(safe-local-variable-values
+   '((flycheck-python-pylint-executable . "/home/alyjak/code/h3id/ansible_env/bin/python3")
+     (flycheck-python-flake8-executable . "/home/alyjak/code/h3id/ansible_env/bin/python3")))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil))
@@ -167,6 +170,24 @@
           (flyspell-prog-mode)
         ))
 
+(use-package sphinx-doc
+  :ensure t
+  :hook (python-mode . sphinx-doc-mode))
+
+(use-package python-docstring
+  :ensure t
+  :config (setq python-docstring-sentence-end-double-space nil)
+  :hook (python-mode . python-docstring-mode))
+
+(defun flycheck-python-setup ()
+  (flycheck-mode))
+(add-hook 'python-mode-hook #'flycheck-python-setup)
+
+;; so that we can use .dir-locals.el values to set python flycheck options and not get warnings
+;; every time.
+;; allow remembering risky variables
+(advice-add 'risky-local-variable-p :override #'ignore)
+
 ;; Main reason for this is to get ~/.cargo/bin/rust-analyzer into PATH
 (setenv "PATH" (concat (getenv "PATH") ":/home/alyjak/.cargo/bin"))
 (setq exec-path (append exec-path '("/home/alyjak/.cargo/bin")))
@@ -179,6 +200,9 @@
 (defun turn-off-trailing-whitespace ()
   (setq show-trailing-whitespace nil))
 (add-hook 'term-mode-hook 'turn-off-trailing-whitespace)
+
+;; Save last session
+(desktop-save-mode 1)
 
 (provide '.emacs)
 ;;; .emacs.el ends here
