@@ -117,6 +117,30 @@ couple hours.
 cargo cult some working MAGMA code
 https://developer.nvidia.com/sites/default/files/akamai/cuda/files/Misc/mygpu.pdf
 
+Emacs package installs
+======================
+
+It seems that every default Ubuntu emacs that I interact with has an old gpg key installed for the
+melpa repo. It's a pain to update because the [keyring update package
+itself](http://elpa.gnu.org/packages/gnu-elpa-keyring-update.html) doesn't have the solution. This
+answer works though:
+https://emacs.stackexchange.com/questions/60554/cannot-run-melpa-package-refresh-due-to-gpg-errors
+Here's the solution:
+
+> To fix it, in the ~/.emacs.d/elpa/gnupg directory, create a file named gpg.conf with the following line:
+>
+>     keyserver hkp://keys.gnupg.net
+>
+> Then run this on the command line:
+>
+>     gpg --homedir ~/.emacs.d/elpa/gnupg --receive-keys 066DAFCB81E42C40
+>
+> And then in emacs:
+>
+>     M-x package-refresh-contents RET
+
+
+
 Emacs
 =====
 
