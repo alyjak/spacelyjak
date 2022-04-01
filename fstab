@@ -1,0 +1,22 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sdc5 during installation
+UUID=f7fb824d-2a4f-4474-907d-2a62ccc227bc /                 ext4    errors=remount-ro 0 1
+# /boot/efi was on /dev/sdc2 during installation
+UUID=D87F-F7D9                            /boot/efi         vfat    umask=0077        0 1
+# swap was on /dev/sdc6 during installation
+UUID=8c454d14-5fa7-4d03-83d1-b18e95a119de none              swap    sw                0 0
+# Extra swap space for science!
+/swapfile                                 none              swap    sw                0 0
+# /muxley drives are for code and data
+UUID=473e02aa-a8ac-46dc-9d5d-ccf9eee4f045 /muxley           ext4    errors=remount-ro 0 1
+UUID=aee7ec66-11b8-450f-9b2e-e14160e9f20b /muxley-dat       ext4    errors=remount-ro 0 1
+UUID=e3a38b0f-d624-4534-a7dc-1a76487c6e54 /muxley-ssd       ext4    errors=remount-ro 0 1
+UUID=eab911dd-143f-4426-9cd7-37a443025640 /home/alyjak      ext4    errors=remount-ro 0 1
+UUID=affa6151-a84a-4a25-8129-a351a98778f4 /opt              ext4    errors=remount-ro 0 1
+/dev/disk/by-id/usb-WD_My_Passport_25E2_575831314438374B34354B59-0:0-part1 /mnt/science auto nosuid,nodev,nofail,noauto,x-gvfs-show,x-gvfs-name=science 0 0
