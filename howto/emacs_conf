@@ -183,6 +183,11 @@
   (flycheck-mode))
 (add-hook 'python-mode-hook #'flycheck-python-setup)
 
+;; Keep underscores as symbol constituents, like text mode
+(defun underscore-is-delimiter ()
+  (modify-syntax-entry ?_ "_" python-mode-syntax-table))
+(add-hook 'python-mode-hook 'underscore-is-delimiter)
+
 ;; so that we can use .dir-locals.el values to set python flycheck options and not get warnings
 ;; every time.
 ;; allow remembering risky variables
