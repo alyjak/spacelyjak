@@ -1,3 +1,55 @@
+## 2023-02-15 DTW New Libs meeting
+
+Introductions
+
+- Attendance: Andrew Lyjak (Plymouth), Louis Birach (Detroit), Charlie Starkman (Farmington Hills),
+  Zane DuFour (royal Oak), Mark (Wixom)
+
+Coordinate our outreach: What organizations can we commit to working with?
+Initiate a letter writing campaign, review Mark’s draft
+Roundtable on Chapter Priorities
+Vote on our March in person event
+General Discussion
+
+- Discord invite expired, plug this one in next email: https://discord.gg/CPtRFMKR7e
+- sent a Rw link to the chat for the YIMBY letter
+- Talking about split tax likilihood
+
+   - Tate wants to get split tax onto the state docket
+   - MASQ asks, are there supermajority requirements for any votes at the state level? No, only
+     simple majorities
+- Going through the 6 bullet points
+
+  - Andrew: top 3 is split tax, ADU, and enable mixed use
+  - Louis would replace mixed use with enable pedestrian mobility: There's a lot of federal $$ on that
+  - Charlie: Seconds the replacement of mixed use with pedestrian mobility
+  - Zane: One benefit going for ADUs at the state level is the simplicity of the legislation. Ending
+    parking minimums has the worst vibes. Thirds replacement of mixed use with the ped
+  - Mark: Understands the mixed use is extremely complicated. To address one point of Louis' yes it
+    is currently a local decision, but the state can preempt them. Concern with the pedestrian
+    mobility stuff is messaging it to republicans
+  - Andrew: re the messaging mobility to republicans: yes but we can chose which localities we
+    message to.
+  - Re zoning: states can give and they can take away zoning authority, so statewide is still a
+  - Re mobility: there's a letter writing campaign to municipalities to ensure they are fully aware
+    of $$ opportunities from fed. e.g. Fed priorities:
+    https://grist.org/transportation/biden-administration-unveils-roadmap-for-a-greener-more-equitable-transportation-sector/
+
+    - There's a problem with gunning for pedestrian mobility about minimum density to make work, so
+      we have to pick our municipalities judiciously
+
+    - Louis throws in the data! List of michigan cities by density:
+      http://www.usa.com/rank/michigan-state--population-density--city-rank.htm
+
+    - Zane: Re split rate tax system: talked to his reps, neither knew about the split rate tax
+      system. The thing that was surprising was her staff member who was very into YIMBY tax stuff
+      but wasn't aware of it.
+
+- In person meeting: Mark has every other weekend availability.
+
+    - What type of venue? Beer over coffee seems to be the consensus
+
+
 # 2023, Jan 23
 
 First chapter meeting
@@ -149,3 +201,25 @@ set up a Discord poll bot for this, or take votes at the meeting itself.
 
 In the future I hope to include a local news section, but I ain't got any local news to share, so
 that's it for today!
+
+
+## Markose meeting 1/30/2023
+
+- Schedule something larger in-person for March.
+
+- GET INVOLVED WITH OTHER ORGANIZATIONS
+
+  - Detroit YIMBY, Transit, LVT, RTA, host events with them
+  - County Democratic Meetings
+
+- Set up the Eventbrite, send to Markose by tomorrow night
+
+### Personal Thoughts
+
+- Create 'stories to pay attention to' list
+- Create 'organizations to pay attention to' list
+- Create bot to pay attention to those lists?
+- Create 'events to plan' list
+
+
+>>>>>>> 4b0d250 (DTW New Libs notes)
