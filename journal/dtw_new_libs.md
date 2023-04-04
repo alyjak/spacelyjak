@@ -1,15 +1,42 @@
+## 2023-03-13
+
+Dane DuFour and David Rossie attend.
+
+
+- Is there an existing off the shelf proposed state law change that would enable Detroit to adopt
+  split tax? If not, we should get that written
+- Talked extensively about split tax, what is it, why does Detroit need it, who in the nation does
+  it (not really anyone), what is needed at the state level.
+- Talked about what is incentivizing home buying. People value the single family residential because
+  that's what we've all grown up with as "what's valuable". We need to influence more people's
+  aesthetics in order to help push to more desireable development patterns.
+- People value walking in a "theme park mentality", they like to drive into walkable interesting
+  places, not live there. -David
+- David is excited about cherry hill, wishes more developers started projects like that.
+- I was griping about how we aren't set up to do much. David reminds us there's value in connecting,
+  even if we don't make tangible progress
+- zoom was advertising it at 8:30, make sure are advertising meeting at 9.
+- David might run the letter by the Plymouth mayor, give us some insight.
+
+
 ## 2023-02-15 DTW New Libs meeting
 
 Introductions
 
 - Attendance: Andrew Lyjak (Plymouth), Louis Birach (Detroit), Charlie Starkman (Farmington Hills),
   Zane DuFour (royal Oak), Mark (Wixom)
+- Coordinate our outreach: What organizations can we commit to working with?
+  I briefed on the orgs I'm starting to get in contact with
+- Initiate a letter writing campaign, review Mark’s draft
+  Most of the meeting revolved around setting our priorities via Marks policy bullet points
+- Roundtable on Chapter Priorities
+  See above
+- Vote on our March in person event
+  Interest in having something sooner rather than later
+- General Discussion
+  Not much time
 
-Coordinate our outreach: What organizations can we commit to working with?
-Initiate a letter writing campaign, review Mark’s draft
-Roundtable on Chapter Priorities
-Vote on our March in person event
-General Discussion
+Chronological Notes:
 
 - Discord invite expired, plug this one in next email: https://discord.gg/CPtRFMKR7e
 - sent a Rw link to the chat for the YIMBY letter

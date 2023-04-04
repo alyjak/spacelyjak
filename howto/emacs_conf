@@ -30,7 +30,7 @@
  '(lsp-rust-server 'rust-analyzer)
  '(org-agenda-files '("/home/alyjak/code/alyjak/journal/2020-09.org"))
  '(package-selected-packages
-   '(sphinx-doc python-docstring magit ansible yaml-mode dockerfile-mode bitbake chronos sass-mode dap-mode company toml-mode org vue-html-mode vue-mode flycheck-pest pest-mode dash fullframe which-key yasnippet lsp-ui lsp-mode use-package flycheck-inline cargo rust-mode flycheck ess markdown-mode material-theme ##))
+   '(python-mode sphinx-doc python-docstring magit ansible yaml-mode dockerfile-mode bitbake chronos sass-mode dap-mode company toml-mode org vue-html-mode vue-mode flycheck-pest pest-mode dash fullframe which-key yasnippet lsp-ui lsp-mode use-package flycheck-inline cargo rust-mode flycheck ess markdown-mode material-theme ##))
  '(rst-preferred-adornments
    '((35 over-and-under 0)
      (42 over-and-under 0)
@@ -170,10 +170,6 @@
           (flyspell-prog-mode)
         ))
 
-(use-package sphinx-doc
-  :ensure t
-  :hook (python-mode . sphinx-doc-mode))
-
 (use-package python-docstring
   :ensure t
   :config (setq python-docstring-sentence-end-double-space nil)
@@ -182,11 +178,6 @@
 (defun flycheck-python-setup ()
   (flycheck-mode))
 (add-hook 'python-mode-hook #'flycheck-python-setup)
-
-;; Keep underscores as symbol constituents, like text mode
-(defun underscore-is-delimiter ()
-  (modify-syntax-entry ?_ "_" python-mode-syntax-table))
-(add-hook 'python-mode-hook 'underscore-is-delimiter)
 
 ;; so that we can use .dir-locals.el values to set python flycheck options and not get warnings
 ;; every time.
@@ -208,6 +199,17 @@
 
 ;; Save last session
 (desktop-save-mode 1)
+
+;; no tabs!
+(setq-default indent-tabs-mode nil)
+
+;; follow logs
+(add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-tail-mode))
+
+;; https://emacs.stackexchange.com/questions/37417/flyspell-in-terminal
+(eval-after-load "flyspell"
+  '(progn
+     (fset 'flyspell-emacs-popup 'flyspell-emacs-popup-textual)))
 
 (provide '.emacs)
 ;;; .emacs.el ends here
