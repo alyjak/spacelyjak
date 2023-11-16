@@ -1,0 +1,273 @@
+#+AUTHOR: Andrew Lyjak
+#+EMAIL: andrew.lyjak@gmail.com
+#+OPTIONS: todo:nil
+#+OPTIONS: toc:nil
+#+OPTIONS: tags:nil
+#+OPTIONS: prop:Effort
+#+OPTIONS: ^:{}
+#+STARTUP: indent
+#+COLUMNS: %TODO %PRIORITY(P) %70ITEM(Task) %TAGS %8Effort(Estimated Effort){:} %DEADLINE
+#+TAGS: h3d alyjak sow_1 sow_2 upkeep
+#+PROPERTY: Effort_ALL 0 1:00 2:00 4:00 8:00 16:00 24:00 40:00 80:00
+
+
+
+* TODO H3D SOW #1                                                 :h3d:sow_1:
+The tasks and services agreed upon by the parties listed within the Consulting Agreement are
+described herein. Work is divided into payment milestones, who's description and price is described
+within the [[milestones][following table]]. Payment is expected upon completion of each milestone. The total
+contract value, consisting of the sum of each milestone, is listed as the first line item of the
+table. After notification by the consultant, *A Lyjak Cybernetics Consulting LLC*, the Client's
+technical authority for the contract, *Jason Jaworski*, is responsible for affirming that all
+sub-tasks enumerated within a milestone are confirmed satisfactorily complete. Evaluation is
+expected within *10* business days of receiving notice of milestone completion. Payment is expected
+within *one month* of an affirmative evaluation. It is the consultant's responsibility to respond
+and incorporate feedback based on the technical authority's review before re-notifying the client of
+milestone completion.
+
+
+*Hourly Rate: $120/hr*
+
+#+NAME: milestones
+#+BEGIN: columnview :format "%ITEM(Task) %Effort(Effort){:} %Price(Price)" :hlines 2 :maxlevel 2
+#+CAPTION: Estimated effort (HH:MM) and price for the SOW (row 1) and each sub-milestone therof
+| Task                                       | Effort |    Price |
+|--------------------------------------------+--------+----------|
+| H3D SOW #1                                 | 207:00 | 24840.00 |
+|--------------------------------------------+--------+----------|
+| Detector QC Configuration and Verification |  27:00 |  3240.00 |
+|--------------------------------------------+--------+----------|
+| Extract Open Source Software from H3ID     |  88:00 | 10560.00 |
+|--------------------------------------------+--------+----------|
+| Capture Calibration Data and Store in H3ID |  68:00 |  8160.00 |
+|--------------------------------------------+--------+----------|
+| Golden Archive Rendered Template Override  |  16:00 |  1920.00 |
+|--------------------------------------------+--------+----------|
+| Update production server                   |   8:00 |   960.00 |
+#+TBLFM: $3=$2*120;tE
+#+END:
+#+TBLFM: $3=$2*120;tE
+
+
+** DONE Detector QC Configuration and Verification
+
+This task is focused on ensuring H3D is using the full capabilities of the detector burner and
+updater. The main focus is ensuring configuration file templates are produced correctly and the
+operator is aware and in-control of what is going on during an image burn/update.
+
+Completing this milestone entails designing, implementing, testing, and/or reviewing the following
+tasks:
+
+*** DONE Ensure all systems with model codes assigned are valid
+   :PROPERTIES:
+   :EFFORT:   24:00
+   :END:
+
+Because of how the first iteration of model codes worked, some units may have inadvertently received
+a default model code which does not match their actual specification. Clean this up by auditing all
+detector's codes against data on monday.com. Create a list of correct codes for all detectors, where
+the "correct" value may be unset if we have not defined a code yet for that detector family.
+
+Instead of auditing this way, add an interface which prevents default codes from being ingested
+during burn image/update.
+
+*** DONE Set RTC
+   :PROPERTIES:
+   :EFFORT:   2:00
+   :END:
+
+Sync RTC with time from h3id by logging onto the system and setting the clock.
+
+Log onto the system, run two shell commands to sync the time with h3id. Run:
+
+#+BEGIN_SRC bash
+date +%Y%m%d -s "20230103"
+date +%T -s "15:45:00"
+
+# And the following command to sync the RTC to the current system time:
+hwclock -w
+#+END_SRC
+
+*** DONE Verify customer ID is set correctly
+    :PROPERTIES:
+    :EFFORT:   1:00
+    :END:
+
+Customer id is already written to the templates (when customer id is defined), but we need to verify
+it's set correctly for IAEA detectors.
+
+** TODO Extract Open Source Software from H3ID
+
+This milestone is complete when the base software and configuration-as-code infrastructure has been
+extracted from H3ID into a separate project such that:
+
+- The base software can be open sourced without any risk to H3D in terms of liability or risk of
+  exposing proprietary secrets.
+- H3ID still works, using the newly extracted project as its base dependency.
+
+Completing this milestone entails designing, implementing, testing, and/or reviewing the following
+tasks:
+
+*** TODO Rename group to model
+     :PROPERTIES:
+     :EFFORT:   4:00
+     :END:
+
+Group is awkward pedagogically. I think the term 'model' better represents the function of that
+database object. Task involves search/replace variable names and documentation, and verifying the
+migration works correctly.
+
+*** TODO Rename unit to instance
+     :PROPERTIES:
+     :EFFORT:   4:00
+     :END:
+
+Unit is awkward pedagogically. I think the term 'instance' better represents the function of that
+database object. Task involves search/replace variable names and documentation, and verifying the
+migration works correctly.
+
+*** TODO Extract H3D-specific Capability modules
+    :PROPERTIES:
+    :EFFORT:   16:00
+    :END:
+
+Known H3D specific modules are, production, embedded, detector, customer, and console (all defined
+capabilities minus the root one). For marketing purposes I would like to fork/extract example
+capabilities based on production, embedded, and console.
+
+*** TODO End-to-End code review to Extract H3D-specific Variable names, defaults, and documentation.
+    :PROPERTIES:
+    :EFFORT:   16:00
+    :END:
+
+Review variable names, defaults, functions, and comments in each file to ensure H3D-specific data is
+removed from the open source core.
+
+*** TODO Respond to final Code Review
+    :PROPERTIES:
+    :EFFORT:   4:00
+    :END:
+
+Create a code review that is focused on demonstrating that proprietary and open source material have
+been successfully separated. Respond to all comments.
+
+*** TODO Rebrand de-proprietarized H3ID to buildonomy
+    :PROPERTIES:
+    :EFFORT:   8:00
+    :END:
+
+Tentative name: buildonomy
+
+- *build*: the act of constructing
+- *-onomy*: describing laws or methods
+
+Highlights the application as a place to structure the laws and methods used for building something
+together. The application becomes a place where product lifecycle management tasks are constructed,
+coordinated, and evolved.
+
+Relates to the ideas of taxonomy and economy. We are trying to classify all the subsystems of our
+build process as well as structure the push and pull of diverse values along the entire product
+lifecycle.
+
+*** TODO Demonstrate build/deploy of H3ID using buildonomy dependency
+    :PROPERTIES:
+    :EFFORT:   8:00
+    :END:
+
+For this update, the most difficult piece is likely to be hand-editing migrations.
+
+*** TODO Publish to Gitlab/pypi with Apache 2.0 License
+    :PROPERTIES:
+    :EFFORT:   4:00
+    :END:
+
+The Apache 2 license is permissive for other persons/companies forking the code and selling it as
+their own product without open source licenses. This is a pro and a con, as it lowers the friction
+of companies/businesses who are considering adopting it but don't want to be restricted in their
+final usage. It could also really hurt me though, if some big cahuna grabs it and markets it as
+their own thing. I think I'm ok with that risk.
+
+The other special-ish thing about the license is that it has a patent suit dead-mans switch. It says
+that users are granted patent rights to any patent claims made by any of the software's developers,
+but those rights are revoked to any organization that sues the software developers.
+
+https://en.wikipedia.org/wiki/Apache_License
+https://www.apache.org/licenses/LICENSE-2.0.html
+https://packaging.python.org/en/latest/tutorials/packaging-projects/
+
+*** TODO Train H3D on how to independently update and provision the service
+    :PROPERTIES:
+    :EFFORT:   24:00
+    :END:
+
+This is a combination of documentation and on-site training to:
+
+- Spin up a new instance from a fresh VM.
+- Restart the service after a reboot.
+- Update LDAP group permissions.
+- Perform a database migration.
+- Use the ~h3id_client~ command line utility to update the database according to a predefined
+  default dictionary.
+** TODO Capture Calibration Data and Store in H3ID
+*** TODO Create a dictionary schema in the production spec that determines merge arguments for calibration data
+:PROPERTIES:
+:EFFORT:   24:00
+:END:
+Certain keys should prioritize user settings (eg timezone), whereas other's should prioritize
+database values (because Brian's scripts push there directly). Having this type of schema should
+resolve that.  There may even be optional/required keys, this can be used to hold of detector update
+operations until calibration data is loaded.
+
+- [ ] Define the schema; mapping filenames to nested variables, to the schema arguments
+- [ ] Update client/defaults.json with the new calibration schema.
+- [ ] Create unit tests for each file type enabled in the schema
+- [ ] Allow keys specified in the schema to define valid value types and ranges.
+*** TODO Create Production JSON field to store an unstructured dictionary of key:value pairs
+:PROPERTIES:
+:EFFORT:   4:00
+:END:
+*** TODO Create an API endpoint to get,set,delete keys in the calibration data json field
+:PROPERTIES:
+:EFFORT:   4:00
+:END:
+Include unit tests
+*** TODO Create an API endpoint to start a detector update
+:PROPERTIES:
+:EFFORT:   8:00
+:END:
+Have it return the burn log id. Poll the burn log id to see the burn state. Include unit tests
+*** TODO Wrap the dictionary in a codemirror block for viewing and editing, similar to option schema
+:PROPERTIES:
+:EFFORT:   8:00
+:END:
+*** TODO Add a parse step in create_archive to get key:value pairs from SystemSettings.xml and Polaris_H3DBNL.ini
+:PROPERTIES:
+:EFFORT:   16:00
+:END:
+Parses a new archive and tries to push to the calibration field. Have a user-input prompt come up if:
+
+- [ ] there's irreconcilable differences between the two, or
+- [ ] the reconciled value does not match the valid range/type specified for that value.
+*** TODO Add a validator step when staging configs
+:PROPERTIES:
+:EFFORT:   4:00
+:END:
+
+such that has a user-input prompt come up if there are variables within the staged file that do not
+pass the variable-specific type and range arguments.
+** TODO Golden Archive Rendered Template Override
+:PROPERTIES:
+:EFFORT:   16:00
+:END:
+Add a field to burn logs that allows them to be flagged as a golden archive. If a golden archive is
+flagged for a particular detector, then do not render templates, instead populate the staging
+filesystem with the files within/linked to the archive. Then when synchronizing filesystems, this
+will enable the user to view differences between the detector's filesystem and the archive, rather
+than between the detector and the rendered templates. Only allow one golden archive per detector.
+** TODO Update production server
+:PROPERTIES:
+:EFFORT:   8:00
+:END:
+Run the update server procedure, ensuring to push new defaults (calibration key schema files), and
+create and save new migrations.
+

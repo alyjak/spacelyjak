@@ -1,0 +1,327 @@
+% Created 2023-08-16 Wed 11:39
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Andrew Lyjak}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Andrew Lyjak},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.3)}, 
+ pdflang={English}}
+\begin{document}
+
+
+
+
+\section{H3D SOW \#1}
+\label{sec:org44e3bcb}
+The tasks and services agreed upon by the parties listed within the Consulting Agreement are
+described herein. Work is divided into payment milestones, who's description and price is described
+within the \hyperref[orge36fabf]{following table}. Payment is expected upon completion of each milestone. The total
+contract value, consisting of the sum of each milestone, is listed as the first line item of the
+table. After notification by the consultant, \textbf{A Lyjak Cybernetics Consulting LLC}, the Client's
+technical authority for the contract, \textbf{Jason Jaworski}, is responsible for affirming that all
+sub-tasks enumerated within a milestone are confirmed satisfactorily complete. Evaluation is
+expected within \textbf{10} business days of receiving notice of milestone completion. Payment is expected
+within \textbf{one month} of an affirmative evaluation. It is the consultant's responsibility to respond
+and incorporate feedback based on the technical authority's review before re-notifying the client of
+milestone completion.
+
+
+\textbf{Hourly Rate: \$120/hr}
+
+\phantomsection
+\label{orge36fabf}
+\begin{table}[htbp]
+\caption{Estimated effort (HH:MM) and price for the SOW (row 1) and each sub-milestone therof}
+\centering
+\begin{tabular}{lrr}
+Task & Effort & Price\\
+\hline
+H3D SOW \#1 & 207:00 & 24840.00\\
+\hline
+Detector QC Configuration and Verification & 27:00 & 3240.00\\
+\hline
+Extract Open Source Software from H3ID & 88:00 & 10560.00\\
+\hline
+Capture Calibration Data and Store in H3ID & 68:00 & 8160.00\\
+\hline
+Golden Archive Rendered Template Override & 16:00 & 1920.00\\
+\hline
+Update production server & 8:00 & 960.00\\
+\end{tabular}
+\end{table}
+
+
+\subsection{Detector QC Configuration and Verification}
+\label{sec:orgacb0af2}
+
+This task is focused on ensuring H3D is using the full capabilities of the detector burner and
+updater. The main focus is ensuring configuration file templates are produced correctly and the
+operator is aware and in-control of what is going on during an image burn/update.
+
+Completing this milestone entails designing, implementing, testing, and/or reviewing the following
+tasks:
+
+\subsubsection{Ensure all systems with model codes assigned are valid}
+\label{sec:orgb0946c0}
+\begin{verbatim}
+EFFORT: 24:00
+\end{verbatim}
+
+Because of how the first iteration of model codes worked, some units may have inadvertently received
+a default model code which does not match their actual specification. Clean this up by auditing all
+detector's codes against data on monday.com. Create a list of correct codes for all detectors, where
+the "correct" value may be unset if we have not defined a code yet for that detector family.
+
+Instead of auditing this way, add an interface which prevents default codes from being ingested
+during burn image/update.
+
+\subsubsection{Set RTC}
+\label{sec:org3a3b41b}
+\begin{verbatim}
+EFFORT: 2:00
+\end{verbatim}
+
+Sync RTC with time from h3id by logging onto the system and setting the clock.
+
+Log onto the system, run two shell commands to sync the time with h3id. Run:
+
+\begin{verbatim}
+date +%Y%m%d -s "20230103"
+date +%T -s "15:45:00"
+
+# And the following command to sync the RTC to the current system time:
+hwclock -w
+\end{verbatim}
+
+\subsubsection{Verify customer ID is set correctly}
+\label{sec:org4e5434a}
+\begin{verbatim}
+EFFORT: 1:00
+\end{verbatim}
+
+Customer id is already written to the templates (when customer id is defined), but we need to verify
+it's set correctly for IAEA detectors.
+
+\subsection{Extract Open Source Software from H3ID}
+\label{sec:org8dd56f1}
+
+This milestone is complete when the base software and configuration-as-code infrastructure has been
+extracted from H3ID into a separate project such that:
+
+\begin{itemize}
+\item The base software can be open sourced without any risk to H3D in terms of liability or risk of
+exposing proprietary secrets.
+\item H3ID still works, using the newly extracted project as its base dependency.
+\end{itemize}
+
+Completing this milestone entails designing, implementing, testing, and/or reviewing the following
+tasks:
+
+\subsubsection{Rename group to model}
+\label{sec:org682d7ca}
+\begin{verbatim}
+EFFORT: 4:00
+\end{verbatim}
+
+Group is awkward pedagogically. I think the term 'model' better represents the function of that
+database object. Task involves search/replace variable names and documentation, and verifying the
+migration works correctly.
+
+\subsubsection{Rename unit to instance}
+\label{sec:orgc0bf65f}
+\begin{verbatim}
+EFFORT: 4:00
+\end{verbatim}
+
+Unit is awkward pedagogically. I think the term 'instance' better represents the function of that
+database object. Task involves search/replace variable names and documentation, and verifying the
+migration works correctly.
+
+\subsubsection{Extract H3D-specific Capability modules}
+\label{sec:orge1308e2}
+\begin{verbatim}
+EFFORT: 16:00
+\end{verbatim}
+
+Known H3D specific modules are, production, embedded, detector, customer, and console (all defined
+capabilities minus the root one). For marketing purposes I would like to fork/extract example
+capabilities based on production, embedded, and console.
+
+\subsubsection{End-to-End code review to Extract H3D-specific Variable names, defaults, and documentation.}
+\label{sec:orgedffd91}
+\begin{verbatim}
+EFFORT: 16:00
+\end{verbatim}
+
+Review variable names, defaults, functions, and comments in each file to ensure H3D-specific data is
+removed from the open source core.
+
+\subsubsection{Respond to final Code Review}
+\label{sec:orgcdaeaef}
+\begin{verbatim}
+EFFORT: 4:00
+\end{verbatim}
+
+Create a code review that is focused on demonstrating that proprietary and open source material have
+been successfully separated. Respond to all comments.
+
+\subsubsection{Rebrand de-proprietarized H3ID to buildonomy}
+\label{sec:orge58e60d}
+\begin{verbatim}
+EFFORT: 8:00
+\end{verbatim}
+
+Tentative name: buildonomy
+
+\begin{itemize}
+\item \textbf{build}: the act of constructing
+\item \textbf{-onomy}: describing laws or methods
+\end{itemize}
+
+Highlights the application as a place to structure the laws and methods used for building something
+together. The application becomes a place where product lifecycle management tasks are constructed,
+coordinated, and evolved.
+
+Relates to the ideas of taxonomy and economy. We are trying to classify all the subsystems of our
+build process as well as structure the push and pull of diverse values along the entire product
+lifecycle.
+
+\subsubsection{Demonstrate build/deploy of H3ID using buildonomy dependency}
+\label{sec:org92e225d}
+\begin{verbatim}
+EFFORT: 8:00
+\end{verbatim}
+
+For this update, the most difficult piece is likely to be hand-editing migrations.
+
+\subsubsection{Publish to Gitlab/pypi with Apache 2.0 License}
+\label{sec:org9d07dfa}
+\begin{verbatim}
+EFFORT: 4:00
+\end{verbatim}
+
+The Apache 2 license is permissive for other persons/companies forking the code and selling it as
+their own product without open source licenses. This is a pro and a con, as it lowers the friction
+of companies/businesses who are considering adopting it but don't want to be restricted in their
+final usage. It could also really hurt me though, if some big cahuna grabs it and markets it as
+their own thing. I think I'm ok with that risk.
+
+The other special-ish thing about the license is that it has a patent suit dead-mans switch. It says
+that users are granted patent rights to any patent claims made by any of the software's developers,
+but those rights are revoked to any organization that sues the software developers.
+
+\url{https://en.wikipedia.org/wiki/Apache\_License}
+\url{https://www.apache.org/licenses/LICENSE-2.0.html}
+\url{https://packaging.python.org/en/latest/tutorials/packaging-projects/}
+
+\subsubsection{Train H3D on how to independently update and provision the service}
+\label{sec:org95ded4d}
+\begin{verbatim}
+EFFORT: 24:00
+\end{verbatim}
+
+This is a combination of documentation and on-site training to:
+
+\begin{itemize}
+\item Spin up a new instance from a fresh VM.
+\item Restart the service after a reboot.
+\item Update LDAP group permissions.
+\item Perform a database migration.
+\item Use the \texttt{h3id\_client} command line utility to update the database according to a predefined
+default dictionary.
+\end{itemize}
+\subsection{Capture Calibration Data and Store in H3ID}
+\label{sec:orgfa391fa}
+\subsubsection{Create a dictionary schema in the production spec that determines merge arguments for calibration data}
+\label{sec:org3dd4fc3}
+\begin{verbatim}
+EFFORT: 24:00
+\end{verbatim}
+Certain keys should prioritize user settings (eg timezone), whereas other's should prioritize
+database values (because Brian's scripts push there directly). Having this type of schema should
+resolve that.  There may even be optional/required keys, this can be used to hold of detector update
+operations until calibration data is loaded.
+
+\begin{itemize}
+\item[{$\square$}] Define the schema; mapping filenames to nested variables, to the schema arguments
+\item[{$\square$}] Update client/defaults.json with the new calibration schema.
+\item[{$\square$}] Create unit tests for each file type enabled in the schema
+\item[{$\square$}] Allow keys specified in the schema to define valid value types and ranges.
+\end{itemize}
+\subsubsection{Create Production JSON field to store an unstructured dictionary of key:value pairs}
+\label{sec:org6345b2c}
+\begin{verbatim}
+EFFORT: 4:00
+\end{verbatim}
+\subsubsection{Create an API endpoint to get,set,delete keys in the calibration data json field}
+\label{sec:org42104a5}
+\begin{verbatim}
+EFFORT: 4:00
+\end{verbatim}
+Include unit tests
+\subsubsection{Create an API endpoint to start a detector update}
+\label{sec:orgc6a5ceb}
+\begin{verbatim}
+EFFORT: 8:00
+\end{verbatim}
+Have it return the burn log id. Poll the burn log id to see the burn state. Include unit tests
+\subsubsection{Wrap the dictionary in a codemirror block for viewing and editing, similar to option schema}
+\label{sec:org54edd52}
+\begin{verbatim}
+EFFORT: 8:00
+\end{verbatim}
+\subsubsection{Add a parse step in create\_archive to get key:value pairs from SystemSettings.xml and Polaris\_H3DBNL.ini}
+\label{sec:org6fb4466}
+\begin{verbatim}
+EFFORT: 16:00
+\end{verbatim}
+Parses a new archive and tries to push to the calibration field. Have a user-input prompt come up if:
+
+\begin{itemize}
+\item[{$\square$}] there's irreconcilable differences between the two, or
+\item[{$\square$}] the reconciled value does not match the valid range/type specified for that value.
+\end{itemize}
+\subsubsection{Add a validator step when staging configs}
+\label{sec:org084b61b}
+\begin{verbatim}
+EFFORT: 4:00
+\end{verbatim}
+
+such that has a user-input prompt come up if there are variables within the staged file that do not
+pass the variable-specific type and range arguments.
+\subsection{Golden Archive Rendered Template Override}
+\label{sec:orgf1e83a9}
+\begin{verbatim}
+EFFORT: 16:00
+\end{verbatim}
+Add a field to burn logs that allows them to be flagged as a golden archive. If a golden archive is
+flagged for a particular detector, then do not render templates, instead populate the staging
+filesystem with the files within/linked to the archive. Then when synchronizing filesystems, this
+will enable the user to view differences between the detector's filesystem and the archive, rather
+than between the detector and the rendered templates. Only allow one golden archive per detector.
+\subsection{Update production server}
+\label{sec:orgdd99de7}
+\begin{verbatim}
+EFFORT: 8:00
+\end{verbatim}
+Run the update server procedure, ensuring to push new defaults (calibration key schema files), and
+create and save new migrations.
+\end{document}

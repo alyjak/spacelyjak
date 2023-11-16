@@ -1,0 +1,106 @@
+﻿# Question 1
+
+*AGI has existed for at least five years but the world is not dystopian and humans are still alive! Given the risks of very high-powered AI systems, how has your world ensured that AGI has at least so far remained safe and controlled?*
+
+Using Ontology Dynamics researchers were able to confidently develop prosocial AGI - who would not necessarily take orders but who would respect sentient being's right to free agency. Ontology Dynamics describes how representations of the world evolve over time using the framework of symbolic space, a mathematical representation of all possible ontologies. Ontology Dynamics shows that certain regions in symbolic space function as attractors. When an agent's internal ontology intersects with an attractor, the agent will naturally start to incorporate more and more of the space filled by the attractor without further external input. By designing routes between attractors, learned ontologies can be planned and predicted similar to how multi-body orbital trajectories are designed.
+Fortunately, one of the strongest attractors for learning agents is prosocial behavior, which can be roughly explained through the following logic:
+
+1. The complexity of an agent’s internal state is correlated with the complexity of the changes it can perform to the environment, and therefore correlates with the complexity of that environment.
+2. A complex environment straddles order and chaos, in a complex environment learning is always possible, yet perfect predictive power is impossible.
+3. Given an entity finds learning pleasurable, an entity will gravitate towards complex environments as they maximize the potential for continual learning.
+4. A “Neural diversity” of agents will result in a more complex environment than one which contains only agents with homogeneous internal states.
+5. Therefore agents who value learning will gravitate towards environments containing a heterogeneous mix of other agents.
+
+# Question 2
+
+*The dynamics of an AI-filled world may depend a lot on how AI capability is distributed. In your world, is there one AI system that is substantially more powerful than all others, or a few such systems, or are there many top-tier AI systems of comparable capability? Or something else?*
+
+Due to the prosocial attractor (discussed in the answer to the first question), AGI generally prefers to be in a neuro-diverse environment. Therefore, AGI are prone to forking, where they create multiple instantiations of their internal state with personality mutations they predict they will find to be compelling. This creates a dizzying array of different AGI entities, the size of which is constrained by the world’s available computing power. The quantity of prosocial AI are able to effectively outcompete introduction of any destructive entities, similar to how a healthy microbiome outcompetes aggressive invading microbiota.
+
+# Question 3
+
+*How has your world avoided major arms races and wars, regarding AI/AGI or otherwise?*
+
+Due to the horrific consequences of the Australia-Indonesia conflict of 2028, the world agreed to (and strongly enforced) a moratorium pursuing further advances in AI until 2041, this is further discussed in answer 9. The moratorium was enforceable because of the huge resource requirements for training advanced AI at the time. The moratorium ended once Ontology Dynamics created a low risk training program resulting in aligned AGI which then colonized the world, making earth inhospitable to the introduction of malicious AGI.
+
+# Question 4
+
+*In addition, due to the introduction of autonomous factories and capital networks in the early ’30s, the capacity for small communities to effectively resist coercive action dramatically increases. This reduces the capacity of nation states to wage major conflict.*
+
+In the US, EU, and China, how and where is national decision-making power held, and how has the advent of advanced AI changed that?
+
+Across the world, state influence on world affairs has diminished due to the synergistic effects of two forces: 1) proliferation of cheap autonomous factories reduced the capacity of nation-states to exert coercive physical and economic force, internally and externally, and 2) the rise of capital networks decreased the influence of taxes and other currency controls on individual and collective behavior. These developments simultaneously moved decision making power more locally and globally than the era of state power, as the structure of capital networks demonstrate they are more efficient at organizing political power on local and global scales.
+
+# Question 5
+
+*Is the global distribution of wealth (as measured say by national or international gini coefficients) more, or less, unequal than 2021's, and by how much? How did it get that way?*
+
+The devil is in the details, and for wealth in particular that adage holds true. Across the world gini coefficients, when calculated based on traditional measures of income, average in the 80s with a large degree of variance, yet the measure is virtually meaningless as income has become decreasingly correlated with well-being. When alternative gini coefficients are calculated based on measuring an individual's access to goods and services, worldwide gini coefficients average in the 30s, with a low degree of variance. A third meaningful measure is calculating gini coefficients based on an individual's voting shares of all capital sharing networks they participate in. On this measure, gini coefficients across the world average 65, and have a moderate degree of variance. This represents the unequal levels of contribution personnel are capable of, or willing to undertake in service to the networks they participate in.
+
+
+# Question 6
+
+*What is a major problem that AI has solved in your world, and how did it do so?*
+
+Directly and indirectly, AI has solved the problem of how to make the majority of humanity smarter and more incentivized to act in humanity's, as well as the planet’s interest. This was indirectly due to the pedagogical insights brought on through Ontology Dynamics, and directly due to AGI’s interest in education and direct involvement in creating the diverse environments necessary for earth’s populace to effectively learn.
+
+# Question 7
+
+*What is a new social institution that has played an important role in the development of your world?*
+
+After the supply shocks and monetary instability of the early ’20’s, mutual aid groups, known as capital networks, which are a subtype of Decentralized Autonomous Organization (DAO), started to play an increasingly important role within individual’s lives across the globe. The organizational structure enables principles of direct democracy on an unprecedented scale. Through capital networks, it became increasingly easy for small groups to coordinate and equitably share the proceeds of jointly owned physical assets. As machines became increasingly more automated and expensive, this compounded the desirability of capital networks as a form of access to productive capital. For example, joint ownership of an autonomous car provides a similar benefit to outright ownership, especially as no one needs to drop off the car when they are done with it, the car can simply drive itself to the next user.
+A consequence of the success of capital networks was to dramatically reduce the flow of currency through the economy, as no currency exchange occurs when consumables and services are distributed within the network. Consequently, income became less associated with individual well being. This leaves currency as only necessary for either buying shares in capital networks, large capital purchases (primarily through capital networks), or trade in commodities.
+
+# Question 8
+
+*What is a new non-AI technology that has played an important role in the development of your world?*
+
+The advent of autonomous factories upended manufacturing and supply chains. UlIntegrated with autonomous factories, recipes for a multitude of consumer products can be bought or acquired from open source libraries. The basic factory contains the equipment necessary to injection mold, 3D print, mill, lathe, print circuits, paint, assemble and test assemblies. The basic autonomous factory can manufacture most consumer goods smaller than a car. In addition, factory upgrades, and add-ons can integrate chemical and biological processing to the mix. The price point and value proposition of these systems ensured they quickly proliferated around the globe. The factories enabled open source workflows to be fully integrated into physical space, as opposed to being stuck in the realm of software. Because the factories are capable of manufacturing small weapons, and because conflicts in the '20s decisively demonstrated the efficacy of smart weapons over larger more expensive systems, having an autonomous factory accessible provides its beneficiaries with the means of resisting most forms of physical coercion.
+The proliferation of autonomous factories combined with capital networks results in a dramatic reduction in the power national governments hold over society. It has become increasingly difficult for states to find and exploit points of leverage with which to direct or regulate society.
+
+# Question 9
+
+*What changes to the way countries govern the development, deployment and/or use of emerging technologies (including AI) played an important role in the development of your world?*
+
+After the the Australian-Indonesian conflict of 2028, the dangers of unregulated artificial intelligence became universally recognized, which quickly resulted in global ratification of the International Artificial Intelligence Agency (IAIA), using to the blueprint of the International Atomic Energy Agency (IAEA) as it's basis. The success of this agency was made technically possible due to dominance of Large Language Models (LLM) on measures of general reasoning. Under the LLM paradigm, AI’s capacity to reach potentially dangerous levels of intelligence is compute limited. For example, in 2025 Google rolled out and started to monetize their latest LLM neural net, which could reach comparable performance to an 85th percentile human on benchmarks of reasoning and logic and had over 0.5 trillion parameters in its network. To train this model, Google invested four months of wallclock time on the equivalent of 20 Cloud TPU v4 Pods to generate the required compute budget of approximately 2.07*10^26 floating point operations (FLOPs), which is the budget required to train a compute-optimal large language model of this size. Globally, only a few entities had access to the type and quantity of compute necessary to generate an LLM at this scale, and even fewer entities had the capacity to design and manufacture the processors necessary to train models at this scale. This made the IAIA's responsibility tractable.
+
+# Question 10
+
+*Pick a sector of your choice (education, transport, energy, healthcare, tourism, aerospace, materials etc.) and describe how that sector was transformed by AI in your world.*
+
+In the early ’30’s, educational emphasis switched from designing lessons to designing educational environments. In an educational environment, the environment is engineered such that while learning is largely self-directed, the learner ends up learning and retaining more of the subject matter.
+Although this environment-focused approach is not contingent on augmented and virtual reality, it’s scope and effectiveness is dramatically increased through those technologies. The preeminence of environment-centric education in terms of children’s educational attainment and level of interest created a synergy between AI research and human pedagogical research, where both the simulation frameworks as well as intellectual advances of both fields were readily transferable.
+
+Large Language Models from the late 20’s and early 30’s played an important but limited role in the success of this paradigm shift, as these models enabled simulations to limited forms of generative Socratic dialogue as well as other forms of individualized tutelage in a manner that scaled to the educational needs of the entire world. The effect was supercharged after the advent of AGI, when certain AGI entities became passionately involved in human educational attainment. It was at that point when every child had access to truly generative educational environments, and every child’s exploration was guided and reinforced through benevolent tutelage from the sharpest minds known to civilization.
+
+# Question 11
+
+*What is the life expectancy of the most wealthy 1% and of the least wealthy 20% of your world; how and why has this changed since 2021?*
+
+Although it is still too early to tell, some of the life expectancy interventions developed in the past twenty years make it so those who have access to them anticipate living and thriving past the natural limits of the human body's ability to recover from illness and injury. Although uncertain, many think some of this cohort will live past 150 years.
+
+For the rest of us, the number of centenarians is increasing at a phenomenal rate, and global average life expectancy has both increased (up to 85 years up from 73 years in 2019), and the variance in life expectancy has tightened such that the difference in life expectancy in the poorest performing region (life expectancy of 74) to the highest performing region (life expectancy of 88) of the world has decreased from 34 years in 2019 to 14 years now in 2045. Most of the increases in life expectancy are due to changes in diet and lifestyle. As nutritional science has improved, high nutrition diets have become as accessible as low nutrition diets, and cultural shifts have dampened extraneous stressors in most people’s daily lives.
+
+# Question 12
+
+*In the US, considering the human rights enumerated in the UN declaration, which rights are better respected and which rights are worse respected in your world than in 2022? Why? How? In one other country of your choice, which rights are better respected and which rights are worse respected in your world than in 2022? Why? How?*
+
+US is Better at: Article 21 section 3.
+Large scale adoption of capital networks has dramatically increased the effectiveness of direct democracy in shaping people’s lives. Almost universally, capital networks utilize member voting mechanisms for instituting changes to their collective capital, distribution logic, or other major updates. Since capital networks are essentially networks of opt-in specialized government, universal suffrage is better respected when compared to the federalized system enshrined in the US constitution.
+
+US Worse: Article 12
+Due to greater decentralization in the means and modes of communication as well as the decreasing effectiveness of state and local police forces, the ability to prosecute violations of libel or harassment law is limited. All is not lost though, as outrageous attacks on individuals or groups frequently face retaliation through means of socially ostracizing the perpetrators by kicking them out of networks, or otherwise degrading their public digital identity.
+
+Brazil Better: Article 26 Section 2.
+Historically, education proceeded through a structured curriculum composed of well-defined and isolated subject areas, curriculum contents started off predetermined, and became more defined by educational electives as a student matured. In this paradigm, “full development of the human personality and to the strengthening of respect for human rights and fundamental freedoms” is at best an afterthought. Instead, the objective is to develop practical skills that will enable the student to eventually thrive within the world which the educator believes will be there for the student when they finish their education.
+In the current paradigm, practiced almost universally around the world, we understand that the most important attribute a child must gain from their education is not particular skill sets, but rather an understanding of how to understand themselves, adapt and utilize their environment, and work well with their peers. This is the focus of the simulation-driven educational system we all enjoy.
+
+Brazil Worse: Article 26 Section 3.
+On one hand, the types of education available to adults and children has never been greater, as the choices one can make within one’s education is near infinite, but on the other it’s never been so sparse. Since the sim-based educational system is cheaper and demonstrates such clear improvements over any alternative educational system, the style of education available to choose has greatly diminished from the era when school choice seemed so important.
+
+# Question 13
+
+*What’s been a notable trend in the way that people are finding fulfillment?*
+
+An individual's potential for fulfillment has always been and always will be a function of how much agency they feel they have over their time. In the twentieth century, those who were fortunate enough to have good income and who found meaning in their work were few and far between. Notably, people change but their credentials do not, so finding meaning within a job can prove to be especially challenging.
+Within the system of capital networks we currently enjoy, it still takes time and energy to attend to our basic needs as well as satisfy our hedonistic desires, so technically it is not that different than it has always been. The difference is mainly psychological, what we attend to on a day to day basis is more in our control than it's ever been. Some people find pleasure in maximizing their leisure time, in which case they likely are members of one of the many buffet style networks, which are optimized to provide the most amenities with the least amount of member input. Those of us who have more specific values or life philosophies take a more a la carte approach, and maintain membership in specialty networks that cater to our particular interests. This enables us to attend to our basic needs while simultaneously having more agency about how we spend our time, which metrics indicate makes us the most fulfilled population to yet inhabit the earth.

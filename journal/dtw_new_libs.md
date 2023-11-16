@@ -1,3 +1,69 @@
+## 2023-10-09
+
+Attendance:
+
+- Me
+- Shane: In Royal Oak, Oakland, from Macomb originally.
+- Tommy
+
+
+- Tommy was at the YIMBY MI meetup. Synopsis: https://handbuiltcity.org/2023/10/09/better-cities-film-festival-and-yimby-in-detroit/
+- YIMBY Oakland has a Listening Session, Nov 19 in Farmington Hills
+- Intros:
+
+  - Shane Malley, 30, in Macomb in Chesterfield Twship. Couple months before COVID moved to Royal
+    Oak. Was at ford, now at a defense contractor. Interested in getting into local politics where we
+    can actually make a difference. Also interested in volunteering, looking for
+    opportunities. Interested in New Liberal type national politics, moving that to the local
+    level. Getting involved in the metro Detroit Kilwanis. Now is the service
+    director. https://www.metrodetroitypkiwanis.org/
+  - Tommy: In Rochester Hills, Works at Detroit Transit TRU. Wants our cities to be more
+    efficient. Co-founder of Oakland YIMBY because of this value.
+  - Me: a2 -> LA -> Indy -> Plymouth. 37 yo full time dad self employed. Interested in making local
+    politics right.
+
+- I talk about high speed rail alliance
+- Tommy gives a white flight history of Oakland County. Giving an overview of what Oakland YIMBY is
+  looking to overcome.
+- LVT might be dead because one of the senators didn't show up.
+
+Message Log:
+
+- https://open.spotify.com/episode/6agcLfMQaqN15ZrFcGew7O?si=8a29b45c1da643aa
+- https://www.hsrail.org/
+- http://www.marp.org/?p=7844
+- https://www.hsrail.org/michigan-statewide-rail-plan/
+
+  Tommy didn't know about this group
+
+- https://www.detroitnews.com/story/news/local/detroit-city/2023/10/09/mayor-duggan-split-tax-idea-faces-opposition-among-some-detroit-city-council-members/71118011007/
+- I mentioned the block club: this is something that We could connect to if we want to influence
+  Detroit politics: https://detroitmi.gov/departments/department-neighborhoods/block-club-program
+- Tommy talks about the importance of commending politicians and constituents before raising a
+  concern. They are so used to constant beratement that it makes a real difference.
+- I sent these links: https://psychoftech.substack.com/p/which-social-media-platforms-foster
+  https://psychoftech.substack.com/p/what-do-negative-experiences-look
+- Ping Matt on the Discord if I need help getting an in-person meet up scheduled in Wayne County
+- Start advocacy for county wide SMART in Wayne County. That way we get transit in Plymouth!
+
+## 2023-08-14
+
+Looks like it's me and Tommy, we'll try and be quick
+
+Tommy: talking about Detroit YIMBY: YIMBY Action, on September 13th there's a happy hour in Royal
+Oak at Jolly Pumpkin. Have to join the org in order to get the info maybe?
+
+Tommy, Sarah, and Charley (the county commissioner) are leading it. Having a meeting to decide what
+they're going to get out of it.
+
+## 2023-04-10
+
+Attendance: John Kruse and David Rossie
+
+Talked about Committee letter writing campaign. See reMarkable notes
+
+
+
 ## 2023-03-13
 
 Dane DuFour and David Rossie attend.

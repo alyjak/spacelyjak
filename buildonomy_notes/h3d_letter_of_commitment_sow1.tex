@@ -1,0 +1,179 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Awesome Cover Letter
+% XeLaTeX Template
+% Version 1.1 (9/1/2016)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original authors:
+% Claud D. Park (posquit0.bj@gmail.com)
+% Lars Richter (mail@ayeks.de)
+% With modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template must be compiled with XeLaTeX, the below lines will ensure this
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[8pt, letterpaper]{awesome-cv} % A4 paper size by default, use 'letterpaper' for US letter
+
+\geometry{left=1.5cm, top=1.5cm, right=1.5cm, bottom=2cm, footskip=.5cm} % Configure page margins with geometry
+
+\fontdir[fonts/] % Specify the location of the included fonts
+
+% Color for highlights
+\definecolor{awesome-blue}{HTML}{00274c} % michigan blue
+\colorlet{awesome}{awesome-skyblue} % Default colors include: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange, awesome-nephritis, awesome-concrete, awesome-darknight
+%\definecolor{awesome}{HTML}{CA63A8} % Uncomment if you would like to specify your own color
+
+% Colors for text - uncomment and modify
+%\definecolor{darktext}{HTML}{414141}
+%\definecolor{text}{HTML}{414141}
+%\definecolor{graytext}{HTML}{414141}
+%\definecolor{lighttext}{HTML}{414141}
+
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad} % If you would like to change the social information separator from a pipe (|) to something else
+
+%----------------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%----------------------------------------------------------------------------------------
+
+\name{A Lyjak Cybernetics Consulting LLC}{}
+\address{46800 Bettyhill, Plymouth MI, 48170} % Your address
+\mobile{(+1) (734)604-6163}
+%% \homepage{spacelyjak.rtfd.io}
+%% \github{alyjak}
+%% \linkedin{andrew-lyjak}
+%% %\skype{skypeid}
+%% %\stackoverflow{SOid}{SOname}
+%% \twitter{@spacelyjak}
+%% %\linkedin{linkedin name}
+%% %\reddit{reddit account}
+%% %\xing{xing name}
+\email{andrew.lyjak@gmail.com}
+%\extrainfo{test} % Other text you want to include on this line
+
+%% \position{Software Development and Verification{\enskip\cdotp\enskip}Systems Engineer} % Your expertise/fields
+%% \quote{``This is the real secret of life -- to be completely engaged
+%%   with what you are doing in the here and now. And instead of calling
+%%   it work, realize it is play.''} % Alan Watts
+
+\makecvfooter{}{A Lyjak Cybernetics Consulting LLC}{} % Specify the letter footer with 3 arguments: (<left>, <center>, <right>), leave any of these blank if they are not needed
+
+%----------------------------------------------------------------------------------------
+%	RECIPIENT/POSITION/LETTER INFORMATION
+%	All of the below lines must be filled out
+%----------------------------------------------------------------------------------------
+
+\recipient{}{H3D, Inc\\https://h3dgamma.com}
+
+\letterdate{\today} % The date on the letter, default is the date of compilation
+
+\lettertitle{Letter of Commitment} % The title of the letter
+
+\letteropening{Dear H3D Inc,} % How the letter is opened
+
+\letterclosing{Sincerely,} % How the letter is closed
+
+%\letterenclosure[Attached]{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\makecvheader % Print the header
+
+\makelettertitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	LETTER CONTENT
+%----------------------------------------------------------------------------------------
+
+\begin{cvletter}
+  A Lyjak Cybernetics Consulting LLC's (ALCC) is commited to supporting H3D,
+  Inc.\ through execution of the tasks outlined in Appendix A of the consulting agreement initially
+  signed by myself on 3/27/2023 and by Michael Streicher on 4/6/2023. The agreement was amended and
+  re-signed by myself on 8/16/2023 and by Michael Streicher on 8/29/2023. It is our joint
+  understanding that execution of this contract will benefit the efficiency and quality of H3D's
+  production and product development capacities. This contract is a fixed price contract. The price
+  of each task is calculated based on the task's work-hour estimate multiplied by ALCC's standard
+  hourly rate of \letternamestyle{\$120/hr} It is my understanding that H3D depends on A Lyjak
+  Cybernetics Consulting LLC fully and faithfully executing the statement of work as part of the
+  general work and cost associated with H3D's development effort entitled ``High Signal-to-Noise
+  Pixelated CZT Directional Spectrometer for Generalized Holdup Measurements''. All costs associated
+  with this contract are labor costs. We confirm that the rates used on for this contract are
+  consistent with ALCC's standard prices. There are no parts, equipment, or materials billed under
+  the contract. All tasks are to be billed in the second budget year. The following is a summary of
+  the contracted tasks and their prices:
+
+  \begin{description}
+    \item[Detector QC Configuration and Verification] This task is focused on ensuring H3D is using
+      the full capabilities of the detector burner and updater. The main focus is ensuring
+      configuration file templates are produced correctly and the operator is aware and in-control
+      of what is going on during an image burn/update. \letternamestyle{Effort: 27 work-hours,
+      Price: \$3,240.00}
+
+    \item[Extract Open Source Software from H3ID] Extract base software and configuration-as-code
+      infrastructure from H3ID, H3D's in-house product lifecycle management (PLM) application suite,
+      into a separate open source project. We predict this task to increase the reliability, and
+      lower the per-user cost for the PLM application by increasing the available pool of users and
+      developers using the product. \letternamestyle{Effort: 88 work-hours, Price: \$10,560.00}
+
+    \item[Capture Calibration Data and Store in H3ID] Define and implement a schema and associated
+      API functionality that delineates calibration data from other system configuration
+      information. This functionality will enable product lifecycle-aware application and extraction
+      of calibration data to and from system configuration files. \letternamestyle{Effort: 68
+        work-hours, Price: \$8,160.00}
+
+    \item[Golden Archive Rendered Template Override] This milestone is complete Add a field to burn
+      logs that allows them to be flagged as a golden archive. If a golden archive is flagged for a
+      particular detector, then do not render templates, instead populate the staging filesystem
+      with the files within/linked to the archive. Then when synchronizing filesystems, this will
+      enable the user to view differences between the detector's filesystem and the archive, rather
+      than between the detector and the rendered templates. Only allow one golden archive per
+      detector. \letternamestyle{Effort: 16 work-hours, Price: \$1920.00}
+
+
+    \item[Update Production Server] Run the update server procedure, ensuring to push new defaults
+      (calibration key schema files), and create and save new migrations. \letternamestyle{Effort: 8
+      work-hours, Price: \$960.00}
+
+    \item[Total Contract Value] \letternamestyle{Effort: 207 work-hours, Price: \$24,840.00}
+
+  \end{description}
+
+  In conclusion, A Lyjak Cybernetics Consulting LLC is fully committed to fully and faithfully
+  executing this contract. \\
+
+\end{cvletter}
+\lettertextstyle{Sincerely,} \\\\\\\\\\
+\letternamestyle{Andrew\ Lyjak} \\
+\lettertextstyle{owner}
+% \newpage
+%\makecvheader % Print the header
+
+%----------------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%----------------------------------------------------------------------------------------
+
+% \makecvheader % Print the header
+
+%% \input{cv-sections/education.tex}
+%% \input{cv-sections/skills.tex}
+%% \input{cv-sections/experience.tex}
+%% \input{cv-sections/extracurricular.tex}
+
+\end{document}
