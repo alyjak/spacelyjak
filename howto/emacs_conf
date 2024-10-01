@@ -1,7 +1,8 @@
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+;;; package --- Andrew Lyjak's Emacs configuration
+;;; Commentary:
+;;; An Emacs config that's been evolving over a decade
+
+;;; Code:
 ;; from http://melpa.org/#/getting-started
 (require 'package) ;; You might already have this line
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
@@ -11,7 +12,6 @@
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 (package-initialize) ;; You might already have this line
 
 (custom-set-variables
@@ -34,11 +34,19 @@
  '(inhibit-startup-buffer-menu t)
  '(inhibit-startup-echo-area-message "alyjak")
  '(inhibit-startup-screen t)
+ '(lsp-diagnostics-provider :flycheck)
+ '(lsp-rust-all-features t)
+ '(lsp-rust-analyzer-cargo-extra-args [])
+ '(lsp-rust-analyzer-exclude-globs ["target/" "dist/" "gen/" "public/" "style/" "core/"])
+ '(lsp-rust-analyzer-rustfmt-override-command ["leptosfmt" "--stdin" "--rustfmt"])
  '(lsp-rust-server 'rust-analyzer)
- '(org-agenda-files '(("/home/alyjak/code/animistic-agency/roadmap.org")
-                      ("/home/alyjak/code/spacelyjak/roadmap.org")))
+ '(lsp-semantic-tokens-enable t)
+ '(lsp-ui-sideline-show-hover t)
+ '(lsp-ui-sideline-update-mode 'point)
+ '(org-agenda-files
+   '("/home/alyjak/code/animistic-agency/roadmap.org" "/home/alyjak/code/animistic-agency/40_design/phase_one_roadmap.org" "/home/alyjak/code/spacelyjak/roadmap.org"))
  '(package-selected-packages
-   '(writeroom-mode python-mode sphinx-doc python-docstring magit ansible yaml-mode dockerfile-mode bitbake chronos sass-mode dap-mode company toml-mode org vue-html-mode vue-mode flycheck-pest pest-mode dash fullframe which-key yasnippet lsp-ui lsp-mode use-package flycheck-inline cargo rust-mode flycheck ess markdown-mode material-theme ##))
+   '(rustic flycheck-rust company counsel org org-roam org-roam-bibtex org-roam-timestamps org-roam-ui emacsql-sqlite-module typescript-mode writeroom-mode python-mode sphinx-doc python-docstring magit ansible yaml-mode dockerfile-mode bitbake chronos sass-mode dap-mode toml-mode vue-html-mode vue-mode flycheck-pest pest-mode dash fullframe which-key yasnippet lsp-ui lsp-mode use-package flycheck-inline cargo rust-mode flycheck ess markdown-mode material-theme ##))
  '(rst-preferred-adornments
    '((35 over-and-under 0)
      (42 over-and-under 0)
@@ -49,11 +57,13 @@
      (126 simple 0)
      (96 simple 0)))
  '(rst-toc-indent 3)
+ '(rust-format-on-save t)
+ '(rust-rustfmt-bin "leptosfmt")
+ '(rust-rustfmt-switches '("--stdin" "--rustfmt"))
  '(safe-local-variable-values
    '((flycheck-python-pylint-executable . "/home/alyjak/code/h3id/ansible_env/bin/python3")
      (flycheck-python-flake8-executable . "/home/alyjak/code/h3id/ansible_env/bin/python3")))
  '(scroll-bar-mode nil)
- '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
@@ -81,8 +91,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Iosevka Term" :slant normal :weight normal :height 90 :width normal :foundry "BE5N")))))
+ '(default ((t (:family "Iosevka Term" :slant normal :weight medium :height 110 :width normal :foundry "BE5N"))))
+ '(fixed-pitch ((t (:family "Iosevka"))))
+ '(lsp-ui-sideline-symbol-info ((t (:slant italic :height 0.7)))))
 
+(use-package windmove
+  :ensure t
+  :config
+  (windmove-default-keybindings '(control shift))
+  (setq windmove-wrap-around t))
+
+(require 'use-package)
+(use-package org
+  :pin gnu)
+(use-package find-lisp)
 ;; rust notes
 ;; https://emacs-lsp.github.io/lsp-mode/page/lsp-rust/
 ;; set up rust-analyzer
@@ -90,16 +112,14 @@
 ;; rust install:
 ;; https://www.rust-lang.org/tools/install
 ;; (update path to include ~/.cargo/bin)
-(use-package lsp)
+(use-package counsel)
+(ivy-mode 1)
 (use-package yasnippet
   :ensure t
   )
 
 (setenv "LC_ALL" "en_US.UTF-8")
 (setenv "LC_CTYPE" "en_US.UTF-8")
-
-;; Use js2-mode for js editing
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ; Map txt files to rst mode
 (setq auto-mode-alist
@@ -125,7 +145,6 @@
 ;; make trailing whitespace display in an annoying manner
 (setq-default show-trailing-whitespace t)
 
-;; Mode for editing Temporal Logic of Actions files
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 (require 'fullframe)
@@ -134,7 +153,6 @@
   :defer t
   :init
   (progn
-    (toggle-debug-on-error)
     (fullframe magit-status magit-mode-quit-window)
     (fullframe list-packages quit-window)
     )
@@ -144,28 +162,43 @@
   :ensure t
   :init (global-flycheck-mode))
 
-(setq lsp-enable-file-watchers nil)
+(use-package rustic)
+;; (use-package rust-mode
+;;   :init
+;;   (setq rust-format-on-save t)
+;;   (setq rust-mode-treesitter-derive t))
+;; (add-hook 'rust-mode-hook (lambda () (prettify-symbols-mode)))
+
 (use-package lsp-mode
-  :commands (lsp lsp-deferred)
+  :commands lsp
   :init
   (setq lsp-keymap-prefix "C-c l")
   :config
   (define-key lsp-mode-map (kbd "C-c l") lsp-command-map)
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-         (rust-mode . lsp-deferred)
-         ;; if you want which-key integration
-         (lsp-mode . lsp-enable-which-key-integration))
-  )
+         ;; (rust-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration)
+         (typescript-mode . lsp-deferred)))
+
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]gen\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]style\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]dist\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]public\\'"))
+
 ;; optionally
 (use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
+;; optionally if you want to use debugger
+(use-package dap-mode)
+;; (use-package dap-LANGUAGE) to load the dap adapter for your language
 
 ;; optional if you want which-key integration
 (use-package which-key
     :config
     (which-key-mode))
-
-;; rustfmt on save
-(setq rust-format-on-save t)
 
 ;; Debug adapter protocol
 ;; Enabling only some features
@@ -180,7 +213,68 @@
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
+(setq org-todo-keywords
+      '((sequence "TODO" "VERIFY" "|" "DONE")))
 (add-hook 'org-mode-hook #'toggle-word-wrap)
+
+(setq org-roam-directory "~/code/buildonomy/belief-network")
+(use-package org-roam
+  :ensure t
+  :after org
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n c" . org-roam-capture)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n i" . org-roam-node-insert))
+  :config
+  (setq org-roam-database-connector 'sqlite-builtin)
+  (setq org-roam-dailies-directory "logs")
+  (setq org-roam-file-extensions '("org" "md")) ; enable Org-roam for a markdown extension
+  (use-package org-roam-export))
+
+(add-to-list  'load-path "~/code/3rdparty/md-roam") ; md-roam; use markdown in org-roam
+(use-package md-roam ; md-roam-mode needs to be active before org-roam-db-sync
+  :after org-roam)
+(require 'md-roam)
+(md-roam-mode 1)
+(setq md-roam-file-extension "md")
+(org-roam-db-autosync-mode 1)
+(add-to-list 'org-roam-capture-templates
+             '("m" "Markdown" plain "" :target
+               (file+head "%<%Y-%m-%dT%H%M%S>.md"
+                          "---\ntitle: ${title}\nid: %<%Y-%m-%dT%H%M%S>\ncategory: \n---\n")
+               :unnarrowed t))
+(add-to-list 'org-roam-capture-templates
+             '("c" "Belief: Core" plain "%[../templates/core.md.templ]"
+               :target
+               (file "core/${slug}.md")
+               :unnarrowed t))
+(add-to-list 'org-roam-capture-templates
+             '("a" "Belief: Action" plain "%[../templates/action.md.templ]"
+               :target
+               (file "act/${slug}.md")
+               :unnarrowed t))
+(add-to-list 'org-roam-capture-templates
+             '("s" "Belief: Symbol" plain "%[../templates/symbol.md.templ]"
+               :target
+               (file "sym/${slug}.md")
+               :unnarrowed t))
+(add-to-list 'org-roam-capture-templates
+             '("p" "Belief: Press Release Symbol" plain "%[../templates/press_release.md.templ]"
+               :target
+               (file "sym/${slug}.md")
+               :unnarrowed t))
+(add-to-list 'org-roam-capture-templates
+             '("t" "Channel: Personal Dashboard" plain "%[templates/channel.org.templ]"
+               :target
+               (file "%<%Y%m%d%H%M%S>-channel-${slug}.org")
+               :unnarrowed t))
+;; Format the side-buffer for org-roam backlinks
+(add-to-list 'display-buffer-alist
+             '("\\*org-roam\\*"
+               (display-buffer-in-direction)
+               (direction . right)
+               (window-width . 0.33)
+               (window-height . fit-window-to-buffer)))
 
 ;; fly spell
 (dolist (hook '(text-mode-hook))
@@ -197,10 +291,10 @@
         (lambda ()
           (flyspell-prog-mode)
         ))
-(add-hook 'rust-mode-hook
-        (lambda ()
-          (flyspell-prog-mode)
-        ))
+;; (add-hook 'rust-mode-hook
+;;         (lambda ()
+;;           (flyspell-prog-mode)
+;;         ))
 (add-hook 'python-mode-hook
         (lambda ()
           (flyspell-prog-mode)
@@ -211,9 +305,9 @@
   :config (setq python-docstring-sentence-end-double-space nil)
   :hook (python-mode . python-docstring-mode))
 
-(defun flycheck-python-setup ()
-  (flycheck-mode))
-(add-hook 'python-mode-hook #'flycheck-python-setup)
+;; (defun flycheck-python-setup ()
+;;   (flycheck-mode))
+;; (add-hook 'python-mode-hook #'flycheck-python-setup)
 
 ;; so that we can use .dir-locals.el values to set python flycheck options and not get warnings
 ;; every time.
@@ -224,9 +318,9 @@
 (setenv "PATH" (concat (getenv "PATH") ":/home/alyjak/.cargo/bin"))
 (setq exec-path (append exec-path '("/home/alyjak/.cargo/bin")))
 
-;; better window selection than stupid other-window command
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
+;; ;; better window selection than stupid other-window command
+;; (when (fboundp 'windmove-default-keybindings)
+;;   (windmove-default-keybindings))
 
 ;; don't show trailing whitespace in term mode
 (defun turn-off-trailing-whitespace ()
@@ -261,5 +355,7 @@
   kept-old-versions 5    ; and how many of the old
   )
 
+(add-hook 'after-init-hook 'global-company-mode)
+
 (provide '.emacs)
-;;; .emacs.el ends here
+;;; .emacs ends here

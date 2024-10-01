@@ -7,8 +7,15 @@
 #+OPTIONS: ^:{}
 #+STARTUP: indent
 #+COLUMNS: %TODO %PRIORITY(P) %70ITEM(Task) %TAGS %8Effort(Estimated Effort){:} %DEADLINE
-#+TAGS: h3d alyjak sow_1 sow_2 upkeep
+#+TAGS: h3d alyjak sow_1 sow_2 upkeep invoice1 invoice2
 #+PROPERTY: Effort_ALL 0 1:00 2:00 4:00 8:00 16:00 24:00 40:00 80:00
+
+#+NAME: milestones
+#+BEGIN: columnview :format "%ITEM(Task) %Effort(Effort){:} %Price(Price)" :hlines 2 :maxlevel 2
+
+#+END:
+#+TBLFM: $3=$2*120;tE
+
 
 * TODO H3D SOW #1                                                 :h3d:sow_1:
 The tasks and services agreed upon by the parties listed within the Consulting Agreement are
@@ -31,13 +38,9 @@ milestone completion.
 #+CAPTION: Estimated effort (HH:MM) and price for the SOW (row 1) and each sub-milestone therof
 | Task                                       | Effort |    Price |
 |--------------------------------------------+--------+----------|
-| H3D SOW #1                                 | 207:00 | 24840.00 |
+| H3D SOW #1                                 | 119:00 | 14280.00 |
 |--------------------------------------------+--------+----------|
-| Detector QC Configuration and Verification |  27:00 |  3240.00 |
-|--------------------------------------------+--------+----------|
-| Extract Open Source Software from H3ID     |  88:00 | 10560.00 |
-|--------------------------------------------+--------+----------|
-| Capture Calibration Data and Store in H3ID |  68:00 |  8160.00 |
+| Detector QC Configuration and Verification |  95:00 | 11400.00 |
 |--------------------------------------------+--------+----------|
 | Golden Archive Rendered Template Override  |  16:00 |  1920.00 |
 |--------------------------------------------+--------+----------|
@@ -47,7 +50,7 @@ milestone completion.
 #+TBLFM: $3=$2*120;tE
 
 
-** DONE Detector QC Configuration and Verification
+** DONE Detector QC Configuration and Verification                :invoice1:
 
 This task is focused on ensuring H3D is using the full capabilities of the detector burner and
 updater. The main focus is ensuring configuration file templates are produced correctly and the
@@ -94,6 +97,304 @@ hwclock -w
 Customer id is already written to the templates (when customer id is defined), but we need to verify
 it's set correctly for IAEA detectors.
 
+*** DONE [#A] Capture Calibration Data and Store in H3ID
+Define and implement a schema and associated API functionality that delineates calibration data from
+other system configuration information. This functionality will enable product lifecycle-aware
+application and extraction of calibration data to and from system configuration files.
+
+*** DONE Create a dictionary schema in the production spec that determines merge arguments for calibration data
+:PROPERTIES:
+:EFFORT:   24:00
+:END:
+Certain keys should prioritize user settings (eg timezone), whereas other's should prioritize
+database values (because Brian's scripts push there directly). Having this type of schema should
+resolve that. There may even be optional/required keys, this can be used to hold of detector update
+operations until calibration data is loaded.
+
+- [ ] Define the schema; mapping filenames to nested variables, to the schema arguments
+- [ ] Update client/defaults.json with the new calibration schema.
+- [ ] Create unit tests for each file type enabled in the schema
+- [ ] Allow keys specified in the schema to define valid value types and ranges.
+*** DONE Create Production JSON field to store an unstructured dictionary of key:value pairs
+:PROPERTIES:
+:EFFORT:   4:00
+:END:
+*** DONE Create an API endpoint to get,set,delete keys in the calibration data json field
+:PROPERTIES:
+:EFFORT:   4:00
+:END:
+Include unit tests
+*** DONE Create an API endpoint to start a detector update
+:PROPERTIES:
+:EFFORT:   8:00
+:END:
+Have it return the burn log id. Poll the burn log id to see the burn state. Include unit tests
+*** DONE Wrap the dictionary in a codemirror block for viewing and editing, similar to option schema
+:PROPERTIES:
+:EFFORT:   8:00
+:END:
+*** DONE Add a parse step in create_archive to get key:value pairs from SystemSettings.xml and Polaris_H3DBNL.ini
+:PROPERTIES:
+:EFFORT:   16:00
+:END:
+Parses a new archive and tries to push to the calibration field. Have a user-input prompt come up if:
+
+- [ ] there's irreconcilable differences between the two, or
+- [ ] the reconciled value does not match the valid range/type specified for that value.
+*** DONE Add a validator step when staging configs
+:PROPERTIES:
+:EFFORT:   4:00
+:END:
+
+such that has a user-input prompt come up if there are variables within the staged file that do not
+pass the variable-specific type and range arguments.
+*** Workspace Subtasks
+**** DONE Ensure model config schema code editor still works b/c of variable rename
+**** DONE Document how images and image patches are applied
+**** DONE problems with codemirror json-schema linting
+- [ ] https://github.com/acao/codemirror-json-schema/issues/75
+- [ ] codemirror-json-schema only works up to draft-07, but there's a 2020 draft that works with the
+  python lib
+**** DONE No user config-resolution prompt for first-burns
+If there's no detector files available, don't ask for user input, just use the merged
+config_store+staged files.
+**** DONE "Command not acknowledged" check isn't synchronizing properly
+"Hmm. OK, I tried it again, and I still got the same errors when I tried to submit the edits. But,
+if I looked at another console (in a new window), I could see the process continuing. So, I just x'd
+out of the popup window and the burn was progressing in that console as well. So, need to figure
+that one out. Both, why the dialog is showing up at all (since there should have been no previous
+files cached) and why the accept button returns that server communication error." -Jason, 2024-01-09
+17:43
+
+Cleaned this code up. Although I can't conclusively confirm it works all the time, I haven't seen
+any more problems today (Jan 17), whereas I did see the issues Jason was experiencing earlier.
+**** DONE What's going on with config store?
+"it doesn't look like the Config_Store was updated correctly after the update (maybe it isn't
+supposed to affect the config store?). Does that only happen when you explicitly set them via the
+new API that Brian should be using with his production tools? However, it did affect the
+Config_Store. Before I did the update process, the data in the config store looked like it had
+reasonable endlines in the viewer. Now, after running the update, the rendering of the data in the
+Config_Store on the Embedded tab does not have any end lines. But, the data looks like it did
+originally before I did the Update System Config Files." - jason 2024-01-09 18:40
+
+Added indent=2 to all json.dumps I could find.
+**** DONE Why isn't the Camera node in config_store?
+The Laser settings and other model_store=true params are, why not Camera settings?
+It's working in the tests. This is for update runs on Oscar.
+
+Solution: The camera node had duplicate sub-nodes, resulting in xmltodict silently failing on that
+node.
+**** DONE why did this go through?
+"[When manually editing the config_store] What is more concerning is that it let me change the
+"ConfigurationType" to "blah" and that is one that is defined in the config_store_schema to be one
+of a handful of enums." -Jason 2024-01-09 19:14
+
+Solution: embedded.serializers.py wasn't using the same validator routine as in embedded.detector
+**** DONE verify is_authenticated before running any console commands
+
+**** VERIFY Previous manual changes should be staged when available, not freshly rendered templates
+"The manual changes I made to the Polaris_H3DBNL.ini file previously and committed are still being
+flagged because they don't match the standard stage. I guess that is OK, but I would like to see
+that go through if it has already been reviewed and accepted on a previous Update. I think we talked
+about this and I can't remember what we concluded. But, this isn't a game changer. My concern though
+is that it will cause the techs to become complacent and just skip these screens if they think it is
+something we already OK'd."
+
+- I think we can do this so long as the template version is the same one between this run and the
+  run that resulted in the manually derived file(s).
+
+Update the docs to describe this. Described in embedded.__init__ implementation guide.
+***** DONE Test golden_archive log status: add/update logged in/not logged in. View golden archive in quick_references
+***** TODO Regression test burn_image
+***** TODO Regression test update_patch
+***** DONE Regression test restore_archive
+***** DONE Regression test update_config
+***** DONE Test model_truth override
+***** DONE Test latest-user-input
+***** DONE Test golden_archive
+***** DONE Test golden_archive + config_store difference
+***** DONE Regression test client websocket
+**** DONE Order Polaris_H3DBNL.ini based on variable order in the template
+**** DONE Remove whitespace between variable, equal, and value in Polaris ini files when writing
+**** DONE Rename source_of_truth schema property value 'model' to 'config'
+This value denotes variables that should be saved to the config store
+**** DONE Add source_of_truth schema property value 'model'
+This value denotes variable that should always prioritize variable values from the staged template
+config file.
+**** DONE add link to json-schema default vocabulary to User docs for config_store
+**** DONE add documentation for source_of_truth vocabulary and link to user docs for config_store
+**** DONE Add worker status for all available console workers to user console UI
+This will let jason know how many config updates he can run in parallel
+**** DONE Ensure GetUserInput detector and staged text is deterministic
+By calling GetUserInput at various points in the sychronize routine, we iteratively build up the
+final staged text version. Ensure what we present to the user for input is as close as possible to
+what we would write out if there were no need for user input.
+** DONE [#B] Golden Archive Rendered Template Override            :invoice2:
+:PROPERTIES:
+:EFFORT:   16:00
+:END:
+Add a field to burn logs that allows them to be flagged as a golden archive. If a golden archive is
+flagged for a particular detector, then do not render templates, instead populate the staging
+filesystem with the files within/linked to the archive. Then when synchronizing filesystems, this
+will enable the user to view differences between the detector's filesystem and the archive, rather
+than between the detector and the rendered templates. Only allow one golden archive per detector.
+
+Question: Doesn't archive already do something like this? When you commit changes using the UI,
+doesn't it archive what the user specified?
+** TODO Update production server                                  :invoice2:
+:PROPERTIES:
+:EFFORT:   8:00
+:END:
+Run the update server procedure, ensuring to push new defaults (calibration key schema files), and
+create and save new migrations.
+
+* TODO H3D SOW #2                                                 :h3d:sow_2:
+#+NAME:SOW2_milestones
+#+BEGIN: columnview :format "%ITEM(Task) %Effort(Effort in HH:MM){:} %Price(Price in $)" :hlines 2 :maxlevel 3
+#+CAPTION: Estimated effort (HH:MM) and price for the SOW (row 1) and each sub-milestone thereof
+| Task                                                         | Effort in HH:MM | Price in $ |
+|--------------------------------------------------------------+-----------------+------------|
+| Operator controls what patch to apply                        |           24:00 |    2880.00 |
+| Operator must confirm the option codes are correct           |           24:00 |    2880.00 |
+| Detect and store what patch is currently applied to the unit |           16:00 |    1920.00 |
+| Detect and store if the detector's patch is out of date      |            8:00 |     960.00 |
+| Provide an upload frontend for patches                       |            8:00 |     960.00 |
+| Prioritize customer-group-specific patches                   |            8:00 |     960.00 |
+| Verify patch was applied correctly                           |           24:00 |    2880.00 |
+| Tableview: Show what patch is applied                        |            4:00 |     480.00 |
+| Tableview: Show detector patch "is latest" status            |            4:00 |     480.00 |
+| Tableview: Show detector patch "is dirty" status             |            4:00 |     480.00 |
+|--------------------------------------------------------------+-----------------+------------|
+| Total                                                        |          124:00 |   14880.00 |
+|--------------------------------------------------------------+-----------------+------------|
+#+TBLFM: $3=$2*120;tE
+#+END:
+
+This Statement of Work will take place after buildonomy is updated with up-to-date dependencies and
+the new Aggregator backend feature.
+
+** TODO Update Patches [Total Milestone]
+  :PROPERTIES:
+  :END:
+
+H3D Update patches are incrementally applied to detector's system image in order to resolve bugs,
+add features and otherwise customize the application stack after the base detector image has been
+applied to the hardware.
+
+Modify the detection, application, and display of update patches onto detectors by designing,
+implementing, testing, and/or reviewing the following tasks:
+
+*** TODO Operator controls what patch to apply
+    :PROPERTIES:
+    :EFFORT:   24:00
+    :END:
+
+When the detected and expected patch differ, Have the operator specify whether to preserve the
+out-of-date patch or apply the latest patch.
+
+- [ ] The operator should be provided with a list of all valid patches available for the unit with
+  the latest, most-specific highlighted as the recommended option.
+- [ ] If there are customer-specific patches available, they should be listed and preferentially
+  sorted in the available patch list.
+
+*** TODO Operator must confirm the option codes are correct
+     :PROPERTIES:
+     :EFFORT:   24:00
+     :END:
+
+Prior to burning or updating a detector, If the model code, and/or config code are not set, operator
+must confirm that it should use the default code. The default code will be displayed to the operator
+for this operation.
+
+*** TODO Detect and store what patch is currently applied to the unit
+    :PROPERTIES:
+    :EFFORT:   16:00
+    :END:
+
+For detector status, detect at most once a day. This involves creating multiple different status
+polls with different frequencies of operation.
+
+- [ ] Design it such that the long status (this operation + "is dirty" checks) only occur on
+  detectors that are marked available by the latest high frequency check.
+
+- [ ] Burning or updating a detector already records what patch was applied and verifies the patch
+  file was not corrupted during transfer to the end file location.
+
+*** TODO Detect and store if the detector's patch is out of date
+    :PROPERTIES:
+    :EFFORT:   8:00
+    :END:
+
+Display a warning if there is a latest patch available that is applicable to the unit's model family
+that is not currently loaded onto the detector.
+
+*** TODO Provide an upload frontend for patches
+:PROPERTIES:
+:EFFORT:   8:00
+:END:
+
+Using this H3ID frontend, a user uploads a patch, H3ID parses the metadata within the patch,
+generates a standard name for the patch from that metadata, and uploads it to the patch repository
+on artifact.
+
+- [ ] As part of this effort, re-upload all patches to ensure they are named correctly.
+
+*** TODO Prioritize customer-group-specific patches
+:PROPERTIES:
+:EFFORT:   8:00
+:END:
+
+Patch application decides what the 'latest' patch for any particular detector based on what patch
+most closely matches the detector's serial number. Update this such that patches can be categorized
+to only apply to particular customer groups, and such that customer groups factor into deciding what
+the most-specific, latest patch is for a detector.
+
+*** TODO Verify patch was applied correctly
+    :PROPERTIES:
+    :EFFORT:   24:00
+    :END:
+
+Verify that a detector's expected software application executables hash matches the actual
+executables hash calculated from reading the filesystem.
+
+- [ ] Perform this check for low frequency detector status polls (See "Detect and store what patch
+  is applied" above), and detector update operations. Fail a burn if the check during a detector
+  update fails. Note we can't perform this operation for detector image burns as the patch is only
+  applied on systems after they are booted.
+
+- [ ] Note that we currently calculate an md5sum for the 'application' file partition, but this is
+  different than comparing to the patch. See ~PARTITION_GROUPS_~ in ~h3id/app/embedded/__init__.py~
+  and ~PARTITION_GROUP['application']~ in ~h3id/app/embedded/constants.py~ for the meaning of the
+  'application' file partition. This does not account for the expected version information stored in
+  the patch. The 'application' file partition is used for determining if a system's current
+  application-related files have been archived or not.
+
+*** TODO Tableview: Show what patch is applied
+    :PROPERTIES:
+    :EFFORT:   4:00
+    :END:
+
+On the detector burn logs, status, and main tables, show the patch name (if any) applied to the
+detector. For the main detector table, Grab the patch name from burn logs, update logs, or detector
+status logs, whichever log is newer.
+
+*** TODO Tableview: Show detector patch "is latest" status
+    :PROPERTIES:
+    :EFFORT:   4:00
+    :END:
+
+On the detector status and main tables, show if the applied patch is the latest patch for that
+model.
+
+*** TODO Tableview: Show detector patch "is dirty" status
+    :PROPERTIES:
+    :EFFORT:   4:00
+    :END:
+
+On the detector status and main tables, show if the applied patch and installed executable versions
+match.
+* H3D New contract brainstorm
+** Unit by unit encryption
 ** TODO [#C] Extract Open Source Software from H3ID
 
 This milestone is complete when the base software and configuration-as-code infrastructure has been
@@ -206,212 +507,6 @@ This is a combination of documentation and on-site training to:
 - Perform a database migration.
 - Use the ~h3id_client~ command line utility to update the database according to a predefined
   default dictionary.
-** TODO [#A] Capture Calibration Data and Store in H3ID
-Define and implement a schema and associated API functionality that delineates calibration data from
-other system configuration information. This functionality will enable product lifecycle-aware
-application and extraction of calibration data to and from system configuration files.
-
-*** TODO Create a dictionary schema in the production spec that determines merge arguments for calibration data
-:PROPERTIES:
-:EFFORT:   24:00
-:END:
-Certain keys should prioritize user settings (eg timezone), whereas other's should prioritize
-database values (because Brian's scripts push there directly). Having this type of schema should
-resolve that. There may even be optional/required keys, this can be used to hold of detector update
-operations until calibration data is loaded.
-
-- [ ] Define the schema; mapping filenames to nested variables, to the schema arguments
-- [ ] Update client/defaults.json with the new calibration schema.
-- [ ] Create unit tests for each file type enabled in the schema
-- [ ] Allow keys specified in the schema to define valid value types and ranges.
-*** TODO Create Production JSON field to store an unstructured dictionary of key:value pairs
-:PROPERTIES:
-:EFFORT:   4:00
-:END:
-*** TODO Create an API endpoint to get,set,delete keys in the calibration data json field
-:PROPERTIES:
-:EFFORT:   4:00
-:END:
-Include unit tests
-*** TODO Create an API endpoint to start a detector update
-:PROPERTIES:
-:EFFORT:   8:00
-:END:
-Have it return the burn log id. Poll the burn log id to see the burn state. Include unit tests
-*** TODO Wrap the dictionary in a codemirror block for viewing and editing, similar to option schema
-:PROPERTIES:
-:EFFORT:   8:00
-:END:
-*** TODO Add a parse step in create_archive to get key:value pairs from SystemSettings.xml and Polaris_H3DBNL.ini
-:PROPERTIES:
-:EFFORT:   16:00
-:END:
-Parses a new archive and tries to push to the calibration field. Have a user-input prompt come up if:
-
-- [ ] there's irreconcilable differences between the two, or
-- [ ] the reconciled value does not match the valid range/type specified for that value.
-*** TODO Add a validator step when staging configs
-:PROPERTIES:
-:EFFORT:   4:00
-:END:
-
-such that has a user-input prompt come up if there are variables within the staged file that do not
-pass the variable-specific type and range arguments.
-*** Workspace Subtasks
-**** TODO Ensure model config schema code editor still works b/c of variable rename
-**** DONE Document how images and image patches are applied
-**** TODO problems with codemirror json-schema linting
-- [ ] https://github.com/acao/codemirror-json-schema/issues/75
-- [ ] codemirror-json-schema only works up to draft-07, but there's a 2020 draft that works with the
-  python lib
-** TODO [#B] Golden Archive Rendered Template Override
-:PROPERTIES:
-:EFFORT:   16:00
-:END:
-Add a field to burn logs that allows them to be flagged as a golden archive. If a golden archive is
-flagged for a particular detector, then do not render templates, instead populate the staging
-filesystem with the files within/linked to the archive. Then when synchronizing filesystems, this
-will enable the user to view differences between the detector's filesystem and the archive, rather
-than between the detector and the rendered templates. Only allow one golden archive per detector.
-
-Question: Doesn't archive already do something like this? When you commit changes using the UI,
-doesn't it archive what the user specified?
-** TODO Update production server
-:PROPERTIES:
-:EFFORT:   8:00
-:END:
-Run the update server procedure, ensuring to push new defaults (calibration key schema files), and
-create and save new migrations.
-
-* TODO H3D SOW #2                                                 :h3d:sow_2:
-#+BEGIN: columnview :format "%ITEM(Task) %Effort(Effort in HH:MM){:} %Price(Price in $)" :hlines 2 :maxlevel 2
-#+TBLFM: $3=$2*120;tE
-#+END:
-
-This Statement of Work will take place after buildonomy is updated with up-to-date dependencies and
-the new Aggregator backend feature.
-
-** TODO Update Patches [Total Milestone]
-  :PROPERTIES:
-  :END:
-
-H3D Update patches are incrementally applied to detector's system image in order to resolve bugs,
-add features and otherwise customize the application stack after the base detector image has been
-applied to the hardware.
-
-Modify the detection, application, and display of update patches onto detectors by designing,
-implementing, testing, and/or reviewing the following tasks:
-
-*** TODO Operator controls what patch to apply
-    :PROPERTIES:
-    :EFFORT:   24:00
-    :END:
-
-When the detected and expected patch differ, Have the operator specify whether to preserve the
-out-of-date patch or apply the latest patch.
-
-The operator should be provided with a list of all valid patches available for the unit with the
-latest, most-specific highlighted as the recommended option.
-
-If there are customer-specific patches available, they should be listed and preferentially sorted in
-the available patch list.
-
-*** TODO Operator must confirm the option codes are correct
-     :PROPERTIES:
-     :EFFORT:   24:00
-     :END:
-
-Prior to burning or updating a detector, If the model code, and/or config code are not set, operator
-must confirm that it should use the default code. The default code will be displayed to the operator
-for this operation.
-
-*** TODO Detect and store what patch is currently applied to the unit
-    :PROPERTIES:
-    :EFFORT:   16:00
-    :END:
-
-For detector status, detect at most once a day. This involves creating multiple different status
-polls with different frequencies of operation.
-
-Design it such that the long status (this operation + "is dirty" checks) only occur on detectors
-that are marked available by the latest high frequency check.
-
-Burning or updating a detector already records what patch was applied and verifies the patch file
-was not corrupted during transfer to the end file location.
-
-*** TODO Detect and store if the detector's patch is out of date
-    :PROPERTIES:
-    :EFFORT:   8:00
-    :END:
-
-Display a warning if there is a latest patch available that is applicable to the unit's model family
-that is not currently loaded onto the detector.
-
-*** TODO Provide an upload frontend for patches
-:PROPERTIES:
-:EFFORT:   8:00
-:END:
-
-Using this H3ID frontend, a user uploads a patch, H3ID parses the metadata within the patch,
-generates a standard name for the patch from that metadata, and uploads it to the patch repository
-on artifact.
-
-As part of this effort, re-upload all patches to ensure they are named correctly.
-
-*** TODO Update the patch application algorithm to prioritize customer group specific patches
-:PROPERTIES:
-:EFFORT:   8:00
-:END:
-
-Patch application decides what the 'latest' patch for any particular detector based on what patch
-most closely matches the detector's serial number. Update this such that patches can be categorized
-to only apply to particular customer groups, and such that customer groups factor into deciding what
-the most-specific, latest patch is for a detector.
-
-*** TODO Verify patch was applied correctly
-    :PROPERTIES:
-    :EFFORT:   24:00
-    :END:
-
-Verify that a detector's expected software application executables hash matches the actual
-executables hash calculated from reading the filesystem.
-
-Perform this check for low frequency detector status polls (See "Detect and store what patch is
-applied" above), and detector update operations. Fail a burn if the check during a detector update
-fails. Note we can't perform this operation for detector image burns as the patch is only applied on
-systems after they are booted.
-
-Note that we currently calculate an md5sum for the 'application' file partition, but this is
-different than comparing to the patch. See ~PARTITION_GROUPS_~ in ~h3id/app/embedded/__init__.py~
-and ~PARTITION_GROUP['application']~ in ~h3id/app/embedded/constants.py~ for the meaning of the
-'application' file partition. This does not account for the expected version information stored in
-the patch. The 'application' file partition is used for determining if a system's current
-application-related files have been archived or not.
-
-*** TODO Tableview: Show what patch is applied
-    :PROPERTIES:
-    :EFFORT:   4:00
-    :END:
-
-On the detector burn logs, status, and main tables, show the patch name (if any) applied to the
-detector. For the main detector table, Grab the patch name from burn logs, update logs, or detector
-status logs, whichever log is newer.
-
-*** TODO Tableview: Show detector patch "is latest" status
-    :PROPERTIES:
-    :EFFORT:   4:00
-    :END:
-
-On the detector status and main tables, show if the applied patch is the latest patch for that
-model.
-
-*** TODO Tableview: Show detector patch "is dirty" status
-    :PROPERTIES:
-    :EFFORT:   4:00
-    :END:
-
-On the detector status and main tables, show if the applied patch and installed executable versions
-match.
 ** TODO IAEA Efficiency Parameter Utilities
 *** TODO Check efficiency parameters
     :PROPERTIES:
@@ -453,25 +548,64 @@ Punt to SOW#2, involves reading 8080.
 1. There's a table that's used for efficiency parameters. The only way to verify is to check a .png
    right now. Punt until the dev team creates a machine readable efficiency parameter validation
    table that's accessible via h3id.
-** TODO Upgrade Installation
-*** TODO Update and re-pin dependencies (python, docker, javascript) :sow_2:
-     :PROPERTIES:
-     :EFFORT:   4:00
-     :END:
-
-Task involves re-pinning all dependencies to their latest versions, then debugging the inevitable
-downstream library API changes.
-
-We'll put this in SOW 2, this way I can upgrade dependencies on builonomy, and then during SOW_2 we
-can demonstrate that H3ID maintains the capability of pulling in upgrades from buildonomy.
+* H3D SOW #3
+** Software Config Code Revamp [8hrs]
+    :PROPERTIES:
+    :EFFORT:   8:00
+    :END:
+- Need to support many different possible software configurations that are sparsely used
+- Add the ability to generate the SW config code on the fly as a standard user to apply to a build -
+  should still confirm validity from master list stored in database backend
+- Still have the possibility to keep most widely used options in dropdown as it is now
+** Support new update patch format [24hrs]
+    :PROPERTIES:
+    :EFFORT:   14:00
+    :END:
+- [ ] Filter patches by - SN, architecture, and OS
+  - Single patch can be built to support simple filter of SNs (e.g. Mxxxxxxx or M01xxxxx or
+    M0101xxx) or to range or list of specific SNs (M0001001, M0001004)
+- [ ] Support patch dependencies
+  - Three types of patches (Full, Hotfix, Security)
+  - Dependency list for a given patch is defined as a list of patch version numbers that are
+    required to be in the patch history before patch will apply.
+    - H3ID will ensure all listed dependencies are available on artifact when validating a patch upload.
+- [ ] H3ID suggests list of patches required to be applied to bring system up to date
+  Based on current patch info from detector and recursive dependency list from latest released patch on Artifact.
+- [ ] Multiple patches can be applied to detector (any name will work as long as it ends in .h3d)
+  and the user will be able to apply them in turn when powering up the system
+** Add warranty end date datum into the unit database
+    :PROPERTIES:
+    :EFFORT:   10:00
+    :END:
+Warranty end date will inform what the newest update patch the customer is entitled to as a
+suggestion for patch to apply. The source of truth for this warranty data is on Sharepoint.
 
 * H3D General Invoicing
-** DONE Write up Option Code Documentation
+#+BEGIN: clocktable :scope subtree :maxlevel 2
+#+CAPTION: Clock summary at [2024-02-22 Thu 14:27]
+| Headline                                     | Time      |          |
+|----------------------------------------------+-----------+----------|
+| *Total time*                                 | *3d 6:20* |          |
+|----------------------------------------------+-----------+----------|
+| H3D General Invoicing                        | 3d 6:20   |          |
+| \_  Server Upgrade                           |           |    22:41 |
+| \_  Tag up with Jason                        |           |     1:05 |
+| \_  Jason Call                               |           |     3:46 |
+| \_  'Max' burn failing                       |           |     1:17 |
+| \_  Chris SSU Boss unit creation...          |           |     2:38 |
+| \_  Burner not working                       |           |     0:24 |
+| \_  Add 'Unallocated' state to production... |           |     3:15 |
+| \_  Add file explorer to units               |           | 1d 16:29 |
+| \_  Intermediate prod upgrade                |           |     1:42 |
+| \_  Coerce json datatype in schema...        |           |     1:03 |
+#+END:
+
+** DONE Write up Option Code Documentation                        :invoice1:
 :PROPERTIES:
 :EFFORT:   1:00
 :DEADLINE: <2023-06-01 Thu>
 :END:
-** DONE Server Upgrade
+** DONE Server Upgrade                                            :invoice1:
 :LOGBOOK:
 CLOCK: [2023-06-07 Wed 14:04]--[2023-06-07 Wed 15:48] =>  1:44
 CLOCK: [2023-06-07 Wed 10:36]--[2023-06-07 Wed 13:27] =>  2:51
@@ -501,12 +635,12 @@ CLOCK: [2023-06-02 Fri 07:35]--[2023-06-02 Fri 12:30] =>  4:55
 - [X] Update prod to master and perform migration
 - [X] Run h3id_client update to sync h3d model code schemas. Ran ~REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt h3id_client --host https://h3id.h3dgamma.com --user alyjak --pdb update --updates h3id/app/client/defaults.json -o build.model_code build.config_code spec.model_codes spec.model_schema spec.config_codes~
 - [X] Send email to h3d
-** DONE Tag up with Jason
+** DONE Tag up with Jason                                         :invoice1:
 :LOGBOOK:
 CLOCK: [2023-06-06 Tue 11:01]--[2023-06-06 Tue 11:47] =>  0:46
 CLOCK: [2023-06-08 Thu 16:01]--[2023-06-08 Thu 16:20] =>  0:19
 :END:
-** TODO Jason Call
+** VERIFY Jason Call                                              :invoice2:
 :LOGBOOK:
 CLOCK: [2023-07-11 Tue 07:14]--[2023-07-11 Tue 07:52] =>  0:38
 CLOCK: [2023-07-06 Thu 14:38]--[2023-07-06 Thu 15:59] =>  1:21
@@ -517,32 +651,113 @@ CLOCK: [2023-06-13 Tue 14:12]--[2023-06-13 Tue 14:46] =>  0:34
 2023-07-06: debugging why Jason wasn't seeing diffs after he modified templates for an H400. Looks
 like the template mods he did were all whitespace in which case the diff wont appear as it
 normalizes and auto formats between the versions in order to only show material changes.
-** TODO 'Max' burn failing
+** VERIFY 'Max' burn failing                                      :invoice2:
 :LOGBOOK:
 CLOCK: [2023-06-14 Wed 08:41]--[2023-06-14 Wed 09:58] =>  1:17
 :END:
 Also fixed model code and option code not rendering on production build tab
 also fixed `command` file not getting removed from asrun artifact zips
-** TODO Chris SSU Boss unit creation incorrect ipv6 issue
+** VERIFY Chris SSU Boss unit creation incorrect ipv6 issue       :invoice2:
 :LOGBOOK:
 CLOCK: [2023-06-26 Mon 09:00]--[2023-06-26 Mon 11:27] =>  2:27
 CLOCK: [2023-06-26 Mon 08:27]--[2023-06-26 Mon 08:38] =>  0:11
 :END:
 also reviewed issue from Travis re M-00-01-220
 and drafted a fix for a render bug for displaying unit model codes
-** Burner not working
+** VERIFY Burner not working                                      :invoice2:
 :LOGBOOK:
 CLOCK: [2023-07-18 Tue 15:00]--[2023-07-18 Tue 15:24] =>  0:24
 :END:
 
-** TODO Add 'Unallocated' state to production status
+** VERIFY Add 'Unallocated' state to production status            :invoice2:
 :LOGBOOK:
 CLOCK: [2023-08-29 Tue 12:15]--[2023-08-29 Tue 12:46] =>  0:31
 CLOCK: [2023-08-17 Thu 12:03]--[2023-08-17 Thu 12:16] =>  0:13
 CLOCK: [2023-08-16 Wed 13:44]--[2023-08-16 Wed 14:55] =>  1:11
 CLOCK: [2023-08-16 Wed 11:28]--[2023-08-16 Wed 12:48] =>  1:20
 :END:
+** VERIFY Add file explorer to units                              :invoice2:
+:LOGBOOK:
+CLOCK: [2024-01-27 Sat 09:05]--[2024-01-27 Sat 10:24] =>  1:19
+CLOCK: [2024-01-25 Thu 14:59]--[2024-01-25 Thu 17:22] =>  2:23
+CLOCK: [2024-01-25 Thu 12:41]--[2024-01-25 Thu 14:11] =>  1:30
+CLOCK: [2024-01-25 Thu 11:12]--[2024-01-25 Thu 12:21] =>  1:09
+CLOCK: [2024-01-25 Thu 08:26]--[2024-01-25 Thu 10:46] =>  2:20
+CLOCK: [2024-01-24 Wed 21:08]--[2024-01-24 Wed 22:39] =>  1:31
+CLOCK: [2024-01-24 Wed 19:54]--[2024-01-24 Wed 20:29] =>  0:35
+CLOCK: [2024-01-24 Wed 11:16]--[2024-01-24 Wed 17:55] =>  6:39
+CLOCK: [2024-01-24 Wed 08:13]--[2024-01-24 Wed 09:51] =>  1:38
+CLOCK: [2024-01-23 Tue 11:39]--[2024-01-23 Tue 12:35] =>  0:56
+CLOCK: [2024-01-23 Tue 07:44]--[2024-01-23 Tue 08:14] =>  0:30
+CLOCK: [2024-01-23 Tue 05:54]--[2024-01-23 Tue 06:19] =>  0:25
+CLOCK: [2024-01-22 Mon 17:26]--[2024-01-22 Mon 17:50] =>  0:24
+CLOCK: [2024-01-22 Mon 11:29]--[2024-01-22 Mon 16:52] =>  5:23
+CLOCK: [2024-01-22 Mon 08:36]--[2024-01-22 Mon 10:39] =>  2:03
+CLOCK: [2024-01-20 Sat 20:02]--[2024-01-20 Sat 21:36] =>  1:34
+CLOCK: [2024-01-20 Sat 07:30]--[2024-01-20 Sat 08:58] =>  1:28
+CLOCK: [2024-01-19 Fri 20:43]--[2024-01-19 Fri 22:05] =>  1:22
+CLOCK: [2024-01-19 Fri 18:26]--[2024-01-19 Fri 19:00] =>  0:34
+CLOCK: [2024-01-19 Fri 08:46]--[2024-01-19 Fri 10:43] =>  1:57
+CLOCK: [2024-01-19 Fri 06:59]--[2024-01-19 Fri 07:37] =>  0:38
+CLOCK: [2024-01-18 Thu 19:20]--[2024-01-18 Thu 20:13] =>  0:53
+CLOCK: [2024-01-18 Thu 16:09]--[2024-01-18 Thu 17:57] =>  1:48
+CLOCK: [2024-01-18 Thu 12:04]--[2024-01-18 Thu 12:45] =>  0:41
+CLOCK: [2024-01-18 Thu 08:43]--[2024-01-18 Thu 09:32] =>  0:49
+:END:
+Should be able to review and compare files across a unit's archive history
+** DONE Intermediate prod upgrade                                 :invoice2:
+:LOGBOOK:
+CLOCK: [2024-01-27 Sat 16:09]--[2024-01-27 Sat 17:09] =>  1:00
+CLOCK: [2024-01-27 Sat 10:25]--[2024-01-27 Sat 11:07] =>  0:42
+:END:
+Perform a prod upgrade before the full scope of the work is complete.
 
+Not charged.
+** TODO Define group-specific and unit-specific update patches
+Be able to define on a group-level and override at the customer or unit level. Use a full
+specification, not a use-latest regex sort of thing.
+** VERIFY Coerce json datatype in schema validation               :invoice2:
+:LOGBOOK:
+CLOCK: [2024-02-21 Wed 12:06]--[2024-02-21 Wed 13:09] =>  1:03
+:END:
+** VERIFY Update model schema for new BOSS model numbers
+:LOGBOOK:
+CLOCK: [2024-03-12 Tue 09:49]--[2024-03-12 Tue 11:30] =>  1:41
+:END:
+** TODO Figure out why I can't clear model_codes or model_code using ~h3id_updater~
+** Cached Update Config?
+Jason: A little more testing tonight. I am slowly adding more parameters for the P-02-02 group and
+testing with Oscar. I noted again that the first time I ran the Update Config option, it didn't
+appear to actually read what was on the unit when doing the comparison. It must have been using a
+cached version of the SystemSettings file when it did the diff. However, that first time, I did a No
+Commit. After I redid it the second time without the No Commit option, it did appear to write to the
+detector. Then the subsequent test did appear to use the updated SystemSettings file to check
+against. Not sure if it was actually reading it from the system or if it was using the last
+commmited version of the SystemSettings file in the database. Either could have been the case. I
+can't remember exactly what we decided here. It makes sense that it might be referencing a
+previously commited version of the file, but representing it it as the 'Unit' file is somewhat
+misleading and a bit confusing. But, this is not a killer. I can deal with that for now. Maybe
+something to think about later.
+ 
+** Configuration Type case sensitivity
+Jason: I did however find a real bug. After running an actual Config Update, the SystemSettings file was
+written with a lower case ConfigurationType parameter. This is fine (the web code will not have an
+issue with it), and the config schema is set up to be in a case-insensitive mode. However, it does
+see it as a diff because the model representation is in all caps. So, it showed it as an issue when
+it really isn't. And even though it doesn't really matter, I would prefer if the values are written
+out in all caps if possible. But, only do this if it is trivial. The more important part is that the
+diff generator doesn't report to the user that it is incorrect just because it is not the right
+capitalization. If that is difficult to do, we could just make it case sensitive and then it will be
+consistent for the diffs.
+** Picking up manual on-detector config changes
+Jason: I manually updated the software config parameter of one detector and re-burned it. But, the
+renderer did not pick up on the change of the main config. I switched it from CBRN "C" to Safeguards
+"S" and it did not register the change. However, with a fresh burn it uses the right value. So, not
+sure if that was by design or not. I know we had some values that were going to work a little
+different and depend more heavily on the config store maybe?
+** Expected a config store:
+Jason: hmm, but the config store is empty for that particular detector that I reburned (M-01-00-020
+Bem)
 * DONE Astrolab
 
 ** Account Set up
