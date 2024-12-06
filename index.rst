@@ -38,6 +38,14 @@ on a good life.
 
 .. rubric:: About Me
 
+.. toctree::
+   :caption: Personal
+   :maxdepth: 2
+   :titlesonly:
+
+   grandma_freda
+
+
 Twitter at spacelyjak_
 
 Resume: :download:`resume/resume_cv.pdf`
