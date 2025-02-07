@@ -1,0 +1,164 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Awesome Cover Letter
+% XeLaTeX Template
+% Version 1.1 (9/1/2016)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original authors:
+% Claud D. Park (posquit0.bj@gmail.com)
+% Lars Richter (mail@ayeks.de)
+% With modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template must be compiled with XeLaTeX, the below lines will ensure this
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[8pt, letterpaper]{awesome-cv} % A4 paper size by default, use 'letterpaper' for US letter
+
+\geometry{left=1.5cm, top=1.5cm, right=1.5cm, bottom=2cm, footskip=.5cm} % Configure page margins with geometry
+
+\fontdir[fonts/] % Specify the location of the included fonts
+
+% Color for highlights
+\definecolor{awesome-blue}{HTML}{00274c} % michigan blue
+\colorlet{awesome}{awesome-skyblue} % Default colors include: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange, awesome-nephritis, awesome-concrete, awesome-darknight
+%\definecolor{awesome}{HTML}{CA63A8} % Uncomment if you would like to specify your own color
+
+% Colors for text - uncomment and modify
+%\definecolor{darktext}{HTML}{414141}
+%\definecolor{text}{HTML}{414141}
+%\definecolor{graytext}{HTML}{414141}
+%\definecolor{lighttext}{HTML}{414141}
+
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad} % If you would like to change the social information separator from a pipe (|) to something else
+
+%----------------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%----------------------------------------------------------------------------------------
+
+\name{A Lyjak Cybernetics Consulting LLC}{}
+\address{46800 Bettyhill, Plymouth MI, 48170} % Your address
+\mobile{(+1) (734)604-6163}
+%% \homepage{spacelyjak.rtfd.io}
+%% \github{alyjak}
+%% \linkedin{andrew-lyjak}
+%% %\skype{skypeid}
+%% %\stackoverflow{SOid}{SOname}
+%% \twitter{@spacelyjak}
+%% %\linkedin{linkedin name}
+%% %\reddit{reddit account}
+%% %\xing{xing name}
+\email{andrew.lyjak@gmail.com}
+%\extrainfo{test} % Other text you want to include on this line
+
+%% \position{Software Development and Verification{\enskip\cdotp\enskip}Systems Engineer} % Your expertise/fields
+%% \quote{``This is the real secret of life -- to be completely engaged
+%%   with what you are doing in the here and now. And instead of calling
+%%   it work, realize it is play.''} % Alan Watts
+
+\makecvfooter{}{A Lyjak Cybernetics Consulting LLC}{} % Specify the letter footer with 3 arguments: (<left>, <center>, <right>), leave any of these blank if they are not needed
+
+%----------------------------------------------------------------------------------------
+%	RECIPIENT/POSITION/LETTER INFORMATION
+%	All of the below lines must be filled out
+%----------------------------------------------------------------------------------------
+
+\recipient{}{H3D, Inc\\https://h3dgamma.com}
+
+\letterdate{\today} % The date on the letter, default is the date of compilation
+
+\lettertitle{Letter of Commitment} % The title of the letter
+
+\letteropening{Dear H3D Inc,} % How the letter is opened
+
+\letterclosing{Sincerely,} % How the letter is closed
+
+%\letterenclosure[Attached]{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\makecvheader % Print the header
+
+\makelettertitle % Print the title
+
+%----------------------------------------------------------------------------------------
+%	LETTER CONTENT
+%----------------------------------------------------------------------------------------
+
+\begin{cvletter}
+  A Lyjak Cybernetics Consulting LLC's (ALCC) is commited to supporting H3D, Inc.\ through execution
+  of the tasks outlined in Appendix A: SOW \#2 Consulting Agreement. It is our joint understanding
+  that execution of this contract will benefit the efficiency and quality of H3D's production and
+  product development capacities. This contract is a fixed price contract. The price of each task is
+  calculated based on the task's work-hour estimate multiplied by ALCC's standard hourly rate of
+  \letternamestyle{\$120/hr} It is my understanding that H3D depends on A Lyjak Cybernetics
+  Consulting LLC fully and faithfully executing the statement of work as part of the general work
+  and cost associated with support of H3D's Phase I SBIR proposal for DE-FOA-0003202. All costs
+  associated with this contract are labor costs. We confirm that the rates used on for this contract
+  are consistent with ALCC's standard prices. There are no parts, equipment, or materials billed
+  under the contract. The following is a summary of the contracted tasks and their prices:
+
+  \begin{description}
+    \item[Improve Identification, Application, and Creation of Detector Update Patches] H3D detector
+      patches are incrementally applied to detector’s system image in order to resolve bugs, add
+      features and otherwise customize the application stack after the base detector image has been
+      applied to the hardware.  Modify the detection, application, and display of update patches
+      onto detectors by designing, implementing, testing, and/or reviewing the following tasks:
+
+      \begin{itemize}
+        \item Operator controls what patch to apply
+        \item Operator must confirm the option codes are correct
+        \item Detect and store what patch is currently applied to the unit
+        \item Detect and store if the detector’s patch is out of date
+        \item Provide an upload frontend for patches
+        \item Prioritize customer-group-specific patches
+        \item Verify patch was applied correctly
+        \item Tableview: Show what patch is applied
+        \item Tableview: Show detector patch "is latest" status
+      \end{itemize}
+
+      \letternamestyle{Effort: 124 work-hours, Price: \$14,880.00}
+
+    \item[Total Contract Value] \letternamestyle{Effort: 124 work-hours, Price: \$14,880.00}
+
+  \end{description}
+
+  In conclusion, A Lyjak Cybernetics Consulting LLC is fully committed to fully and faithfully
+  executing this contract. \\
+
+\end{cvletter}
+\lettertextstyle{Sincerely,} \\\\\\\\\\
+\letternamestyle{Andrew\ Lyjak} \\
+\lettertextstyle{owner}
+% \newpage
+%\makecvheader % Print the header
+
+%----------------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%----------------------------------------------------------------------------------------
+
+% \makecvheader % Print the header
+
+%% \input{cv-sections/education.tex}
+%% \input{cv-sections/skills.tex}
+%% \input{cv-sections/experience.tex}
+%% \input{cv-sections/extracurricular.tex}
+
+\end{document}

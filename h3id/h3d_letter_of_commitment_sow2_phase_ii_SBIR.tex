@@ -102,55 +102,40 @@
 %----------------------------------------------------------------------------------------
 
 \begin{cvletter}
-  A Lyjak Cybernetics Consulting LLC's (ALCC) is commited to supporting H3D,
-  Inc.\ through execution of the tasks outlined in Appendix A of the consulting agreement initially
-  signed by myself on 3/27/2023 and by Michael Streicher on 4/6/2023. The agreement was amended and
-  re-signed by myself on 8/16/2023 and by Michael Streicher on 8/29/2023. It is our joint
-  understanding that execution of this contract will benefit the efficiency and quality of H3D's
-  production and product development capacities. This contract is a fixed price contract. The price
-  of each task is calculated based on the task's work-hour estimate multiplied by ALCC's standard
-  hourly rate of \letternamestyle{\$120/hr} It is my understanding that H3D depends on A Lyjak
-  Cybernetics Consulting LLC fully and faithfully executing the statement of work as part of the
-  general work and cost associated with H3D's development effort entitled ``High Signal-to-Noise
-  Pixelated CZT Directional Spectrometer for Generalized Holdup Measurements''. All costs associated
-  with this contract are labor costs. We confirm that the rates used on for this contract are
-  consistent with ALCC's standard prices. There are no parts, equipment, or materials billed under
-  the contract. All tasks are to be billed in the second budget year. The following is a summary of
-  the contracted tasks and their prices:
+  A Lyjak Cybernetics Consulting LLC's (ALCC) is commited to supporting H3D, Inc.\ through execution
+  of the tasks outlined in Appendix A: SOW \#2 Consulting Agreement. It is our joint understanding
+  that execution of this contract will benefit the efficiency and quality of H3D's production and
+  product development capacities. This contract is a fixed price contract. The price of each task is
+  calculated based on the task's work-hour estimate multiplied by ALCC's standard hourly rate of
+  \letternamestyle{\$120/hr} It is my understanding that H3D depends on A Lyjak Cybernetics
+  Consulting LLC fully and faithfully executing the statement of work as part of the general work
+  and cost associated with support of H3D's Phase II SBIR proposal. All costs associated with this
+  contract are labor costs. We confirm that the rates used on for this contract are consistent with
+  ALCC's standard prices. There are no parts, equipment, or materials billed under the contract. The
+  following is a summary of the contracted tasks and their prices:
 
   \begin{description}
-    \item[Detector QC Configuration and Verification] This task is focused on ensuring H3D is using
-      the full capabilities of the detector burner and updater. The main focus is ensuring
-      configuration file templates are produced correctly and the operator is aware and in-control
-      of what is going on during an image burn/update. \letternamestyle{Effort: 27 work-hours,
-      Price: \$3,240.00}
+    \item[Improve Identification, Application, and Creation of Detector Update Patches] H3D detector
+      patches are incrementally applied to detector’s system image in order to resolve bugs, add
+      features and otherwise customize the application stack after the base detector image has been
+      applied to the hardware.  Modify the detection, application, and display of update patches
+      onto detectors by designing, implementing, testing, and/or reviewing the following tasks:
 
-    \item[Extract Open Source Software from H3ID] Extract base software and configuration-as-code
-      infrastructure from H3ID, H3D's in-house product lifecycle management (PLM) application suite,
-      into a separate open source project. We predict this task to increase the reliability, and
-      lower the per-user cost for the PLM application by increasing the available pool of users and
-      developers using the product. \letternamestyle{Effort: 88 work-hours, Price: \$10,560.00}
+      \begin{itemize}
+        \item Operator controls what patch to apply
+        \item Operator must confirm the option codes are correct
+        \item Detect and store what patch is currently applied to the unit
+        \item Detect and store if the detector’s patch is out of date
+        \item Provide an upload frontend for patches
+        \item Prioritize customer-group-specific patches
+        \item Verify patch was applied correctly
+        \item Tableview: Show what patch is applied
+        \item Tableview: Show detector patch "is latest" status
+      \end{itemize}
 
-    \item[Capture Calibration Data and Store in H3ID] Define and implement a schema and associated
-      API functionality that delineates calibration data from other system configuration
-      information. This functionality will enable product lifecycle-aware application and extraction
-      of calibration data to and from system configuration files. \letternamestyle{Effort: 68
-        work-hours, Price: \$8,160.00}
+      \letternamestyle{Effort: 124 work-hours, Price: \$14,880.00}
 
-    \item[Golden Archive Rendered Template Override] This milestone is complete Add a field to burn
-      logs that allows them to be flagged as a golden archive. If a golden archive is flagged for a
-      particular detector, then do not render templates, instead populate the staging filesystem
-      with the files within/linked to the archive. Then when synchronizing filesystems, this will
-      enable the user to view differences between the detector's filesystem and the archive, rather
-      than between the detector and the rendered templates. Only allow one golden archive per
-      detector. \letternamestyle{Effort: 16 work-hours, Price: \$1920.00}
-
-
-    \item[Update Production Server] Run the update server procedure, ensuring to push new defaults
-      (calibration key schema files), and create and save new migrations. \letternamestyle{Effort: 8
-      work-hours, Price: \$960.00}
-
-    \item[Total Contract Value] \letternamestyle{Effort: 207 work-hours, Price: \$24,840.00}
+    \item[Total Contract Value] \letternamestyle{Effort: 124 work-hours, Price: \$14,880.00}
 
   \end{description}
 

@@ -254,6 +254,9 @@ create and save new migrations.
 #+CAPTION: Estimated effort (HH:MM) and price for the SOW (row 1) and each sub-milestone thereof
 | Task                                                         | Effort in HH:MM | Price in $ |
 |--------------------------------------------------------------+-----------------+------------|
+| H3D SOW #2                                                   |          124:00 |   14880.00 |
+|--------------------------------------------------------------+-----------------+------------|
+| Update Patches [Total Milestone]                             |          124:00 |   14880.00 |
 | Operator controls what patch to apply                        |           24:00 |    2880.00 |
 | Operator must confirm the option codes are correct           |           24:00 |    2880.00 |
 | Detect and store what patch is currently applied to the unit |           16:00 |    1920.00 |
@@ -264,9 +267,6 @@ create and save new migrations.
 | Tableview: Show what patch is applied                        |            4:00 |     480.00 |
 | Tableview: Show detector patch "is latest" status            |            4:00 |     480.00 |
 | Tableview: Show detector patch "is dirty" status             |            4:00 |     480.00 |
-|--------------------------------------------------------------+-----------------+------------|
-| Total                                                        |          124:00 |   14880.00 |
-|--------------------------------------------------------------+-----------------+------------|
 #+TBLFM: $3=$2*120;tE
 #+END:
 
@@ -393,6 +393,149 @@ model.
 
 On the detector status and main tables, show if the applied patch and installed executable versions
 match.
+* H3D SOW #3
+** Software Config Code Revamp [8hrs]
+    :PROPERTIES:
+    :EFFORT:   8:00
+    :END:
+- Need to support many different possible software configurations that are sparsely used
+- Add the ability to generate the SW config code on the fly as a standard user to apply to a build -
+  should still confirm validity from master list stored in database backend
+- Still have the possibility to keep most widely used options in dropdown as it is now
+** Support new update patch format [24hrs]
+    :PROPERTIES:
+    :EFFORT:   14:00
+    :END:
+- [ ] Filter patches by - SN, architecture, and OS
+  - Single patch can be built to support simple filter of SNs (e.g. Mxxxxxxx or M01xxxxx or
+    M0101xxx) or to range or list of specific SNs (M0001001, M0001004)
+- [ ] Support patch dependencies
+  - Three types of patches (Full, Hotfix, Security)
+  - Dependency list for a given patch is defined as a list of patch version numbers that are
+    required to be in the patch history before patch will apply.
+    - H3ID will ensure all listed dependencies are available on artifact when validating a patch upload.
+- [ ] H3ID suggests list of patches required to be applied to bring system up to date
+  Based on current patch info from detector and recursive dependency list from latest released patch on Artifact.
+- [ ] Multiple patches can be applied to detector (any name will work as long as it ends in .h3d)
+  and the user will be able to apply them in turn when powering up the system
+** Add warranty end date datum into the unit database
+    :PROPERTIES:
+    :EFFORT:   10:00
+    :END:
+Warranty end date will inform what the newest update patch the customer is entitled to as a
+suggestion for patch to apply. The source of truth for this warranty data is on Sharepoint.
+
+* TODO H3D SOW #4                                                 :h3d:sow_4:
+The tasks and services agreed upon by the parties listed within the Consulting Agreement are
+described herein. Work is divided into payment milestones, who's description and price is described
+within the [[milestones][following table]]. Payment is expected upon completion of each milestone. The total
+contract value, consisting of the sum of each milestone, is listed as the first line item of the
+table. After notification by the consultant, *A Lyjak Cybernetics Consulting LLC*, the Client's
+technical authority for the contract, *Jason Jaworski*, is responsible for affirming that all
+sub-tasks enumerated within a milestone are confirmed satisfactorily complete. Evaluation is
+expected within *10* business days of receiving notice of milestone completion. Payment is expected
+within *one month* of an affirmative evaluation. It is the consultant's responsibility to respond
+and incorporate feedback based on the technical authority's review before re-notifying the client of
+milestone completion.
+
+#+NAME:SOW4_milestones
+#+BEGIN: columnview :format "%ITEM(Task) %Effort(Effort in HH:MM){:} %Price(Price in $)" :hlines 2 :maxlevel 3
+#+CAPTION: Estimated effort (HH:MM) for each task, total effort and price for the SOW
+#+TBLFM: $3=$2*120;tE
+| Task                                                      | Effort in HH:MM | Price in $ |
+|-----------------------------------------------------------+-----------------+------------|
+| Integrate Warranty Data (rollover from SOW#3)             |           24:00 |            |
+|-----------------------------------------------------------+-----------------+------------|
+| Upgrade production server                                 |           24:00 |            |
+|-----------------------------------------------------------+-----------------+------------|
+| Integrate IpV6 Multicast local network detector discovery |            8:00 |            |
+|-----------------------------------------------------------+-----------------+------------|
+| Create Subassembly UI for multi-headed detectors          |           24:00 |            |
+|-----------------------------------------------------------+-----------------+------------|
+| Model/Config Code UI Fix                                  |            2:00 |            |
+|-----------------------------------------------------------+-----------------+------------|
+| Create a Test Burn setting                                |            4:00 |            |
+|-----------------------------------------------------------+-----------------+------------|
+| Create a Statement of Work for Fishbowl integration       |           24:00 |            |
+|-----------------------------------------------------------+-----------------+------------|
+| **Total H3D SOW #4**                                      |          110:00 | $13,200    |
+|-----------------------------------------------------------+-----------------+------------|
+#+END:
+#+TBLFM: $3=$2*120;tE
+
+
+** TODO Integrate Warranty Data (rollover from SOW#3)
+  :PROPERTIES:
+  :EFFORT:   24:00
+  :END:
+
+Warranty end date will inform what the newest update patch the customer is entitled to as a
+suggestion for patch to apply. The source of truth for this warranty data is on Sharepoint.
+
+- [ ] Create a script that authorized users can use to download the warranty data from Sharepoint,
+  and integrate it into the H3ID database.
+- [ ] Create a warning for authorized users notifying them if it's been over a week since the
+  warranty data was synchronized, and pointing them to the instructions on how to perform the
+  operation
+- [ ] Customize what patch(es) are available per detector based on the linked warranty information
+  and whether the patch is classified as a security update.
+
+** TODO Upgrade production server
+  :PROPERTIES:
+  :EFFORT:   24:00
+  :END:
+
+- [ ] Test All SOW2, SOW3, and SOW4 features in the presence of an H3ID representative
+- [ ] Upgrade system dependencies in order to ensure security fixes are in place in the code and the
+  virtual server
+- [ ] Perform practice migration on the test server
+- [ ] Perform production migration outside of normal business hours
+
+** TODO Integrate IpV6 Multicast local network detector discovery
+  :PROPERTIES:
+  :EFFORT:   8:00
+  :END:
+
+If the new firewall supports IpV6 multicast, enable the multicast detector discovery scripts and
+test their functionality.
+
+** TODO Create Subassembly UI for multi-headed detectors
+  :PROPERTIES:
+  :EFFORT:   24:00
+  :END:
+
+Enable programming/configuration of multi-headed detectors both as individual heads as well as the
+full assembly. Create a UI for joining heads into a multi-headed detector and batch configuring them
+
+- [ ] Create a prototype design with feedback from Jason and other stakeholders
+- [ ] Implement final design
+- [ ] Test all designed features
+
+** TODO Model/Config Code UI Fix
+  :PROPERTIES:
+  :EFFORT:   2:00
+  :END:
+
+If the model/config code are not set for a given unit, don't show the default code/config. Leave it
+blank so it is obvious it is not set.
+
+** TODO Create a Test Burn setting
+  :PROPERTIES:
+  :EFFORT:   4:00
+  :END:
+
+Add a way to burn a SOM for a test and not have the burn record show up in the history/logs of a
+production unit.
+
+** Create a Statement of Work for Fishbowl integration
+  :PROPERTIES:
+  :EFFORT:   24:00
+  :END:
+
+Work with stakeholders to create process and workflow diagrams to understand how H3ID should
+optimally integrate with FishBowl. After design consultation and design review of the vision, create
+a statement of work for the necessary implementation and testing to achieve the agreed upon design.
+
 * H3D New contract brainstorm
 ** Unit by unit encryption
 ** TODO [#C] Extract Open Source Software from H3ID
@@ -548,46 +691,14 @@ Punt to SOW#2, involves reading 8080.
 1. There's a table that's used for efficiency parameters. The only way to verify is to check a .png
    right now. Punt until the dev team creates a machine readable efficiency parameter validation
    table that's accessible via h3id.
-* H3D SOW #3
-** Software Config Code Revamp [8hrs]
-    :PROPERTIES:
-    :EFFORT:   8:00
-    :END:
-- Need to support many different possible software configurations that are sparsely used
-- Add the ability to generate the SW config code on the fly as a standard user to apply to a build -
-  should still confirm validity from master list stored in database backend
-- Still have the possibility to keep most widely used options in dropdown as it is now
-** Support new update patch format [24hrs]
-    :PROPERTIES:
-    :EFFORT:   14:00
-    :END:
-- [ ] Filter patches by - SN, architecture, and OS
-  - Single patch can be built to support simple filter of SNs (e.g. Mxxxxxxx or M01xxxxx or
-    M0101xxx) or to range or list of specific SNs (M0001001, M0001004)
-- [ ] Support patch dependencies
-  - Three types of patches (Full, Hotfix, Security)
-  - Dependency list for a given patch is defined as a list of patch version numbers that are
-    required to be in the patch history before patch will apply.
-    - H3ID will ensure all listed dependencies are available on artifact when validating a patch upload.
-- [ ] H3ID suggests list of patches required to be applied to bring system up to date
-  Based on current patch info from detector and recursive dependency list from latest released patch on Artifact.
-- [ ] Multiple patches can be applied to detector (any name will work as long as it ends in .h3d)
-  and the user will be able to apply them in turn when powering up the system
-** Add warranty end date datum into the unit database
-    :PROPERTIES:
-    :EFFORT:   10:00
-    :END:
-Warranty end date will inform what the newest update patch the customer is entitled to as a
-suggestion for patch to apply. The source of truth for this warranty data is on Sharepoint.
-
 * H3D General Invoicing
 #+BEGIN: clocktable :scope subtree :maxlevel 2
-#+CAPTION: Clock summary at [2024-02-22 Thu 14:27]
+#+CAPTION: Clock summary at [2025-02-06 Thu 15:57]
 | Headline                                     | Time      |          |
 |----------------------------------------------+-----------+----------|
-| *Total time*                                 | *3d 6:20* |          |
+| *Total time*                                 | *3d 8:01* |          |
 |----------------------------------------------+-----------+----------|
-| H3D General Invoicing                        | 3d 6:20   |          |
+| H3D General Invoicing                        | 3d 8:01   |          |
 | \_  Server Upgrade                           |           |    22:41 |
 | \_  Tag up with Jason                        |           |     1:05 |
 | \_  Jason Call                               |           |     3:46 |
@@ -598,6 +709,7 @@ suggestion for patch to apply. The source of truth for this warranty data is on 
 | \_  Add file explorer to units               |           | 1d 16:29 |
 | \_  Intermediate prod upgrade                |           |     1:42 |
 | \_  Coerce json datatype in schema...        |           |     1:03 |
+| \_  Update model schema for new BOSS...      |           |     1:41 |
 #+END:
 
 ** DONE Write up Option Code Documentation                        :invoice1:
@@ -759,7 +871,6 @@ different and depend more heavily on the config store maybe?
 Jason: hmm, but the config store is empty for that particular detector that I reburned (M-01-00-020
 Bem)
 * DONE Astrolab
-
 ** Account Set up
 :PROPERTIES:
 :EFFORT:   2:00
