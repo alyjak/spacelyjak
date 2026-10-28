@@ -1,0 +1,131 @@
+% Created 2026-05-15 Fri 09:52
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Andrew Lyjak}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Andrew Lyjak},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 30.1 (Org mode 9.7.11)}, 
+ pdflang={English}}
+\begin{document}
+
+\section{H3D SOW \#4}
+\label{sec:orgf43a18b}
+The tasks and services agreed upon by the parties listed within the Consulting Agreement are
+described herein. Work is divided into payment milestones, who's description and price is described
+within the \hyperref[orgcbcf01f]{following table}. Payment is expected upon completion of each milestone. The total
+contract value, consisting of the sum of each milestone, is listed as the first line item of the
+table. After notification by the consultant, \textbf{A Lyjak Cybernetics Consulting LLC}, the Client's
+technical authority for the contract, \textbf{Jason Jaworski}, is responsible for affirming that all
+sub-tasks enumerated within a milestone are confirmed satisfactorily complete. Evaluation is
+expected within \textbf{10} business days of receiving notice of milestone completion. Payment is expected
+within \textbf{one month} of an affirmative evaluation. It is the consultant's responsibility to respond
+and incorporate feedback based on the technical authority's review before re-notifying the client of
+milestone completion.
+
+\phantomsection
+\label{orgcbcf01f}
+\begin{center}
+\begin{tabular}{lrl}
+Task & Effort in HH:MM & Price in \$\\
+\hline
+Create Subassembly UI for multi-headed detectors & 24:00 & \\
+\hline
+Create a Test Burn setting & 6:10 & \\
+\hline
+Fishbowl and Sharepoint integration & 24:00 & \\
+\hline
+Integrate IpV6 Multicast local network detector discovery & 8:10 & \\
+\hline
+H3ID User feedback resolution & 24:00 & \\
+\hline
+Upgrade production server & 22:00 & \\
+\hline
+H3D SOW \#4 & 108:20 & \$13,000.00\\
+\end{tabular}
+\end{center}
+\subsection{Create Subassembly UI for multi-headed detectors}
+\label{sec:orgc58b6e2}
+\begin{verbatim}
+EFFORT: 24:00
+\end{verbatim}
+
+Enable programming/configuration of multi-headed detectors both as individual heads as well as the
+full assembly. Create a UI for joining heads into a multi-headed detector and batch configuring them.
+
+\begin{itemize}
+\item[{$\square$}] Create a prototype design with feedback from Jason and other stakeholders
+\item[{$\square$}] Implement final design
+\item[{$\square$}] Test all designed features
+\end{itemize}
+\subsection{Create a Test Burn setting}
+\label{sec:orgd5e8ea2}
+\begin{verbatim}
+EFFORT: 6:10
+\end{verbatim}
+
+Add a way to burn a SOM for a test and not have the burn record show up in the history/logs of a
+production unit.
+\subsection{Fishbowl and Sharepoint integration}
+\label{sec:org2cd86ac}
+\begin{verbatim}
+EFFORT: 24:00
+\end{verbatim}
+
+\begin{itemize}
+\item Work with stakeholders to create process and workflow diagrams to understand how H3ID should
+optimally integrate with FishBowl and sharepoint.
+\item After design consultation and design review of the vision, create and document the design
+and a prioritized tasklist on how to perform the integration.
+\item After the effort is approved, start implementation, timeboxed by the remaining level of effort
+allocated to this task.
+\end{itemize}
+\subsection{Integrate IpV6 Multicast local network detector discovery}
+\label{sec:org9fc9020}
+\begin{verbatim}
+EFFORT: 8:10
+\end{verbatim}
+
+If the new firewall supports IpV6 multicast, enable the multicast detector discovery scripts and
+test their functionality.
+\subsection{H3ID User feedback resolution}
+\label{sec:org2598c26}
+\begin{verbatim}
+EFFORT: 24:00
+\end{verbatim}
+
+\begin{itemize}
+\item Perform multiple user interviews and other feedback solicitation efforts, covering common
+workflows including manufacturing use-cases, IT use cases, and simple development use cases.
+\item Consolidate feedback into a prioritized list of changes and incorporate them into the software,
+time-boxed by the allocated level of effort.
+\end{itemize}
+\subsection{Upgrade production server}
+\label{sec:org8260c08}
+\begin{verbatim}
+EFFORT: 22:00
+\end{verbatim}
+
+\begin{itemize}
+\item[{$\square$}] Test All SOW2, SOW3, and SOW4 features in the presence of an H3ID representative
+\item[{$\square$}] Upgrade system dependencies in order to ensure security fixes are in place in the code and the
+virtual server
+\item[{$\square$}] Perform practice migration on the test server
+\item[{$\square$}] Perform production migration outside of normal business hours
+\end{itemize}
+\end{document}

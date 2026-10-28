@@ -26,7 +26,8 @@
  '(column-number-mode t)
  '(custom-enabled-themes '(deeper-blue))
  '(custom-safe-themes
-   '("f149d9986497e8877e0bd1981d1bef8c8a6d35be7d82cba193ad7e46f0989f6a" "90a6f96a4665a6a56e36dec873a15cbedf761c51ec08dd993d6604e32dd45940" default))
+   '("f149d9986497e8877e0bd1981d1bef8c8a6d35be7d82cba193ad7e46f0989f6a"
+     "90a6f96a4665a6a56e36dec873a15cbedf761c51ec08dd993d6604e32dd45940" default))
  '(fci-rule-color "#ECEFF1")
  '(fill-column 100)
  '(flycheck-checker-error-threshold 4000)
@@ -44,18 +45,19 @@
  '(lsp-ui-sideline-show-hover t)
  '(lsp-ui-sideline-update-mode 'point)
  '(org-agenda-files
-   '("/home/alyjak/code/animistic-agency/roadmap.org" "/home/alyjak/code/animistic-agency/40_design/phase_one_roadmap.org" "/home/alyjak/code/spacelyjak/roadmap.org"))
+   '("/home/alyjak/code/animistic-agency/roadmap.org"
+     "/home/alyjak/code/animistic-agency/40_design/phase_one_roadmap.org"
+     "/home/alyjak/code/spacelyjak/roadmap.org"))
  '(package-selected-packages
-   '(rustic flycheck-rust company counsel org org-roam org-roam-bibtex org-roam-timestamps org-roam-ui emacsql-sqlite-module typescript-mode writeroom-mode python-mode sphinx-doc python-docstring magit ansible yaml-mode dockerfile-mode bitbake chronos sass-mode dap-mode toml-mode vue-html-mode vue-mode flycheck-pest pest-mode dash fullframe which-key yasnippet lsp-ui lsp-mode use-package flycheck-inline cargo rust-mode flycheck ess markdown-mode material-theme ##))
+   '(## ansible bitbake cargo chronos company counsel dap-mode dash dockerfile-mode
+                emacsql-sqlite-module ess flycheck flycheck-inline flycheck-pest flycheck-rust
+                fullframe gptel lsp-mode lsp-ui magit markdown-mode material-theme org org-roam
+                org-roam-bibtex org-roam-timestamps org-roam-ui pest-mode python-docstring
+                python-mode rust-mode rustic sass-mode sphinx-doc toml-mode typescript-mode
+                use-package vue-html-mode vue-mode which-key writeroom-mode yaml-mode yasnippet))
  '(rst-preferred-adornments
-   '((35 over-and-under 0)
-     (42 over-and-under 0)
-     (61 simple 0)
-     (95 simple 0)
-     (94 simple 0)
-     (34 simple 0)
-     (126 simple 0)
-     (96 simple 0)))
+   '((35 over-and-under 0) (42 over-and-under 0) (61 simple 0) (95 simple 0) (94 simple 0)
+     (34 simple 0) (126 simple 0) (96 simple 0)))
  '(rst-toc-indent 3)
  '(rust-format-on-save t)
  '(rust-rustfmt-bin "leptosfmt")
@@ -67,31 +69,17 @@
  '(tool-bar-mode nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
-   '((20 . "#B71C1C")
-     (40 . "#FF5722")
-     (60 . "#FFA000")
-     (80 . "#558b2f")
-     (100 . "#00796b")
-     (120 . "#2196f3")
-     (140 . "#4527A0")
-     (160 . "#B71C1C")
-     (180 . "#FF5722")
-     (200 . "#FFA000")
-     (220 . "#558b2f")
-     (240 . "#00796b")
-     (260 . "#2196f3")
-     (280 . "#4527A0")
-     (300 . "#B71C1C")
-     (320 . "#FF5722")
-     (340 . "#FFA000")
-     (360 . "#558b2f")))
+   '((20 . "#B71C1C") (40 . "#FF5722") (60 . "#FFA000") (80 . "#558b2f") (100 . "#00796b")
+     (120 . "#2196f3") (140 . "#4527A0") (160 . "#B71C1C") (180 . "#FF5722") (200 . "#FFA000")
+     (220 . "#558b2f") (240 . "#00796b") (260 . "#2196f3") (280 . "#4527A0") (300 . "#B71C1C")
+     (320 . "#FF5722") (340 . "#FFA000") (360 . "#558b2f")))
  '(vc-annotate-very-old-color nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Iosevka Term" :slant normal :weight medium :height 110 :width normal :foundry "BE5N"))))
+ '(default ((t (:family "Iosevka Term" :slant normal :weight medium :height 120 :width normal :foundry "BE5N"))))
  '(fixed-pitch ((t (:family "Iosevka"))))
  '(lsp-ui-sideline-symbol-info ((t (:slant italic :height 0.7)))))
 
@@ -217,7 +205,7 @@
       '((sequence "TODO" "VERIFY" "|" "DONE")))
 (add-hook 'org-mode-hook #'toggle-word-wrap)
 
-(setq org-roam-directory "~/code/buildonomy/belief-network")
+(setq org-roam-directory "~/code/buildonomy/buildonomy/")
 (use-package org-roam
   :ensure t
   :after org
@@ -356,6 +344,27 @@
   )
 
 (add-hook 'after-init-hook 'global-company-mode)
+
+(setq
+ gptel-model 'gemini-pro
+ gptel-backend (gptel-make-gemini "Gemini"
+                 :key "AIzaSyDTFUhbLOPgnAp7Bw1pPpGqGl_20oQQeQM"
+                 :stream t))
+
+
+;; https://stackoverflow.com/questions/2471557/how-to-undo-fill-paragraph-in-emacs
+(defun unfill-paragraph ()
+  "Fill individual paragraphs to one line of text."
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil)))
+
+(defun unfill-region ()
+  "Fill paragraphs in reagion to one line of text."
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-region (region-beginning) (region-end) nil)))
+
 
 (provide '.emacs)
 ;;; .emacs ends here
